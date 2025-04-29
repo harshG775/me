@@ -119,3 +119,12 @@
         @apply bg-background text-foreground;
     }
 }
+
+
+.bg-pattern {
+    background-image: url("/pattern.svg");
+    background-attachment: fixed;
+    background-size: contain;
+    background-blend-mode: overlay;
+    background-color: color-mix(in oklch, var(--muted) 60%, transparent);
+}
