@@ -19,10 +19,11 @@ const contacts = [
     },
 ];
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "react-router";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Linkedin } from "lucide-react";
 import { Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function WelcomeSection() {
     return (
@@ -41,17 +42,29 @@ export default function WelcomeSection() {
                     </p>
                 </div>
                 <ul className="flex flex-wrap gap-4">
-                    {contacts.map((contact) => (
-                        <li key={contact.name}>
-                            <Link
-                                to={contact.url}
-                                className="hover:scale-110 flex gap-2 [&_svg]:size-6 p-2 rounded-md text-primary bg-primary-foreground/50 hover:bg-primary-foreground transition-all duration-200 ease-in-out"
-                            >
-                                <contact.icon.Icon />
-                                <div className="sr-only">{contact.name}</div>
-                            </Link>
-                        </li>
-                    ))}
+                    <TooltipProvider delayDuration={300}>
+                        {contacts.map((contact) => (
+                            <li key={contact.name}>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            variant="outline"
+                                            className="justify-start border-2 hover:scale-110 flex gap-2 p-2 rounded-md text-primary bg-primary-foreground/50 hover:bg-primary-foreground transition-all duration-200 ease-in-out"
+                                            asChild
+                                        >
+                                            <a href={contact.url} target="_blank">
+                                                <contact.icon.Icon />
+                                                <div className="sr-only">{contact.name}</div>
+                                            </a>
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Connect on {contact.name}</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </li>
+                        ))}
+                    </TooltipProvider>
                 </ul>
             </CardContent>
         </Card>
