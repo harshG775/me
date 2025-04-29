@@ -35,7 +35,7 @@ const contacts = [
 
 export default function ContactDetailsSection() {
     return (
-        <Card className="overflow-hidden border-2 transition-all duration-300 hover:shadow-lg">
+        <Card>
             <CardHeader>
                 <CardTitle>Let's start working together!</CardTitle>
                 <CardDescription>
