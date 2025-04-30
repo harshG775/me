@@ -1,7 +1,5 @@
 /* Default: Mobile first (below sm) */
 .content-main {
-    display: grid;
-    gap: 0.2rem;
     grid-template-areas:
         "box-1 box-1"
         "box-1 box-1"
@@ -25,8 +23,6 @@
 /* sm	40rem (640px) */
 @media (width >= 40rem) {
     .content-main {
-        display: grid;
-        gap: 0.2rem;
         grid-template-areas:
             "box-1 box-1 box-1"
             "box-1 box-1 box-1"
@@ -44,8 +40,6 @@
 /* lg	64rem (1024px) */
 @media (width >= 64rem) {
     .content-main {
-        display: grid;
-        gap: 0.2rem;
         grid-template-areas:
             "box-1 box-1 box-1 box-2"
             "box-1 box-1 box-1 box-2"
