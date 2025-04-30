@@ -1,0 +1,59 @@
+/* Default: Mobile first (below sm) */
+.content-main {
+    display: grid;
+    gap: 0.2rem;
+    grid-template-areas:
+        "box-1 box-1"
+        "box-1 box-1"
+        "box-1 box-1"
+        "box-2 box-2"
+        "box-2 box-2"
+        "box-2 box-2"
+        "box-3 box-3"
+        "box-3 box-3"
+        "box-4 box-4"
+        "box-5 box-5"
+        "box-6 box-6"
+        "box-7 box-7"
+        "box-8 box-8"
+        "box-9 box-9"
+        "box-10 box-10"
+        "box-11 box-11"
+        "box-12 box-12";
+}
+
+/* sm	40rem (640px) */
+@media (width >= 40rem) {
+    .content-main {
+        display: grid;
+        gap: 0.2rem;
+        grid-template-areas:
+            "box-1 box-1 box-1"
+            "box-1 box-1 box-1"
+            "box-1 box-1 box-1"
+            "box-1 box-1 box-1"
+            "box-1 box-1 box-1"
+            "box-2 box-3 box-6"
+            "box-2 box-3 box-7"
+            "box-2 box-3 box-8"
+            "box-2 box-4 box-9"
+            "box-2 box-5 box-10"
+            "box-11 box-12 box-empty";
+    }
+}
+/* lg	64rem (1024px) */
+@media (width >= 64rem) {
+    .content-main {
+        display: grid;
+        gap: 0.2rem;
+        grid-template-areas:
+            "box-1 box-1 box-1 box-2"
+            "box-1 box-1 box-1 box-2"
+            "box-1 box-1 box-1 box-2"
+            "box-1 box-1 box-1 box-2"
+            "box-3 box-4 box-7 box-2"
+            "box-3 box-5 box-8 box-2"
+            "box-3 box-5 box-9 box-11"
+            "box-3 box-6 box-10 box-12";
+    }
+}
