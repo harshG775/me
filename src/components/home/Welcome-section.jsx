@@ -49,7 +49,7 @@ export default function WelcomeSection() {
                                     <TooltipTrigger asChild>
                                         <Button
                                             variant="outline"
-                                            className="justify-start border-2 hover:scale-110 flex gap-2 p-2 rounded-md text-primary bg-primary-foreground/50 hover:bg-primary-foreground transition-all duration-200 ease-in-out"
+                                            className="justify-start text-primary border-x-2 border-y-0 border-x-primary hover:scale-110 flex gap-2 p-2 rounded-md transition-all duration-200 ease-in-out"
                                             asChild
                                         >
                                             <a href={contact.url} target="_blank">
