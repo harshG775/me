@@ -8,6 +8,7 @@ import RootLayout from "./routes/layout";
 const NotFoundRoute = lazy(() => import("./routes/not-found"));
 import RootRoute from "./routes";
 import ProjectsRoute from "./routes/projects/route";
+import TestRoute from "./routes/test/route";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: "projects",
                 element: <ProjectsRoute />,
+            },
+            {
+                path: "test",
+                element: <TestRoute />,
             },
             {
                 path: "*",
