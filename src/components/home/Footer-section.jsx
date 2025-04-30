@@ -5,10 +5,10 @@ export default function FooterSection() {
 
     return (
         <Card>
-            <CardFooter>
+            <CardFooter className="block text-center">
                 © {year} · Crafted with ♥️ using
-                <a href="https://vite.dev/guide/" target="_blank" className="text-primary px-1">
-                    React.js + Vite
+                <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
+                    React.js+Vite
                 </a>
                 by Harsh.
             </CardFooter>
