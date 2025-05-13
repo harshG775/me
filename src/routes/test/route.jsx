@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 export default function TestRoute() {
     return (
-        <div className="min-h-screen bg-muted p-4 md:p-8 bg-pattern">
+        <div className="min-h-screen bg-accent dark:bg-background p-4 md:p-8">
             <div className="max-w-7xl mx-auto">
                 <div className="grid-container">
                     <IntroSection className="intro" />
@@ -26,10 +26,10 @@ export default function TestRoute() {
 
 function IntroSection({ ...props }) {
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
             <div className="flex items-center">
-                <FlameKindling className="w-5 h-5 mr-2 text-primary" />
-                <h1 className="text-3xl md:text-3xl font-bold mb-2">John Doe</h1>
+                {/* <FlameKindling className="w-5 h-5 mr-2 text-primary" /> */}
+                <h1 className="text-3xl md:text-3xl font-bold mb-2">Harsh G</h1>
             </div>
             <h2 className="text-xl md:text-xl text-muted-foreground mb-4">Full Stack Developer</h2>
             <p className="text-muted-foreground">Building beautiful, functional web experiences</p>
@@ -38,7 +38,7 @@ function IntroSection({ ...props }) {
 }
 function AboutMeSection({ ...props }) {
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
             <div className="flex items-center mb-4">
                 <User className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">About Me</h3>
@@ -46,9 +46,6 @@ function AboutMeSection({ ...props }) {
             <p className="text-muted-foreground mt-2">
                 Passionate developer with 2+ years of experience creating web applications that combine functionality
                 with stunning design.
-            </p>
-            <p className="text-muted-foreground mt-2">
-                Beyond the Code, I'm also passionate about design, — each one a tiny time capsule of global history.
             </p>
         </div>
     );
@@ -85,14 +82,14 @@ function SkillsSection({ ...props }) {
         },
     ];
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Code className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Skills</h3>
             </div>
             <div className="flex flex-wrap gap-2">
                 {skillsData.map((skill) => (
-                    <Badge key={skill.name} variant="secondary" className="text-sm font-semibold px-2 py-1 rounded-md">
+                    <Badge key={skill.name} variant="outline" className="text-sm font-semibold px-2 py-1 rounded-md">
                         {/* {skill.icon} */}
                         {skill.name}
                     </Badge>
@@ -134,14 +131,16 @@ function ProjectsSection({ ...props }) {
 }
 function ContactSection({ ...props }) {
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Mail className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Contact</h3>
             </div>
             <p className="text-muted-foreground mb-3">Get in touch for collaborations or opportunities</p>
             <Button variant="default" asChild className={"cursor-pointer"}>
-                <a href="mailto:hgaur491@gmail.com" target="_blank">Say Hello</a>
+                <a href="mailto:hgaur491@gmail.com" target="_blank">
+                    Say Hello
+                </a>
             </Button>
         </div>
     );
@@ -150,28 +149,28 @@ function SocialLinksSection({ ...props }) {
     const linksData = [
         {
             name: "GitHub",
-            icon: <Github className="w-5 h-5" />,
+            icon: <Github className="size-5" />,
             url: "https://github.com/harshG775",
         },
         {
             name: "LinkedIn",
-            icon: <Linkedin className="w-5 h-5" />,
+            icon: <Linkedin className="size-5" />,
             url: "https://www.linkedin.com/in/harshg775",
         },
         {
             name: "Resume",
-            icon: <FileText className="w-5 h-5" />,
+            icon: <FileText className="size-5" />,
             url: "/resume.pdf",
             download: "Harsh-Resume.pdf",
         },
         {
             name: "Email",
-            icon: <Mail className="w-5 h-5" />,
+            icon: <Mail className="size-5" />,
             url: "mailto:hgaur491@gmail.com",
         },
     ];
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Contact className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Let's Connect!</h3>
@@ -191,11 +190,10 @@ function SocialLinksSection({ ...props }) {
     );
 }
 
-
 function Footer({ ...props }) {
     const year = new Date().getFullYear();
     return (
-        <div className={cn("bg-background rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
             © {year} · Crafted with ♥️ using
             <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
                 React.js+Vite
@@ -203,5 +201,4 @@ function Footer({ ...props }) {
             by Harsh.
         </div>
     );
-    
 }

@@ -126,7 +126,7 @@ export default function ProjectsPage() {
         <div className="min-h-screen bg-muted p-4 md:p-8">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-8">
-                    <Link href="/" className="inline-flex items-center text-muted-foreground  mb-6">
+                    <Link to="/" className="inline-flex items-center text-muted-foreground  mb-6">
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back to Home
                     </Link>
