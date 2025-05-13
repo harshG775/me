@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+    color-scheme: light;
     --radius: 0.5rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.141 0.005 285.823);
@@ -120,11 +121,91 @@
     }
 }
 
-
 .bg-pattern {
     background-image: url("/pattern.svg");
     background-attachment: fixed;
     background-size: contain;
     background-blend-mode: overlay;
     background-color: color-mix(in oklch, var(--muted) 60%, transparent);
+}
+
+@layer components {
+    .grid-container {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "intro"
+            "about"
+            "skills"
+            "projects"
+            "contact"
+            "social";
+    }
+
+    @media (min-width: 768px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas:
+                "intro intro"
+                "about skills"
+                "projects projects"
+                "contact social";
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .grid-container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+                "intro intro skills social"
+                "about about projects projects"
+                "contact contact projects projects";
+        }
+    }
+
+    .intro {
+        grid-area: intro;
+    }
+
+    .about {
+        grid-area: about;
+    }
+
+    .skills {
+        grid-area: skills;
+    }
+
+    .projects {
+        grid-area: projects;
+    }
+
+    .contact {
+        grid-area: contact;
+    }
+
+    .social {
+        grid-area: social;
+    }
+
+    /* Enhanced single project card styles */
+    .project-card {
+        @apply relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl cursor-pointer h-full w-full;
+    }
+
+    .project-card:hover .project-image {
+        @apply scale-105 brightness-90;
+    }
+
+    .project-image {
+        @apply transition-all duration-500;
+    }
+
+    .project-content {
+        @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-8 flex flex-col justify-end;
+    }
+
+    .project-button {
+        @apply mt-4 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block text-center;
+    }
 }
