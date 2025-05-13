@@ -20,14 +20,17 @@ export default function ProjectsPage() {
             title: "Ai Doubt Solver",
             description: "AI-powered chatbot for solving doubts for students",
             image: "/projects/ai-doubt-solver.png",
-            tags: ["React","python","Flask","openai"],
+            tags: ["React", "python", "Flask", "openai"],
+            liveUrl: "https://aidoubtsolverdev.adda247.com/?session_id=4956daa3-cb49-4eec-a337-a088d37b7cd0",
         },
         {
             id: 6,
-            title: "Social Media App",
-            description: "Feature-rich social platform with real-time messaging",
-            image: "/placeholder.svg?height=300&width=400",
-            tags: ["React", "Socket.io", "Express"],
+            title: "ItaxEasy",
+            description:
+                "A digitally authenticated pan card linked with aadhaar e-kyc in e-format issued by the income tax department to ease the financial transaction of taxpayers",
+            image: "/projects/itax-easy.png",
+            tags: ["React", "Next.js", "Tailwind"],
+            liveUrl: "https://itaxeasy.app",
         },
     ];
     const personalProjects = [
