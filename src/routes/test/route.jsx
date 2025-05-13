@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 export default function TestRoute() {
     return (
-        <div className="min-h-screen bg-muted p-4 md:p-8">
+        <div className="min-h-screen bg-muted p-4 md:p-8 bg-pattern">
             <div className="max-w-7xl mx-auto">
                 <div className="grid-container">
                     <IntroSection className="intro" />
@@ -17,6 +17,7 @@ export default function TestRoute() {
                     <ProjectsSection className="projects" />
                     <ContactSection className="contact" />
                     <SocialLinksSection className="social" />
+                    <Footer className="footer" />
                 </div>
             </div>
         </div>
@@ -104,7 +105,7 @@ function ProjectsSection({ ...props }) {
     return (
         <div className={cn("rounded-2xl shadow-md overflow-hidden", props?.className)}>
             <Link
-                href="/projects"
+                to="/projects"
                 className="h-96 w-full relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl cursor-pointer block"
             >
                 <img
@@ -188,4 +189,19 @@ function SocialLinksSection({ ...props }) {
             </div>
         </div>
     );
+}
+
+
+function Footer({ ...props }) {
+    const year = new Date().getFullYear();
+    return (
+        <div className={cn("bg-background rounded-2xl shadow-md p-6", props?.className)}>
+            © {year} · Crafted with ♥️ using
+            <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
+                React.js+Vite
+            </a>
+            by Harsh.
+        </div>
+    );
+    
 }

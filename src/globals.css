@@ -126,7 +126,7 @@
     background-attachment: fixed;
     background-size: contain;
     background-blend-mode: overlay;
-    background-color: color-mix(in oklch, var(--muted) 60%, transparent);
+    background-color: color-mix(in oklch, var(--background) 60%, transparent);
 }
 
 @layer components {
@@ -140,7 +140,8 @@
             "skills"
             "projects"
             "contact"
-            "social";
+            "social"
+            "footer";
     }
 
     @media (min-width: 768px) {
@@ -150,7 +151,8 @@
                 "intro intro"
                 "about skills"
                 "projects projects"
-                "contact social";
+                "contact social"
+                "footer footer";
         }
     }
 
@@ -160,7 +162,8 @@
             grid-template-areas:
                 "intro intro skills social"
                 "about about projects projects"
-                "contact contact projects projects";
+                "contact contact projects projects"
+                "footer footer footer footer";
         }
     }
 
@@ -186,5 +189,9 @@
 
     .social {
         grid-area: social;
+    }
+
+    .footer {
+        grid-area: footer;
     }
 }
