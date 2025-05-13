@@ -193,7 +193,7 @@ function SocialLinksSection({ ...props }) {
 function Footer({ ...props }) {
     const year = new Date().getFullYear();
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 text-center", props?.className)}>
             © {year} · Crafted with ♥️ using
             <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
                 React.js+Vite
