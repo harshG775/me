@@ -61,7 +61,7 @@ export default function ProjectsPage() {
 
     const renderProjectSection = (title, projects) => (
         <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">{title}</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-4">{title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project) => (
                     <div
@@ -126,17 +126,17 @@ export default function ProjectsPage() {
         <div className="min-h-screen bg-muted p-4 md:p-8">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-8">
-                    <Link href="/" className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-6">
+                    <Link href="/" className="inline-flex items-center text-muted-foreground  mb-6">
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back to Home
                     </Link>
 
                     <div className="flex items-center mb-6">
-                        <Briefcase className="w-7 h-7 mr-3 text-gray-800" />
-                        <h1 className="text-4xl font-bold text-gray-900">My Projects</h1>
+                        <Briefcase className="w-7 h-7 mr-3 muted-foreground" />
+                        <h1 className="text-4xl font-bold text-foreground">My Projects</h1>
                     </div>
 
-                    <p className="text-xl text-gray-600 max-w-3xl">
+                    <p className="text-xl text-muted-foreground max-w-3xl">
                         A collection of my work spanning web development, design, and software engineering. Each project
                         represents a unique challenge and solution.
                     </p>
