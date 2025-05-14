@@ -26,7 +26,7 @@ export default function RootRoute() {
 
 function IntroSection({ ...props }) {
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
+        <div className={cn("rounded-2xl shadow-md bg-background p-6 flex flex-col justify-center", props?.className)}>
             <div className="flex items-center">
                 {/* <FlameKindling className="w-5 h-5 mr-2 text-primary" /> */}
                 <h1 className="text-3xl md:text-3xl font-bold mb-2">Harsh G</h1>
@@ -38,7 +38,7 @@ function IntroSection({ ...props }) {
 }
 function AboutMeSection({ ...props }) {
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 flex flex-col justify-center", props?.className)}>
+        <div className={cn("rounded-2xl shadow-md bg-background p-6 flex flex-col justify-center", props?.className)}>
             <div className="flex items-center mb-4">
                 <User className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">About Me</h3>
@@ -82,7 +82,7 @@ function SkillsSection({ ...props }) {
         },
     ];
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Code className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Skills</h3>
@@ -131,7 +131,7 @@ function ProjectsSection({ ...props }) {
 }
 function ContactSection({ ...props }) {
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Mail className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Contact</h3>
@@ -170,7 +170,7 @@ function SocialLinksSection({ ...props }) {
         },
     ];
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6", props?.className)}>
+        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
             <div className="flex items-center mb-4">
                 <Contact className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Let's Connect!</h3>
@@ -193,12 +193,14 @@ function SocialLinksSection({ ...props }) {
 function Footer({ ...props }) {
     const year = new Date().getFullYear();
     return (
-        <div className={cn("bg-background dark:bg-muted rounded-2xl shadow-md p-6 text-center", props?.className)}>
-            © {year} · Crafted with ♥️ using
-            <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
-                React.js+Vite
-            </a>
-            by Harsh.
+        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
+            <footer className="text-center">
+                © {year} · Crafted with ♥️ using
+                <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
+                    React.js+Vite
+                </a>
+                by Harsh.
+            </footer>
         </div>
     );
 }
