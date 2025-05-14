@@ -6,7 +6,7 @@ import Loading from "./routes/loading";
 import RootLayout from "./routes/layout";
 // routes
 const NotFoundRoute = lazy(() => import("./routes/not-found"));
-import RootRoute from "./routes";
+import RootRoute from "./routes/route";
 import ProjectsRoute from "./routes/projects/route";
 import TestRoute from "./routes/test/route";
 
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <TestRoute />,
+                element: <RootRoute />,
             },
             {
                 path: "projects",
