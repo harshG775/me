@@ -15,7 +15,7 @@ export default function RootRoute() {
                 <ProjectsSection className="projects" />
                 <ContactSection className="contact" />
                 <SocialLinksSection className="social" />
-                <Footer className="footer" />
+                <FooterSection className="footer" />
             </div>
         </main>
     );
@@ -185,7 +185,7 @@ function SocialLinksSection({ ...props }) {
     );
 }
 
-function Footer({ ...props }) {
+function FooterSection({ ...props }) {
     const year = new Date().getFullYear();
     return (
         <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
