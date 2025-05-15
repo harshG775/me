@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Contact } from "lucide-react";
-import { FlameKindling } from "lucide-react";
 import { Github, Mail, Linkedin, FileText, User, Code, Briefcase, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
@@ -98,18 +97,18 @@ function SkillsSection({ ...props }) {
 }
 function ProjectsSection({ ...props }) {
     return (
-        <Link
-            to="/projects"
-            className={cn("rounded-2xl shadow-md overflow-hidden relative cursor-pointer group", props?.className)}
-        >
+        <div className={cn("rounded-2xl shadow-md overflow-hidden relative cursor-pointer group", props?.className)}>
             <img
                 src={`/placeholder.svg`}
                 alt="My Projects"
                 width={800}
                 height={600}
-                className="absolute inset-0 -z-10 w-full transition-all duration-500 object-cover group-hover:scale-125"
+                className="h-96 absolute inset-0 -z-10 w-full transition-all duration-500 object-cover group-hover:scale-125"
             />
-            <div className="h-full bg-gradient-to-t from-primary/60 via-primary-foreground/40 to-transparent p-8 flex flex-col justify-end">
+            <Link
+                to="/projects"
+                className="h-full bg-gradient-to-t from-primary/60 via-primary-foreground/40 to-transparent p-8 flex flex-col justify-end"
+            >
                 <div className="flex items-center mb-2">
                     <Briefcase className="w-6 h-6 mr-2 text-background" />
                     <h3 className="text-3xl font-bold text-background">My Projects</h3>
@@ -121,8 +120,8 @@ function ProjectsSection({ ...props }) {
                     <span>View all projects</span>
                     <ArrowRight className="ml-2 w-5 h-5" />
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 }
 function ContactSection({ ...props }) {
