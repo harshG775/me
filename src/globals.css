@@ -195,4 +195,30 @@
     .footer {
         grid-area: footer;
     }
+
+    /* Bento Grid CSS */
+    .bento-grid {
+        display: grid;
+        width: 100%;
+        gap: var(--grid-gap, 1rem);
+        grid-template-rows: var(--mobile-rows);
+        grid-template-columns: var(--mobile-columns);
+        grid-template-areas: var(--mobile-areas);
+    }
+
+    @media (min-width: 768px) {
+        .bento-grid {
+            grid-template-rows: var(--tablet-rows);
+            grid-template-columns: var(--tablet-columns);
+            grid-template-areas: var(--tablet-areas);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .bento-grid {
+            grid-template-rows: var(--desktop-rows);
+            grid-template-columns: var(--desktop-columns);
+            grid-template-areas: var(--desktop-areas);
+        }
+    }
 }
