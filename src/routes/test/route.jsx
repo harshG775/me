@@ -16,37 +16,37 @@ export default function TestRoute() {
                 }}
             >
                 <BentoGridItem area="intro" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="about" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="skills" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="projects" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="contact" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="social" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
                 <BentoGridItem area="footer" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full min-h-[200px] w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
                         <h2 className="text-2xl font-bold text-white">Featured Content</h2>
                     </div>
                 </BentoGridItem>
