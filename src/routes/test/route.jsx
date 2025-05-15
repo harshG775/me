@@ -13,53 +13,32 @@ export default function TestRoute() {
                         "skills skills social contact",
                         "skills skills footer footer",
                     ],
+                    tablet: [
+                        "intro intro",
+                        "about skills",
+                        "projects projects",
+                        "contact social",
+                        "footer footer",
+                    ],
+                    mobile: [
+                        "intro",
+                        "about",
+                        "skills",
+                        "projects",
+                        "contact",
+                        "social",
+                        "footer",
+                    ],
                 }}
             >
-                <BentoGridItem area="intro" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="about" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="skills" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="projects" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="contact" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="social" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
-                <BentoGridItem area="footer" title="Featured Content" description="This spans two columns on desktop">
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                        <h2 className="text-2xl font-bold text-white">Featured Content</h2>
-                    </div>
-                </BentoGridItem>
+                <BentoGridItem area="intro" title="intro Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="about" title="about Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="skills" title="skills Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="projects" title="projects Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="contact" title="contact Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="social" title="social Content" description="This spans two columns on desktop"/>
+                <BentoGridItem area="footer" title="footer Content" description="This spans two columns on desktop"/>
             </BentoGridContainer>
-            {/* <div className={cn("max-w-[96rem] mx-auto lg:h-dvh p-4", "grid-container")}>
-                <IntroSection className="intro" />
-                <AboutMeSection className="about" />
-                <SkillsSection className="skills" />
-                <ProjectsSection className="projects" />
-                <ContactSection className="contact" />
-                <SocialLinksSection className="social" />
-                <FooterSection className="footer" />
-            </div> */}
         </main>
     );
 }
