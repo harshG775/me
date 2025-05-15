@@ -8,19 +8,17 @@ import { Link } from "react-router";
 
 export default function RootRoute() {
     return (
-        <div className="min-h-screen bg-accent dark:bg-background p-4 md:p-8">
-            <div className="max-w-7xl mx-auto">
-                <div className="grid-container">
-                    <IntroSection className="intro" />
-                    <AboutMeSection className="about" />
-                    <SkillsSection className="skills" />
-                    <ProjectsSection className="projects" />
-                    <ContactSection className="contact" />
-                    <SocialLinksSection className="social" />
-                    <Footer className="footer" />
-                </div>
+        <main className="bg-primary/10">
+            <div className={cn("max-w-[96rem] mx-auto lg:h-dvh p-4", "grid-container")}>
+                <IntroSection className="intro" />
+                <AboutMeSection className="about" />
+                <SkillsSection className="skills" />
+                <ProjectsSection className="projects" />
+                <ContactSection className="contact" />
+                <SocialLinksSection className="social" />
+                <Footer className="footer" />
             </div>
-        </div>
+        </main>
     );
 }
 
@@ -103,7 +101,7 @@ function ProjectsSection({ ...props }) {
         <div className={cn("rounded-2xl shadow-md overflow-hidden", props?.className)}>
             <Link
                 to="/projects"
-                className="h-96 w-full relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl cursor-pointer block"
+                className="w-full relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl cursor-pointer block"
             >
                 <img
                     src={`/placeholder.svg`}

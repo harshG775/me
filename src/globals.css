@@ -158,12 +158,13 @@
 
     @media (min-width: 1024px) {
         .grid-container {
+            /* https://grid.layoutit.com/ */
             grid-template-columns: repeat(4, 1fr);
             grid-template-areas:
-                "intro intro skills social"
+                "intro intro projects projects"
                 "about about projects projects"
-                "contact contact projects projects"
-                "footer footer footer footer";
+                "skills skills social contact"
+                "skills skills footer footer";
         }
     }
 
