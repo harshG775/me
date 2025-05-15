@@ -98,33 +98,31 @@ function SkillsSection({ ...props }) {
 }
 function ProjectsSection({ ...props }) {
     return (
-        <div className={cn("rounded-2xl shadow-md overflow-hidden", props?.className)}>
-            <Link
-                to="/projects"
-                className="w-full relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-xl cursor-pointer block"
-            >
-                <img
-                    src={`/placeholder.svg`}
-                    alt="My Projects"
-                    width={800}
-                    height={600}
-                    className="h-96 w-full transition-all duration-500 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary-foreground/40 to-transparent p-8 flex flex-col justify-end">
-                    <div className="flex items-center mb-2">
-                        <Briefcase className="w-6 h-6 mr-2 text-background" />
-                        <h3 className="text-3xl font-bold text-background">My Projects</h3>
-                    </div>
-                    <p className="text-muted text-lg max-w-lg mb-2">
-                        Explore my portfolio of web applications, design work, and development projects
-                    </p>
-                    <div className="flex items-center text-background font-medium">
-                        <span>View all projects</span>
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                    </div>
+        <Link
+            to="/projects"
+            className={cn("rounded-2xl shadow-md overflow-hidden relative cursor-pointer group", props?.className)}
+        >
+            <img
+                src={`/placeholder.svg`}
+                alt="My Projects"
+                width={800}
+                height={600}
+                className="absolute inset-0 -z-10 w-full transition-all duration-500 object-cover group-hover:scale-125"
+            />
+            <div className="h-full bg-gradient-to-t from-primary/60 via-primary-foreground/40 to-transparent p-8 flex flex-col justify-end">
+                <div className="flex items-center mb-2">
+                    <Briefcase className="w-6 h-6 mr-2 text-background" />
+                    <h3 className="text-3xl font-bold text-background">My Projects</h3>
                 </div>
-            </Link>
-        </div>
+                <p className="text-muted text-lg max-w-lg mb-2">
+                    Explore my portfolio of web applications, design work, and development projects
+                </p>
+                <div className="flex items-center text-background font-medium">
+                    <span>View all projects</span>
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                </div>
+            </div>
+        </Link>
     );
 }
 function ContactSection({ ...props }) {
