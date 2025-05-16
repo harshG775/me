@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { BentoGridContainer, BentoGridItem } from "@/components/ui/bento-grid";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Contact } from "lucide-react";
@@ -7,35 +8,48 @@ import { Link } from "react-router";
 
 export default function RootRoute() {
     return (
-        <main className="bg-primary/10">
-            <div className={cn("max-w-[96rem] mx-auto lg:h-dvh p-4", "grid-container")}>
-                <IntroSection className="intro" />
-                <AboutMeSection className="about" />
-                <SkillsSection className="skills" />
-                <ProjectsSection className="projects" />
-                <ContactSection className="contact" />
-                <SocialLinksSection className="social" />
-                <FooterSection className="footer" />
-            </div>
+        <main className="bg-background">
+            <BentoGridContainer
+                className="max-w-[96rem] mx-auto lg:min-h-dvh p-4"
+                gap={4}
+                initialTemplate={{
+                    desktop: [
+                        "intro intro projects projects",
+                        "about about projects projects",
+                        "skills skills social contact",
+                        "skills skills footer footer",
+                    ],
+                    tablet: ["intro intro", "about skills", "projects projects", "contact social", "footer footer"],
+                    mobile: ["intro", "about", "skills", "projects", "contact", "social", "footer"],
+                }}
+            >
+                <IntroSection area="intro" />
+                <AboutMeSection area="about" />
+                <SkillsSection area="skills" />
+                <ProjectsSection area="projects" />
+                <ContactSection area="contact" />
+                <SocialLinksSection area="social" />
+                <FooterSection area="footer" />
+            </BentoGridContainer>
         </main>
     );
 }
 
 function IntroSection({ ...props }) {
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6 flex flex-col justify-center", props?.className)}>
+        <BentoGridItem area={props.area}>
             <div className="flex items-center">
                 {/* <FlameKindling className="w-5 h-5 mr-2 text-primary" /> */}
                 <h1 className="text-3xl md:text-3xl font-bold mb-2">Harsh G</h1>
             </div>
             <h2 className="text-xl md:text-xl text-muted-foreground mb-4">Full Stack Developer</h2>
             <p className="text-muted-foreground">Building beautiful, functional web experiences</p>
-        </div>
+        </BentoGridItem>
     );
 }
 function AboutMeSection({ ...props }) {
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6 flex flex-col justify-center", props?.className)}>
+        <BentoGridItem area={props.area}>
             <div className="flex items-center mb-4">
                 <User className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">About Me</h3>
@@ -44,7 +58,7 @@ function AboutMeSection({ ...props }) {
                 Passionate developer with 2+ years of experience creating web applications that combine functionality
                 with stunning design.
             </p>
-        </div>
+        </BentoGridItem>
     );
 }
 function SkillsSection({ ...props }) {
@@ -79,7 +93,7 @@ function SkillsSection({ ...props }) {
         },
     ];
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
+        <BentoGridItem area={props.area}>
             <div className="flex items-center mb-4">
                 <Code className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Skills</h3>
@@ -92,12 +106,15 @@ function SkillsSection({ ...props }) {
                     </Badge>
                 ))}
             </div>
-        </div>
+        </BentoGridItem>
     );
 }
 function ProjectsSection({ ...props }) {
     return (
-        <div className={cn("rounded-2xl shadow-md overflow-hidden relative cursor-pointer group", props?.className)}>
+        <BentoGridItem
+            area={props.area}
+            className={cn("overflow-hidden relative cursor-pointer group p-0", props?.className)}
+        >
             <img
                 src={`/placeholder.svg`}
                 alt="My Projects"
@@ -121,12 +138,12 @@ function ProjectsSection({ ...props }) {
                     <ArrowRight className="ml-2 w-5 h-5" />
                 </div>
             </Link>
-        </div>
+        </BentoGridItem>
     );
 }
 function ContactSection({ ...props }) {
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
+        <BentoGridItem area={props.area}>
             <div className="flex items-center mb-4">
                 <Mail className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Contact</h3>
@@ -137,7 +154,7 @@ function ContactSection({ ...props }) {
                     Say Hello
                 </a>
             </Button>
-        </div>
+        </BentoGridItem>
     );
 }
 function SocialLinksSection({ ...props }) {
@@ -165,7 +182,7 @@ function SocialLinksSection({ ...props }) {
         },
     ];
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
+        <BentoGridItem area={props.area}>
             <div className="flex items-center mb-4">
                 <Contact className="w-5 h-5 mr-2 text-primary" />
                 <h3 className="text-xl font-semibold">Let's Connect!</h3>
@@ -181,14 +198,14 @@ function SocialLinksSection({ ...props }) {
                     </Button>
                 ))}
             </div>
-        </div>
+        </BentoGridItem>
     );
 }
 
 function FooterSection({ ...props }) {
     const year = new Date().getFullYear();
     return (
-        <div className={cn("rounded-2xl shadow-md bg-background p-6", props?.className)}>
+        <BentoGridItem area={props.area}>
             <footer className="text-center">
                 © {year} · Crafted with ♥️ using
                 <a href="https://vite.dev/guide/" target="_blank" className="inline text-rose-500 px-1">
@@ -196,6 +213,6 @@ function FooterSection({ ...props }) {
                 </a>
                 by Harsh.
             </footer>
-        </div>
+        </BentoGridItem>
     );
 }

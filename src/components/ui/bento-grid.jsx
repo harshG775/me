@@ -92,7 +92,7 @@ export function BentoGridItem({ area, children, className, title, description })
     return (
         <Card
             className={cn(
-                "overflow-hidden rounded-xl border bg-secondary p-4 transition-all hover:shadow-md",
+                "rounded-xl border bg-secondary p-4 transition-all hover:shadow-md",
                 className
             )}
             style={{ gridArea: area }}
