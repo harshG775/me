@@ -1,7 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-
 
 
 const BentoGridContext = createContext(undefined);
@@ -90,9 +88,9 @@ export function BentoGridItem({ area, children, className, title, description })
     const { getAreaStyles:_ } = useBentoGrid();
 
     return (
-        <Card
+        <div
             className={cn(
-                "rounded-xl border bg-secondary p-4 transition-all hover:shadow-md",
+                "bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm rounded-xl border p-4 transition-all hover:shadow-md",
                 className
             )}
             style={{ gridArea: area }}
@@ -104,6 +102,6 @@ export function BentoGridItem({ area, children, className, title, description })
                 </div>
             )}
             <div className="h-full w-full">{children}</div>
-        </Card>
+        </div>
     );
 }
