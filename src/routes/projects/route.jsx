@@ -30,7 +30,7 @@ export default function ProjectsPage() {
                 "A digitally authenticated pan card linked with aadhaar e-kyc in e-format issued by the income tax department to ease the financial transaction of taxpayers",
             image: "/projects/itax-easy.png",
             tags: ["React", "Next.js", "Tailwind"],
-            liveUrl: "https://itaxeasy.app",
+            liveUrl: "https://itaxeasy.com",
         },
     ];
     const personalProjects = [
