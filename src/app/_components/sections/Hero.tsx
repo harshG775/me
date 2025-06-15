@@ -19,8 +19,8 @@ export default function Hero({ ...props }: React.ComponentProps<"section">) {
                         Welcome.
                     </h1>
                     <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                        I'm a passionate web developer crafting beautiful, functional experiences that bring ideas to
-                        life through code.
+                        I&apos;m a passionate web developer crafting beautiful, functional experiences that bring ideas
+                        to life through code.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

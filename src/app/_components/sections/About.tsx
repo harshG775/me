@@ -23,13 +23,13 @@ export default function About({ ...props }: React.ComponentProps<"section">) {
 
                         <div className="space-y-6">
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                I'm a passionate web developer with over 5 years of experience creating digital
+                                I&apos;m a passionate web developer with over 5 years of experience creating digital
                                 experiences that matter. I specialize in modern web technologies and love turning
                                 complex problems into simple, beautiful solutions.
                             </p>
 
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                When I'm not coding, you'll find me exploring new technologies, contributing to open
+                                When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to open
                                 source projects, or sharing knowledge with the developer community.
                             </p>
 
