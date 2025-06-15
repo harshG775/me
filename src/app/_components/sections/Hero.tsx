@@ -1,4 +1,3 @@
-
-export default function Hero() {
-    return <div>Hero</div>;
+export default function Hero({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>Hero</section>;
 }

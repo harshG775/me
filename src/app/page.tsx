@@ -8,14 +8,27 @@ import Skills from "./_components/sections/Skills";
 export default function Home() {
     return (
         <div>
-            <main>
-                <Hero />
-                <About />
-                <Skills />
-                <Projects />
-                <Experience />
-                <Contect />
+            <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-muted px-4">
+                <div>Header</div>
+                <div>
+                    <a href="#Hero">Hero</a>
+                    <a href="#About">About</a>
+                    <a href="#Skills">Skills</a>
+                    <a href="#Projects">Projects</a>
+                    <a href="#Experience">Experience</a>
+                    <a href="#Contect">Contect</a>
+                </div>
+                <div>CTA</div>
+            </header>
+            <main className="[&>section]:min-h-screen [&>section]:scroll-mt-24" >
+                <Hero id="Hero" />
+                <About id="About" />
+                <Skills id="Skills" />
+                <Projects id="Projects" />
+                <Experience id="Experience" />
+                <Contect id="Contect" />
             </main>
+            <footer>Footer</footer>
         </div>
     );
 }

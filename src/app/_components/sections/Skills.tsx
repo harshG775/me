@@ -1,3 +1,3 @@
-export default function Skills() {
-    return <div>Skills</div>;
+export default function Skills({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>Skills</section>;
 }

@@ -1,3 +1,3 @@
-export default function Experience() {
-    return <div>Experience</div>;
+export default function Experience({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>Experience</section>;
 }

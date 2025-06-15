@@ -1,3 +1,3 @@
-export default function About() {
-    return <div>About</div>;
+export default function About({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>About</section>;
 }

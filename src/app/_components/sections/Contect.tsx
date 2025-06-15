@@ -1,3 +1,3 @@
-export default function Contect() {
-    return <div>Contect</div>;
+export default function Contect({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>Contect</section>;
 }

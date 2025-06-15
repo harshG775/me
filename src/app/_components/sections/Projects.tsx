@@ -1,3 +1,3 @@
-export default function Projects() {
-    return <div>Projects</div>;
+export default function Projects({ ...props }: React.ComponentProps<"section">) {
+    return <section {...props}>Projects</section>;
 }
