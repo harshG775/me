@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 
 export default function Projects({ ...props }: React.ComponentProps<"section">) {
+    // # https://www.taniarascia.com/projects/
     const projects = [
         {
             title: "E-Commerce Platform",
