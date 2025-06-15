@@ -16,7 +16,7 @@ export default function Hero({ ...props }: React.ComponentProps<"section">) {
             <div className="container mx-auto px-4 text-center">
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                        Hello, I'm <span className="text-primary">Harsh</span>. I'm a full stack web developer.
+                        Hello, I&apos;m <span className="text-primary">Harsh</span>. I&apos;m a full stack web developer.
                     </h1>
                     <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                         I&apos;m a passionate web developer crafting beautiful, functional experiences that bring ideas
