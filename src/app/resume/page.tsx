@@ -104,7 +104,7 @@ export const resumeData = {
     },
     education: [
         {
-            degree: "Master of Computer Applications - Honours",
+            degree: "Master of Computer Applications",
             institution: "Indra Gandhi National Open University (IGNOU)",
             date: "2025 - present",
         },
