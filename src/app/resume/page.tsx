@@ -161,7 +161,7 @@ export default function ResumePage() {
             </div>
 
             {/* Header */}
-            <main className="font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-[794px] mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
+            <main className="font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
                 <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm print:text-[11px] text-center">
                     <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
                     <p className="text-lg font-semibold">{title}</p>
@@ -274,15 +274,18 @@ export default function ResumePage() {
                     <h2 className="text-lg font-semibold mb-1">Education</h2>
                     <ul className="list-disc list-inside space-y-1">
                         {education.map((edu, index) => (
-                            <li key={index}>
-                                <strong>{edu.degree}</strong>, {edu.institution} ({edu.date})
+                            <li key={index} className="flex justify-between">
+                                <p>
+                                    <strong>{edu.degree}</strong>, {edu.institution}
+                                </p>
+                                <span className="text-sm">{edu.date}</span>
                             </li>
                         ))}
                     </ul>
                 </section>
 
                 <section className="break-inside-avoid">
-                    <h2 className="text-lg font-semibold mb-1">Certifications</h2>
+                    <h2 className="text-lg font-semibold mb-1">Certifications and Training</h2>
                     <ul className="list-disc ml-5">
                         {certifications.map((cert, i) => (
                             <li key={i}>{cert}</li>
