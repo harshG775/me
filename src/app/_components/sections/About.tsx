@@ -26,7 +26,7 @@ export default function About({ ...props }: React.ComponentProps<"section">) {
                         {/* About Content */}
                         <div className="space-y-6">
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                I’m a frontend-focused Full Stack Developer with 2+ years of experience building
+                                I&apos;m a frontend-focused Full Stack Developer with 2+ years of experience building
                                 production-ready, scalable, and interactive web applications. My expertise lies in{" "}
                                 <strong>React.js</strong>, <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and{" "}
                                 <strong>ShadCN UI</strong>, backed by solid skills in backend development with{" "}
@@ -34,8 +34,8 @@ export default function About({ ...props }: React.ComponentProps<"section">) {
                             </p>
 
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                I've worked on diverse projects, including an internal chatbot platform at Adda247, a
-                                LeetCode-style coding platform, and a SaaS landing page CMS. I'm passionate about
+                                I&apos;ve worked on diverse projects, including an internal chatbot platform at Adda247,
+                                a LeetCode-style coding platform, and a SaaS landing page CMS. I&apos;m passionate about
                                 creating polished UIs, writing clean code, and delivering end-to-end solutions that
                                 balance performance, design, and functionality.
                             </p>
