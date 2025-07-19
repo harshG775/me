@@ -6,7 +6,7 @@ export default function DownloadButton() {
     return (
         <Button onClick={() => window.print()} size="lg" className="h-12 px-5 font-medium text-base gap-2">
             <Download className="w-5 h-5" />
-            Download Resume as PDF
+            Download
         </Button>
     );
 }

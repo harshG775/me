@@ -155,14 +155,14 @@ export default function ResumePage() {
 
     return (
         <>
-            <div className="fixed bottom-4 right-4 z-50 print:hidden">
+            <div className="max-w-4xl mx-auto print:hidden mb-4">
                 <div className="flex items-center gap-2 rounded-lg bg-background shadow-lg border px-4 py-3">
                     <DownloadButton />
                 </div>
             </div>
 
             {/* Header */}
-            <main className="font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
+            <main className="shadow-lg rounded-xl print:shadow-none print:rounded-none font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
                 <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm text-center">
                     <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
                     <p className="text-lg font-semibold text-muted-foreground">{title}</p>
@@ -322,6 +322,7 @@ export default function ResumePage() {
                     </ul>
                 </section>
             </main>
+            <div className="print:hidden h-32" area-hidden="true" />
         </>
     );
 }

@@ -1,9 +1,11 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero({ ...props }: React.ComponentProps<"section">) {
     return (
-        <section {...props} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section {...props} className="relative flex items-center justify-center overflow-hidden">
             {/* Decorative background shapes */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 organic-shape animate-float"></div>
@@ -15,8 +17,9 @@ export default function Hero({ ...props }: React.ComponentProps<"section">) {
 
             <div className="container mx-auto px-4 text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                        Hello, I&apos;m <span className="text-primary">Harsh</span>. I&apos;m a full stack web developer.
+                    <Badge className="mb-4">full stack web developer.</Badge>
+                    <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent text-balance">
+                        Hi, I&apos;m <span className="text-primary">Harsh</span>.
                     </h1>
                     <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                         I&apos;m a passionate web developer crafting beautiful, functional experiences that bring ideas
@@ -31,19 +34,33 @@ export default function Hero({ ...props }: React.ComponentProps<"section">) {
                             size="lg"
                             variant="outline"
                             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                            asChild
                         >
-                            Download Resume
+                            <Link href="/resume">Download My Resume</Link>
                         </Button>
                     </div>
 
                     <div className="flex justify-center space-x-6">
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="https://github.com/harshG775"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Github className="w-6 h-6" />
                         </a>
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="https://linkedin.com/in/harshG775"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Linkedin className="w-6 h-6" />
                         </a>
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="mailto:hgaur491@gmail.com"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Mail className="w-6 h-6" />
                         </a>
                     </div>

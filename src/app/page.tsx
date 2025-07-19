@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <div className="relative">
             <Header />
-            <main className="[&>section]:min-h-screen [&>section]:scroll-mt-24">
+            <main className="[&>section]:min-h-[90dvh] [&>section]:scroll-mt-24">
                 <Hero id="Hero" />
                 <About id="About" />
                 <Skills id="Skills" />
