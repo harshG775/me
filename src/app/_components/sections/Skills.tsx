@@ -171,7 +171,7 @@ export default function ModernSkills(props: React.ComponentProps<"section">) {
                 {/* Bottom CTA */}
                 <div className="text-center mt-20">
                     <Button className="h-12 cursor-pointer group" asChild size={"lg"}>
-                        <Link href="/contact">
+                        <Link href="/#Contact">
                             <span>Let's build something amazing together</span>
                             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                         </Link>
