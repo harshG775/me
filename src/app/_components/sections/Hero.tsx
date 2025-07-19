@@ -27,8 +27,8 @@ export default function Hero({ ...props }: React.ComponentProps<"section">) {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                            View My Work
+                        <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                            <Link href="/#Projects">View My Work</Link>
                         </Button>
                         <Button
                             size="lg"

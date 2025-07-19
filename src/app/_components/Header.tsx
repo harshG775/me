@@ -110,7 +110,9 @@ export default function Header() {
                                     {item.label}
                                 </a>
                             ))}
-                            <Button className="bg-primary hover:bg-primary/90 w-full mt-4">Get In Touch</Button>
+                            <Button asChild className="bg-primary hover:bg-primary/90 w-full mt-4">
+                                <Link href="#Contact">Get In Touch</Link>
+                            </Button>
                         </nav>
                     </div>
                 )}

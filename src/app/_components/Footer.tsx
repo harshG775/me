@@ -11,13 +11,26 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="flex justify-center space-x-6 mb-8">
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="https://github.com/harshG775"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Github className="w-6 h-6" />
                         </a>
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="https://linkedin.com/in/harshg775"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Linkedin className="w-6 h-6" />
                         </a>
-                        <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                            href="mailto:hgaur491@gmail.com"
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                             <Mail className="w-6 h-6" />
                         </a>
                     </div>
@@ -25,10 +38,10 @@ export default function Footer() {
                     <div className="flex items-center justify-center space-x-2 text-muted-foreground">
                         <span>Made with</span>
                         <Heart className="w-4 h-4 text-red-500 fill-current" />
-                        <span>by Your Name</span>
+                        <span>by Harsh Gaur</span>
                     </div>
 
-                    <p className="text-sm text-muted-foreground mt-4">© 2024 All rights reserved.</p>
+                    <p className="text-sm text-muted-foreground mt-4">© {new Date().getFullYear()} All rights reserved.</p>
                 </div>
             </div>
         </footer>

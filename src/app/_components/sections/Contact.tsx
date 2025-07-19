@@ -1,10 +1,8 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
-
 
 export default function Contact({ ...props }: React.ComponentProps<"section">) {
     return (
@@ -24,8 +22,8 @@ export default function Contact({ ...props }: React.ComponentProps<"section">) {
                             <div>
                                 <h3 className="text-2xl font-semibold mb-4">Let&apos;s work together</h3>
                                 <p className="text-muted-foreground leading-relaxed">
-                                    I&apos;m always interested in new opportunities and exciting projects. Whether you have a
-                                    question or just want to say hi, I&apos;ll try my best to get back to you!
+                                    I&apos;m always interested in new opportunities and exciting projects. Whether you
+                                    have a question or just want to say hi, I&apos;ll try my best to get back to you!
                                 </p>
                             </div>
 
@@ -34,21 +32,21 @@ export default function Contact({ ...props }: React.ComponentProps<"section">) {
                                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                                         <Mail className="w-5 h-5 text-primary" />
                                     </div>
-                                    <span className="text-muted-foreground">hello@example.com</span>
+                                    <span className="text-muted-foreground">hgaur491@gmail.com</span>
                                 </div>
 
                                 <div className="flex items-center space-x-3">
                                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                                         <Phone className="w-5 h-5 text-primary" />
                                     </div>
-                                    <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                                    <span className="text-muted-foreground">+91 9310745921</span>
                                 </div>
 
                                 <div className="flex items-center space-x-3">
                                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                                         <MapPin className="w-5 h-5 text-primary" />
                                     </div>
-                                    <span className="text-muted-foreground">San Francisco, CA</span>
+                                    <span className="text-muted-foreground">Delhi, India</span>
                                 </div>
                             </div>
                         </div>

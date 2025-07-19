@@ -4,33 +4,61 @@ import { Badge } from "@/components/ui/badge";
 export default function Experience({ ...props }: React.ComponentProps<"section">) {
     const experiences = [
         {
-            title: "Senior Frontend Developer",
-            company: "Tech Innovations Inc.",
-            period: "2022 - Present",
-            description:
-                "Lead frontend development for multiple high-traffic web applications. Mentored junior developers and implemented modern development practices.",
-            technologies: ["React", "Next.js", "TypeScript", "GraphQL"],
+            title: "Lead Frontend Developer",
+            company: "Prabhubhakti (Spiritual SaaS Platform)",
+            period: "Jun 2025 - Present",
+            location: "Gurugram",
+            links: ["http://prabhubhakti.io", "http://prabhubhakti.com"],
+            description: [
+                "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+ and organic traffic by 40% in the first month.",
+                "Architected a multi-tenant SaaS platform with domain/subdomain routing, wallet-based credit system, and Razorpay integration for session bookings.",
+                "Launched 2 astrologer storefronts (astrodrpc.com, divinetwinsoul.com) within 2 months, reducing onboarding time by 70%.",
+                "Collaborated with backend, design, and DevOps teams to ensure seamless integration and production readiness.",
+            ],
+            technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Razorpay", "Multi-Tenant", "Domain Routing"],
         },
         {
-            title: "Full Stack Developer",
-            company: "Digital Solutions Co.",
-            period: "2020 - 2022",
-            description:
-                "Developed and maintained full-stack web applications using modern technologies. Collaborated with design and product teams to deliver exceptional user experiences.",
-            technologies: ["Vue.js", "Node.js", "PostgreSQL", "AWS"],
+            title: "Freelance Frontend Developer",
+            company: "Kalpi Capital",
+            period: "Apr 2024",
+            location: "Freelance",
+            links: ["https://kalpicapital.com"],
+            description: [
+                "Delivered a full-featured, SEO-first landing page from scratch using Next.js, ShadCN, Tailwind CSS, and @next/third-parties.",
+                "Boosted Lighthouse SEO score from 68 to 97 and significantly improved Core Web Vitals.",
+            ],
+            technologies: ["Next.js", "Tailwind CSS", "ShadCN", "Core Web Vitals", "SEO"],
+        },
+        {
+            title: "Frontend Developer SDE",
+            company: "Metis Eduventures Pvt. Ltd (Adda247)",
+            period: "Aug 2024 - Feb 2025",
+            location: "Gurugram",
+            links: ["https://adda247.com"],
+            description: [
+                "Built and optimized 5+ AI chatbot features using React.js, Zustand, and OpenAI APIs, automating over 30% of repetitive customer support interactions.",
+                "Improved initial page load speed by 25% by optimizing bundle size, implementing lazy loading, and tree-shaking.",
+                "Participated in sprint planning, pull requests, and QA cycles in an Agile environment.",
+            ],
+            technologies: ["React.js", "Zustand", "OpenAI", "Bundle Optimization", "Agile"],
         },
         {
             title: "Frontend Developer",
-            company: "StartupXYZ",
-            period: "2019 - 2020",
-            description:
-                "Built responsive web applications from scratch. Worked closely with UX designers to implement pixel-perfect designs and smooth user interactions.",
-            technologies: ["React", "JavaScript", "CSS3", "REST APIs"],
+            company: "ItaxEasy",
+            period: "Nov 2023 - May 2024",
+            location: "Remote",
+            links: ["https://itaxeasy.com"],
+            description: [
+                "Revamped UI of a legacy tax-filing platform using React.js and Tailwind CSS, reducing bounce rates by 22% and improving session time by 17%.",
+                "Introduced route-based lazy loading, resulting in 18% faster time-to-interactive.",
+            ],
+            technologies: ["React.js", "Tailwind CSS", "Performance", "Lazy Loading"],
         },
     ];
 
     return (
         <section {...props} className="py-20 bg-muted/30 relative">
+            {/* Background Elements */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-16 left-16 w-32 h-32 bg-accent/15 organic-shape-3 animate-float-delayed"></div>
                 <div className="absolute bottom-24 right-24 w-24 h-24 bg-chart-5/20 organic-shape animate-pulse-soft"></div>
@@ -46,18 +74,25 @@ export default function Experience({ ...props }: React.ComponentProps<"section">
                                 key={index}
                                 className="bg-card/50 backdrop-blur-sm border-border/50 hover:shadow-lg transition-all duration-300"
                             >
-                                <CardContent className="p-6">
-                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <CardContent className="p-6 space-y-4">
+                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                                         <div>
                                             <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
-                                            <p className="text-primary font-medium">{exp.company}</p>
+                                            <p className="text-primary font-medium">
+                                                {exp.company}
+                                                {exp.location ? ` • ${exp.location}` : ""}
+                                            </p>
                                         </div>
                                         <Badge variant="outline" className="mt-2 md:mt-0 w-fit">
                                             {exp.period}
                                         </Badge>
                                     </div>
 
-                                    <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
+                                    <ul className="pl-4 list-disc text-muted-foreground space-y-1">
+                                        {exp.description.map((point, i) => (
+                                            <li key={i}>{point}</li>
+                                        ))}
+                                    </ul>
 
                                     <div className="flex flex-wrap gap-2">
                                         {exp.technologies.map((tech, techIndex) => (
