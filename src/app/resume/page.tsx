@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import DownloadButton from "./_components/download-button";
+import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 
 export const resumeData = {
     metadata: {
@@ -166,17 +167,24 @@ export default function ResumePage() {
                     <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
                     <p className="text-lg font-semibold text-muted-foreground">{title}</p>
 
-                    <div className="flex justify-center gap-2 text-sm text-muted-foreground">
-                        <span>{contact.location}</span>
+                    <div className="flex justify-center flex-wrap gap-2 print:gap-1 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                            <MapPin size={12} className="print:hidden" />
+                            {contact.location}
+                        </span>
                         <span>|</span>
-                        <span>{contact.phone}</span>
+                        <span className="flex items-center gap-1">
+                            <Phone size={12} className="print:hidden" />
+                            {contact.phone}
+                        </span>
                         <span>|</span>
                         <a
-                            href={`https://mailto:${contact.email}`}
+                            href={`mailto:${contact.email}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline"
+                            className="hover:underline flex items-center gap-1"
                         >
+                            <Mail size={12} className="print:hidden" />
                             {contact.email}
                         </a>
                         <span>|</span>
@@ -184,18 +192,20 @@ export default function ResumePage() {
                             href={`https://${contact.github}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline"
+                            className="hover:underline flex items-center gap-1"
                         >
-                            {contact.github}
+                            <Github size={12} className="print:hidden" />
+                            {contact.github.replace(/^https?:\/\//, "")}
                         </a>
                         <span>|</span>
                         <a
                             href={`https://${contact.linkedin}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline"
+                            className="hover:underline flex items-center gap-1"
                         >
-                            {contact.linkedin}
+                            <Linkedin size={12} className="print:hidden" />
+                            {contact.linkedin.replace(/^https?:\/\//, "")}
                         </a>
                     </div>
                 </header>
@@ -248,7 +258,7 @@ export default function ResumePage() {
                     {projects.map((project, index) => (
                         <article key={index} className="break-inside-avoid mb-2">
                             <div className="flex items-center justify-between">
-                                <h3 className="font-medium">{project.name}</h3>
+                                <h3 className="font-semibold">{project.name}</h3>
                                 <div>
                                     {project.links && (
                                         <div className="text-xs mb-1">
@@ -267,7 +277,7 @@ export default function ResumePage() {
                                     )}
                                 </div>
                             </div>
-                            <p className="text-xs italic mb-1">Tech Stack: {project.stack}</p>
+                            <p className="text-xs mb-1">Tech Stack: {project.stack}</p>
 
                             <ul className="list-disc ml-5 space-y-1">
                                 {project.points.slice(0, 2).map((point, i) => (
