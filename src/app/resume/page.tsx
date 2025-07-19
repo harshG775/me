@@ -1,130 +1,11 @@
 import { Metadata } from "next";
 import DownloadButton from "./_components/download-button";
 
-export const metadata: Metadata = {
-    title: "Harsh_WebDeveloper_Resume",
-    description: "ATS-optimized resume of Harsh Gaur for Frontend / Full Stack Developer roles.",
-};
-
-export default function ResumePage() {
-    const { name, title, contact, summary, experience, projects, skills, education, certifications } = resumeData;
-
-    return (
-        <>
-            <div className="fixed bottom-4 right-4 z-50 print:hidden">
-                <div className="flex items-center gap-2 rounded-lg bg-background shadow-lg border px-4 py-3">
-                    <DownloadButton />
-                </div>
-            </div>
-            <main className="text-sm print:text-xs leading-tight print:leading-tight max-w-[794px] mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white">
-                <header className="mb-4">
-                    <h1 className="text-3xl font-bold">{name}</h1>
-                    <p className="font-medium">{title}</p>
-                    <address className="not-italic text-sm">
-                        {contact.location} | {contact.email} | {contact.phone}
-                    </address>
-                    <p className="text-sm">
-                        <a
-                            href={`https://${contact.github}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline text-blue-600"
-                        >
-                            {contact.github}
-                        </a>
-                    </p>
-                </header>
-
-                <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Professional Summary</h2>
-                    <p>{summary}</p>
-                </section>
-
-                <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Experience</h2>
-                    {experience.map((job, index) => (
-                        <article key={index} className="break-inside-avoid mb-3">
-                            <h3 className="font-semibold">
-                                {job.title} - {job.company}
-                            </h3>
-                            <p className="text-xs text-gray-600">
-                                {job.date} | {job.location}
-                            </p>
-                            {job.links && (
-                                <div className="text-xs text-blue-600 mb-1">
-                                    {job.links.map((link, idx) => (
-                                        <a
-                                            key={idx}
-                                            href={link}
-                                            className="mr-2 underline"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {new URL(link).hostname}
-                                        </a>
-                                    ))}
-                                </div>
-                            )}
-                            <ul className="list-disc ml-5 space-y-1">
-                                {job.points.slice(0, 3).map((point, i) => (
-                                    <li key={i}>{point}</li>
-                                ))}
-                            </ul>
-                        </article>
-                    ))}
-                </section>
-
-                <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Projects</h2>
-                    {projects.map((project, index) => (
-                        <article key={index} className="break-inside-avoid mb-2">
-                            <h3 className="font-medium">{project.name}</h3>
-                            <p className="text-xs italic mb-1">Tech Stack: {project.stack}</p>
-                            <ul className="list-disc ml-5 space-y-1">
-                                {project.points.slice(0, 2).map((point, i) => (
-                                    <li key={i}>{point}</li>
-                                ))}
-                            </ul>
-                        </article>
-                    ))}
-                </section>
-
-                <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Technical Skills</h2>
-                    <ul className="list-disc ml-5 space-y-1">
-                        {Object.entries(skills).map(([category, items]) => (
-                            <li key={category}>
-                                <strong className="capitalize">{category}:</strong> {items.join(", ")}
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Education</h2>
-                    <ul className="list-disc list-inside space-y-1">
-                        {education.map((edu, index) => (
-                            <li key={index}>
-                                <strong>{edu.degree}</strong>, {edu.institution} ({edu.date})
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className="break-inside-avoid">
-                    <h2 className="text-lg font-semibold mb-1">Certifications</h2>
-                    <ul className="list-disc ml-5">
-                        {certifications.map((cert, i) => (
-                            <li key={i}>{cert}</li>
-                        ))}
-                    </ul>
-                </section>
-            </main>
-        </>
-    );
-}
-
 export const resumeData = {
+    metadata: {
+        title: "Harsh_WebDeveloper_Resume",
+        description: "ATS-optimized resume of Harsh Gaur for Frontend / Full Stack Developer roles.",
+    },
     name: "Harsh Gaur",
     title: "Frontend / Full Stack Developer - React.js | Next.js | MERN Stack",
     contact: {
@@ -132,6 +13,7 @@ export const resumeData = {
         email: "hgaur491@gmail.com",
         phone: "+91 9310745921",
         github: "github.com/harshG775",
+        linkedin: "linkedin.com/in/harshg775",
     },
     summary: `Frontend-focused Full Stack Developer with 2+ years of hands-on experience building scalable, high-performing SaaS and AI-powered platforms using Next.js, React.js, and the MERN stack. Proven ability to lead frontend architecture, optimize performance, and deliver measurable business results across multi-tenant and customer-facing systems. Passionate about building fast, accessible, and maintainable interfaces.`,
     experience: [
@@ -259,3 +141,135 @@ export const resumeData = {
         "Agile",
     ],
 };
+
+export const metadata: Metadata = resumeData.metadata;
+
+export default function ResumePage() {
+    const { name, title, contact, summary, experience, projects, skills, education, certifications, atsKeywords } =
+        resumeData;
+
+    return (
+        <>
+            <div className="fixed bottom-4 right-4 z-50 print:hidden">
+                <div className="flex items-center gap-2 rounded-lg bg-background shadow-lg border px-4 py-3">
+                    <DownloadButton />
+                </div>
+            </div>
+            <main className="text-sm print:text-xs leading-tight print:leading-tight max-w-[794px] mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white">
+                <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm print:text-[11px]">
+                    {/* Top Row: Name + Location */}
+                    <div className="flex justify-between items-start flex-wrap gap-y-1">
+                        <div>
+                            <h1 className="text-2xl font-bold leading-none">{name}</h1>
+                            <p className="text-sm text-gray-700">{title}</p>
+                        </div>
+                        <div className="text-right text-sm text-gray-600">
+                            <p>{contact.location}</p>
+                            <p>{contact.phone}</p>
+                        </div>
+                    </div>
+
+                    {/* Bottom Row: GitHub & LinkedIn */}
+                    <div className="flex gap-4 text-sm text-blue-600 underline">
+                        <a href={`https://${contact.email}`} target="_blank" rel="noopener noreferrer">
+                            {contact.email}
+                        </a>
+                        <a href={`https://${contact.github}`} target="_blank" rel="noopener noreferrer">
+                            {contact.github}
+                        </a>
+                        <a href={`https://${contact.linkedin}`} target="_blank" rel="noopener noreferrer">
+                            {contact.linkedin}
+                        </a>
+                    </div>
+                </header>
+
+                <div className="hidden print:hidden">{atsKeywords.join(", ")}</div>
+
+                <section className="break-inside-avoid mb-4">
+                    <h2 className="text-lg font-semibold mb-1">Professional Summary</h2>
+                    <p>{summary}</p>
+                </section>
+
+                <section className="break-inside-avoid mb-4">
+                    <h2 className="text-lg font-semibold mb-1">Experience</h2>
+                    {experience.map((job, index) => (
+                        <article key={index} className="break-inside-avoid mb-3">
+                            <h3 className="font-semibold">
+                                {job.title} - {job.company}
+                            </h3>
+                            <p className="text-xs text-gray-600">
+                                {job.date} | {job.location}
+                            </p>
+                            {job.links && (
+                                <div className="text-xs text-blue-600 mb-1">
+                                    {job.links.map((link, idx) => (
+                                        <a
+                                            key={idx}
+                                            href={link}
+                                            className="mr-2 underline"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {new URL(link).hostname}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
+                            <ul className="list-disc ml-5 space-y-1">
+                                {job.points.slice(0, 3).map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))}
+                </section>
+
+                <section className="break-inside-avoid mb-4">
+                    <h2 className="text-lg font-semibold mb-1">Projects</h2>
+                    {projects.map((project, index) => (
+                        <article key={index} className="break-inside-avoid mb-2">
+                            <h3 className="font-medium">{project.name}</h3>
+                            <p className="text-xs italic mb-1">Tech Stack: {project.stack}</p>
+                            <ul className="list-disc ml-5 space-y-1">
+                                {project.points.slice(0, 2).map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))}
+                </section>
+
+                <section className="break-inside-avoid mb-4">
+                    <h2 className="text-lg font-semibold mb-1">Technical Skills</h2>
+                    <ul className="list-disc ml-5 space-y-1">
+                        {Object.entries(skills).map(([category, items]) => (
+                            <li key={category}>
+                                <strong className="capitalize">{category}:</strong> {items.join(", ")}
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="break-inside-avoid mb-4">
+                    <h2 className="text-lg font-semibold mb-1">Education</h2>
+                    <ul className="list-disc list-inside space-y-1">
+                        {education.map((edu, index) => (
+                            <li key={index}>
+                                <strong>{edu.degree}</strong>, {edu.institution} ({edu.date})
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="break-inside-avoid">
+                    <h2 className="text-lg font-semibold mb-1">Certifications</h2>
+                    <ul className="list-disc ml-5">
+                        {certifications.map((cert, i) => (
+                            <li key={i}>{cert}</li>
+                        ))}
+                    </ul>
+                </section>
+            </main>
+        </>
+    );
+}
