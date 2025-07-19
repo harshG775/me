@@ -102,9 +102,13 @@ export default function ResumePage() {
 
                 <section className="break-inside-avoid mb-4">
                     <h2 className="text-lg font-semibold mb-1">Education</h2>
-                    <p>
-                        <strong>{education.degree}</strong>, {education.institution} ({education.date})
-                    </p>
+                    <ul className="list-disc list-inside space-y-1">
+                        {education.map((edu, index) => (
+                            <li key={index}>
+                                <strong>{edu.degree}</strong>, {edu.institution} ({edu.date})
+                            </li>
+                        ))}
+                    </ul>
                 </section>
 
                 <section className="break-inside-avoid">
@@ -138,7 +142,7 @@ export const resumeData = {
             date: "Jun 2025 - Present",
             links: ["http://prabhubhakti.io", "http://prabhubhakti.com"],
             points: [
-                "Developed Prabhubhakti's entire landing and marketing website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+ and organic traffic by 40% in the first month.",
+                "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+ and organic traffic by 40% in the first month.",
                 "Architected a multi-tenant SaaS platform with domain/subdomain routing, wallet-based credit system, and Razorpay integration for session bookings.",
                 "Launched 2 astrologer storefronts (astrodrpc.com, divinetwinsoul.com) within 2 months, reducing onboarding time by 70%.",
                 "Collaborated with backend, design, and DevOps teams to ensure seamless integration and production readiness.",
@@ -216,11 +220,18 @@ export const resumeData = {
         integrations: ["Razorpay", "OpenAI", "LangChain", "Whisper", "@next/third-parties"],
         architecture: ["Multi-Tenant SaaS", "SSR", "CSR", "Domain Routing", "Wallet Systems"],
     },
-    education: {
-        degree: "Bachelor of Arts - English Honours",
-        institution: "Prof. Rajendra Singh University",
-        date: "2020 - 2023",
-    },
+    education: [
+        {
+            degree: "Master of Computer Applications - Honours",
+            institution: "Indra Gandhi National Open University (IGNOU)",
+            date: "2025 - present",
+        },
+        {
+            degree: "Bachelor of Arts - English Honours",
+            institution: "Prof. Rajendra Singh University",
+            date: "2020 - 2023",
+        },
+    ],
     certifications: ["Web Development Certification - MyCodeLearning (2023)"],
     atsKeywords: [
         "Frontend Developer",
