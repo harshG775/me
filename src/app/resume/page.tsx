@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import DownloadButton from "./_components/download-button";
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 
-export const resumeData = {
+const resumeData = {
     metadata: {
         title: "Harsh_WebDeveloper_Resume",
         description: "ATS-optimized resume of Harsh Gaur for Frontend / Full Stack Developer roles.",
