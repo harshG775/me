@@ -102,8 +102,8 @@ export const resumeData = {
         backend: ["Node.js", "Express.js", "Flask", "REST APIs", "GraphQL", "WebSockets", "JWT"],
         databases: ["MongoDB", "PostgreSQL", "Prisma", "Redis"],
         tools: ["Git", "GitHub", "Vite", "Webpack", "Postman", "Docker (basic)"],
-        testing: ["Jest", "React Testing Library"],
-        integrations: ["Razorpay", "OpenAI", "LangChain", "Whisper", "@next/third-parties"],
+        testing: ["vitest", "Jest", "React Testing Library"],
+        integrations: ["Razorpay", "OpenAI", "Whisper", "@next/third-parties"],
         architecture: ["Multi-Tenant SaaS", "SSR", "CSR", "Domain Routing", "Wallet Systems"],
     },
     education: [
@@ -162,20 +162,39 @@ export default function ResumePage() {
 
             {/* Header */}
             <main className="font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
-                <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm print:text-[11px] text-center">
+                <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm text-center">
                     <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
-                    <p className="text-lg font-semibold">{title}</p>
+                    <p className="text-lg font-semibold text-muted-foreground">{title}</p>
 
-                    <div className="flex justify-center gap-4 text-sm underline">
-                        <p>{contact.location}</p>
-                        <p>{contact.phone}</p>
-                        <a href={`https://mailto:${contact.email}`} target="_blank" rel="noopener noreferrer">
+                    <div className="flex justify-center gap-2 text-sm text-muted-foreground">
+                        <span>{contact.location}</span>
+                        <span>|</span>
+                        <span>{contact.phone}</span>
+                        <span>|</span>
+                        <a
+                            href={`https://mailto:${contact.email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                        >
                             {contact.email}
                         </a>
-                        <a href={`https://${contact.github}`} target="_blank" rel="noopener noreferrer">
+                        <span>|</span>
+                        <a
+                            href={`https://${contact.github}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                        >
                             {contact.github}
                         </a>
-                        <a href={`https://${contact.linkedin}`} target="_blank" rel="noopener noreferrer">
+                        <span>|</span>
+                        <a
+                            href={`https://${contact.linkedin}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                        >
                             {contact.linkedin}
                         </a>
                     </div>
@@ -184,12 +203,12 @@ export default function ResumePage() {
                 <section className="hidden print:hidden">{atsKeywords.join(", ")}</section>
 
                 <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Professional Summary</h2>
+                    <h2 className="text-xl font-semibold mb-1">Summary</h2>
                     <p>{summary}</p>
                 </section>
 
                 <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Experience</h2>
+                    <h2 className="text-xl font-semibold mb-1">Experience</h2>
                     {experience.map((job, index) => (
                         <article key={index} className="break-inside-avoid mb-3">
                             <div className="flex items-center justify-between">
@@ -225,7 +244,7 @@ export default function ResumePage() {
                 </section>
 
                 <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Projects</h2>
+                    <h2 className="text-xl font-semibold mb-1">Projects</h2>
                     {projects.map((project, index) => (
                         <article key={index} className="break-inside-avoid mb-2">
                             <div className="flex items-center justify-between">
@@ -260,7 +279,7 @@ export default function ResumePage() {
                 </section>
 
                 <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Technical Skills</h2>
+                    <h2 className="text-xl font-semibold mb-1">Technical Skills</h2>
                     <ul className="list-disc ml-5 space-y-1">
                         {Object.entries(skills).map(([category, items]) => (
                             <li key={category}>
@@ -271,7 +290,7 @@ export default function ResumePage() {
                 </section>
 
                 <section className="break-inside-avoid mb-4">
-                    <h2 className="text-lg font-semibold mb-1">Education</h2>
+                    <h2 className="text-xl font-semibold mb-1">Education</h2>
                     <ul className="list-disc list-inside space-y-1">
                         {education.map((edu, index) => (
                             <li key={index} className="flex justify-between">
@@ -285,7 +304,7 @@ export default function ResumePage() {
                 </section>
 
                 <section className="break-inside-avoid">
-                    <h2 className="text-lg font-semibold mb-1">Certifications and Training</h2>
+                    <h2 className="text-xl font-semibold mb-1">Certifications and Training</h2>
                     <ul className="list-disc ml-5">
                         {certifications.map((cert, i) => (
                             <li key={i}>{cert}</li>
