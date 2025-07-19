@@ -31,20 +31,9 @@ export const resumeData = {
             ],
         },
         {
-            title: "Frontend Developer SDE",
-            company: "Metis Eduventures Pvt. Ltd (Adda247)",
-            location: "Gurugram",
-            date: "Aug 2024 - Feb 2025",
-            points: [
-                "Built and optimized 5+ AI chatbot features using React.js, Zustand, and OpenAI APIs, automating over 30% of repetitive customer support interactions.",
-                "Improved initial page load speed by 25% by optimizing bundle size, implementing lazy loading, and tree-shaking.",
-                "Participated in sprint planning, pull requests, and QA cycles in an Agile environment.",
-            ],
-        },
-        {
             title: "Freelance Frontend Developer",
             company: "Kalpi Capital",
-            location: "Remote",
+            location: "Freelance",
             date: "Apr 2024",
             links: ["https://kalpicapital.com"],
             points: [
@@ -53,10 +42,23 @@ export const resumeData = {
             ],
         },
         {
+            title: "Frontend Developer SDE",
+            company: "Metis Eduventures Pvt. Ltd (Adda247)",
+            location: "Gurugram",
+            date: "Aug 2024 - Feb 2025",
+            links: ["https://adda247.com"],
+            points: [
+                "Built and optimized 5+ AI chatbot features using React.js, Zustand, and OpenAI APIs, automating over 30% of repetitive customer support interactions.",
+                "Improved initial page load speed by 25% by optimizing bundle size, implementing lazy loading, and tree-shaking.",
+                "Participated in sprint planning, pull requests, and QA cycles in an Agile environment.",
+            ],
+        },
+        {
             title: "Frontend Developer",
             company: "ItaxEasy",
             location: "Remote",
             date: "Nov 2023 - May 2024",
+            links: ["https://itaxeasy.com"],
             points: [
                 "Revamped UI of a legacy tax-filing platform using React.js and Tailwind CSS, reducing bounce rates by 22% and improving session time by 17%.",
                 "Introduced route-based lazy loading, resulting in 18% faster time-to-interactive.",
@@ -67,6 +69,7 @@ export const resumeData = {
         {
             name: "SupportDesk - AI-Powered Customer Support Tool",
             stack: "React.js, Zustand, Flask, OpenAI API, WebSockets",
+            links: ["https://supportdesk.adda247.com/"],
             points: [
                 "Built an internal AI-assisted dashboard that eliminated the need for a third-party support tool, saving ₹2L+/year.",
                 "Integrated real-time chat fallback logic and multi-step scripted bot responses via WebSocket channels.",
@@ -75,6 +78,7 @@ export const resumeData = {
         {
             name: "AiDoubtSolver - EdTech Voice Chatbot",
             stack: "React.js, SSE, Whisper API, Markdown",
+            links: ["https://aidoubtsolverdev.adda247.com/?session_id=4956daa3-cb49-4eec-a337-a088d37b7cd0"],
             points: [
                 "Developed a real-time AI chatbot that supports voice input/output via OpenAI Whisper and renders Markdown responses for clarity.",
                 "Handled 150+ concurrent student sessions during internal testing with >99.9% uptime.",
@@ -155,23 +159,17 @@ export default function ResumePage() {
                     <DownloadButton />
                 </div>
             </div>
-            <main className="text-sm print:text-xs leading-tight print:leading-tight max-w-[794px] mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white">
-                <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm print:text-[11px]">
-                    {/* Top Row: Name + Location */}
-                    <div className="flex justify-between items-start flex-wrap gap-y-1">
-                        <div>
-                            <h1 className="text-2xl font-bold leading-none">{name}</h1>
-                            <p className="text-sm text-gray-700">{title}</p>
-                        </div>
-                        <div className="text-right text-sm text-gray-600">
-                            <p>{contact.location}</p>
-                            <p>{contact.phone}</p>
-                        </div>
-                    </div>
 
-                    {/* Bottom Row: GitHub & LinkedIn */}
-                    <div className="flex gap-4 text-sm text-blue-600 underline">
-                        <a href={`https://${contact.email}`} target="_blank" rel="noopener noreferrer">
+            {/* Header */}
+            <main className="font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-[794px] mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
+                <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm print:text-[11px] text-center">
+                    <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
+                    <p className="text-lg font-semibold">{title}</p>
+
+                    <div className="flex justify-center gap-4 text-sm underline">
+                        <p>{contact.location}</p>
+                        <p>{contact.phone}</p>
+                        <a href={`https://mailto:${contact.email}`} target="_blank" rel="noopener noreferrer">
                             {contact.email}
                         </a>
                         <a href={`https://${contact.github}`} target="_blank" rel="noopener noreferrer">
@@ -183,7 +181,7 @@ export default function ResumePage() {
                     </div>
                 </header>
 
-                <div className="hidden print:hidden">{atsKeywords.join(", ")}</div>
+                <section className="hidden print:hidden">{atsKeywords.join(", ")}</section>
 
                 <section className="break-inside-avoid mb-4">
                     <h2 className="text-lg font-semibold mb-1">Professional Summary</h2>
@@ -194,14 +192,16 @@ export default function ResumePage() {
                     <h2 className="text-lg font-semibold mb-1">Experience</h2>
                     {experience.map((job, index) => (
                         <article key={index} className="break-inside-avoid mb-3">
-                            <h3 className="font-semibold">
-                                {job.title} - {job.company}
-                            </h3>
-                            <p className="text-xs text-gray-600">
-                                {job.date} | {job.location}
-                            </p>
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-semibold">
+                                    {job.title} - {job.company}
+                                </h3>
+                                <p className="text-xs">
+                                    {job.date} | {job.location}
+                                </p>
+                            </div>
                             {job.links && (
-                                <div className="text-xs text-blue-600 mb-1">
+                                <div className="text-xs mb-1">
                                     {job.links.map((link, idx) => (
                                         <a
                                             key={idx}
@@ -228,8 +228,28 @@ export default function ResumePage() {
                     <h2 className="text-lg font-semibold mb-1">Projects</h2>
                     {projects.map((project, index) => (
                         <article key={index} className="break-inside-avoid mb-2">
-                            <h3 className="font-medium">{project.name}</h3>
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-medium">{project.name}</h3>
+                                <div>
+                                    {project.links && (
+                                        <div className="text-xs mb-1">
+                                            {project.links.map((link, idx) => (
+                                                <a
+                                                    key={idx}
+                                                    href={link}
+                                                    className="mr-2 underline"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    {new URL(link).hostname}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                             <p className="text-xs italic mb-1">Tech Stack: {project.stack}</p>
+
                             <ul className="list-disc ml-5 space-y-1">
                                 {project.points.slice(0, 2).map((point, i) => (
                                     <li key={i}>{point}</li>
