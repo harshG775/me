@@ -22,7 +22,7 @@ const resumeData = {
             title: "Lead Frontend Developer",
             company: "Prabhubhakti (Spiritual SaaS Platform)",
             location: "Gurugram",
-            date: "Jun 2025 - Present",
+            period: "Jun 2025 - Present",
             links: ["http://prabhubhakti.io", "http://prabhubhakti.com"],
             points: [
                 "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+ and organic traffic by 40% in the first month.",
@@ -35,7 +35,7 @@ const resumeData = {
             title: "Freelance Frontend Developer",
             company: "Kalpi Capital",
             location: "Freelance",
-            date: "Apr 2024",
+            period: "May 2025 - jun 2025",
             links: ["https://kalpicapital.com"],
             points: [
                 "Delivered a full-featured, SEO-first landing page from scratch using Next.js, ShadCN, Tailwind CSS, and @next/third-parties.",
@@ -46,7 +46,7 @@ const resumeData = {
             title: "Frontend Developer SDE",
             company: "Metis Eduventures Pvt. Ltd (Adda247)",
             location: "Gurugram",
-            date: "Aug 2024 - Feb 2025",
+            period: "Aug 2024 - Feb 2025",
             links: ["https://adda247.com"],
             points: [
                 "Built and optimized 5+ AI chatbot features using React.js, Zustand, and OpenAI APIs, automating over 30% of repetitive customer support interactions.",
@@ -58,7 +58,7 @@ const resumeData = {
             title: "Frontend Developer",
             company: "ItaxEasy",
             location: "Remote",
-            date: "Nov 2023 - May 2024",
+            period: "Oct 2023 - May 2024",
             links: ["https://itaxeasy.com"],
             points: [
                 "Revamped UI of a legacy tax-filing platform using React.js and Tailwind CSS, reducing bounce rates by 22% and improving session time by 17%.",
@@ -226,7 +226,7 @@ export default function ResumePage() {
                                     {job.title} - {job.company}
                                 </h3>
                                 <p className="text-xs">
-                                    {job.date} | {job.location}
+                                    {job.period} | {job.location}
                                 </p>
                             </div>
                             {job.links && (

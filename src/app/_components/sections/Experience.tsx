@@ -20,7 +20,7 @@ export default function Experience({ ...props }: React.ComponentProps<"section">
         {
             title: "Freelance Frontend Developer",
             company: "Kalpi Capital",
-            period: "Apr 2024",
+            period: "May 2025 - jun 2025",
             location: "Freelance",
             links: ["https://kalpicapital.com"],
             description: [
@@ -45,7 +45,7 @@ export default function Experience({ ...props }: React.ComponentProps<"section">
         {
             title: "Frontend Developer",
             company: "ItaxEasy",
-            period: "Nov 2023 - May 2024",
+            period: "Oct 2023 - May 2024",
             location: "Remote",
             links: ["https://itaxeasy.com"],
             description: [
