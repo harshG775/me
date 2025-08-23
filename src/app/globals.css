@@ -89,9 +89,9 @@
     --sidebar-accent-foreground: oklch(0.3353 0.0132 2.7676);
     --sidebar-border: oklch(0.9296 0.037 38.6868);
     --sidebar-ring: oklch(0.7357 0.1641 34.7091);
-    --font-sans: Montserrat, sans-serif;
-    --font-serif: Merriweather, serif;
-    --font-mono: Ubuntu Mono, monospace;
+    --font-primary: "Montserrat", sans-serif; /* main UI font */
+    --font-secondary: "Merriweather", serif; /* headings, quotes */
+    --font-code: "Ubuntu Mono", monospace; /* code blocks */
     --radius: 0.625rem;
     --shadow-2xs: 0px 6px 12px -3px hsl(0 0% 0% / 0.04);
     --shadow-xs: 0px 6px 12px -3px hsl(0 0% 0% / 0.04);
@@ -136,9 +136,9 @@
     --sidebar-accent-foreground: oklch(0.2569 0.0169 352.4042);
     --sidebar-border: oklch(0.3637 0.0203 342.2664);
     --sidebar-ring: oklch(0.7357 0.1641 34.7091);
-    --font-sans: Montserrat, sans-serif;
-    --font-serif: Merriweather, serif;
-    --font-mono: Ubuntu Mono, monospace;
+    --font-primary: "Montserrat", sans-serif; /* main UI font */
+    --font-secondary: "Merriweather", serif; /* headings, quotes */
+    --font-code: "Ubuntu Mono", monospace; /* code blocks */
     --radius: 0.625rem;
     --shadow-2xs: 0px 6px 12px -3px hsl(0 0% 0% / 0.04);
     --shadow-xs: 0px 6px 12px -3px hsl(0 0% 0% / 0.04);
@@ -163,46 +163,45 @@
 @keyframes float {
     0%,
     100% {
-      transform: translateY(0px) rotate(0deg);
+        transform: translateY(0px) rotate(0deg);
     }
     50% {
-      transform: translateY(-20px) rotate(5deg);
+        transform: translateY(-20px) rotate(5deg);
     }
-  }
-  
-  @keyframes pulse-soft {
+}
+
+@keyframes pulse-soft {
     0%,
     100% {
-      opacity: 0.6;
+        opacity: 0.6;
     }
     50% {
-      opacity: 0.8;
+        opacity: 0.8;
     }
-  }
-  
-  .animate-float {
+}
+
+.animate-float {
     animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-float-delayed {
+}
+
+.animate-float-delayed {
     animation: float 8s ease-in-out infinite;
     animation-delay: -2s;
-  }
-  
-  .animate-pulse-soft {
+}
+
+.animate-pulse-soft {
     animation: pulse-soft 4s ease-in-out infinite;
-  }
-  
-  /* Organic shapes */
-  .organic-shape {
+}
+
+/* Organic shapes */
+.organic-shape {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  
-  .organic-shape-2 {
+}
+
+.organic-shape-2 {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-  
-  .organic-shape-3 {
+}
+
+.organic-shape-3 {
     border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
-  }
-  
+}
