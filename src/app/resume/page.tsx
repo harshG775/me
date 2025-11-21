@@ -16,21 +16,22 @@ const resumeData = {
         github: "github.com/harshG775",
         linkedin: "linkedin.com/in/harshg775",
     },
-    summary: `Frontend-focused Full Stack Developer with 2+ years of hands-on experience building scalable, high-performing SaaS and AI-powered platforms using Next.js, React.js, and the MERN stack. Proven ability to lead frontend architecture, optimize performance, and deliver measurable business results across multi-tenant and customer-facing systems. Passionate about building fast, accessible, and maintainable interfaces.`,
+    summary: `Frontend-focused Full Stack Developer with 2+ years of hands-on experience building scalable, high-performing SaaS and AI-powered platforms using Next.js, React.js, and the MERN stack. Skilled in UI development, performance optimization, and building accessible, maintainable interfaces. Also experienced in guiding and mentoring two frontend interns.`,
     experience: [
         {
-            title: "Lead Frontend Developer",
+            title: "Frontend Developer",
             company: "Prabhubhakti (Spiritual SaaS Platform)",
             location: "Gurugram",
             period: "Jun 2025 - Present",
             links: ["http://prabhubhakti.io", "http://prabhubhakti.com"],
             points: [
-                "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+ and organic traffic by 40% in the first month.",
-                "Architected a multi-tenant SaaS platform with domain/subdomain routing, wallet-based credit system, and Razorpay integration for session bookings.",
+                "Built Prabhubhakti's landing and SaaS website using Next.js, Tailwind CSS, and Framer Motion, achieving 95+ SEO scores and a 40% increase in organic traffic.",
+                "Contributed to a multi-tenant SaaS platform with domain/subdomain routing, wallet system, and Razorpay integration.",
                 "Launched 2 astrologer storefronts (astrodrpc.com, divinetwinsoul.com) within 2 months, reducing onboarding time by 70%.",
-                "Collaborated with backend, design, and DevOps teams to ensure seamless integration and production readiness.",
+                "Guided and supported two frontend interns to maintain code quality and consistency.",
             ],
         },
+
         {
             title: "Freelance Frontend Developer",
             company: "Kalpi Capital",
