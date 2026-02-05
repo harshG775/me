@@ -12,7 +12,8 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
     return (
         <main className="flex-1">
-            <div className="relative flex min-h-dvh pt-24 items-center justify-center overflow-hidden px-6">
+            <div className="relative flex min-h-dvh items-center justify-center overflow-hidden px-6">
+                <div className="h-24"></div>
                 <section className="relative z-10 max-w-4xl text-center">
                     <Badge asChild className="rounded-full border-border py-1" variant="secondary">
                         <Link to="/contact">

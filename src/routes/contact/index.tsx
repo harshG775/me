@@ -9,7 +9,8 @@ export const Route = createFileRoute("/contact/")({
 function RouteComponent() {
     return (
         <main>
-            <div className="relative flex min-h-dvh pt-24 items-center justify-center overflow-hidden px-6">
+            <div className="relative flex min-h-dvh items-center justify-center overflow-hidden px-6">
+                <div className="h-24"></div>
                 <ContactSection />
             </div>
             <Footer />
