@@ -11,6 +11,7 @@ export const Route = createFileRoute("/")({
     component: RouteComponent,
 })
 
+// https://www.sanidhyy.name/#contact
 function RouteComponent() {
     return (
         <div className="flex flex-col">
