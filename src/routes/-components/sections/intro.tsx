@@ -71,7 +71,7 @@ export default function IntroSection() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline">
-                        <Link to="/">
+                        <Link to="/resume">
                             My Resume
                             <Download className="h-5! w-5!" />
                         </Link>
