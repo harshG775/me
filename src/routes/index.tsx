@@ -166,7 +166,12 @@ const projects: Project[] = [
         title: "Prabhubhakti SaaS Platform",
         category: "Full-Stack",
         status: "Completed",
-        associatedWith: "Prabhubhakti",
+        company: {
+            name: "Prabhubhakti",
+            url: "https://prabhubhakti.io",
+            location: "Gurugram",
+            workMode: "On-site",
+        },
         thumbnail: "/projects/prabhubhakti.png",
         shortDescription: "Multi-tenant spiritual SaaS with domain routing and wallet credits.",
         longDescription:
@@ -186,7 +191,12 @@ const projects: Project[] = [
         title: "Kalpi Capital Landing Page",
         category: "Frontend",
         status: "Completed",
-        associatedWith: "Kalpi Capital",
+        company: {
+            name: "Kalpi Capital",
+            url: "https://kalpicapital.com",
+            location: "Remote",
+            workMode: "Freelance",
+        },
         thumbnail: "/projects/kalpicapital.png",
         shortDescription: "SEO-first fintech landing page boosting performance and visibility.",
         longDescription:
@@ -208,7 +218,12 @@ const projects: Project[] = [
         title: "SupportDesk",
         category: "AI/ML",
         status: "Maintained",
-        associatedWith: "Adda247",
+        company: {
+            name: "Metis Eduventures (Adda247)",
+            url: "https://adda247.com",
+            location: "Gurugram",
+            workMode: "On-site",
+        },
         thumbnail: "/projects/supportdesk.png",
         shortDescription: "Internal AI dashboard saving ₹2L/year via support automation.",
         longDescription:
@@ -231,7 +246,12 @@ const projects: Project[] = [
         title: "AiDoubtSolver",
         category: "AI/ML",
         status: "Completed",
-        associatedWith: "Adda247",
+        company: {
+            name: "Metis Eduventures (Adda247)",
+            url: "https://adda247.com",
+            location: "Gurugram",
+            workMode: "On-site",
+        },
         thumbnail: "/projects/aidoubtsolver.png",
         shortDescription: "EdTech Voice Chatbot with real-time Whisper integration.",
         longDescription:
@@ -258,7 +278,12 @@ const projects: Project[] = [
         title: "ItaxEasy UI Revamp",
         category: "Frontend",
         status: "Completed",
-        associatedWith: "ItaxEasy",
+        company: {
+            name: "ItaxEasy",
+            url: "https://itaxeasy.com",
+            location: "Remote",
+            workMode: "Remote",
+        },
         thumbnail: "/projects/itaxeasy.png",
         shortDescription: "Modernized UI for a legacy tax platform reducing bounce rates.",
         longDescription:

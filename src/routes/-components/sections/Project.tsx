@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ExternalLink, Github, Globe, Package, FileText, ArrowRight } from "lucide-react"
+import { ExternalLink, Github, Globe, Package, FileText, ArrowRight, MapPin } from "lucide-react"
 
 export interface Project {
     id: string
@@ -40,7 +40,41 @@ const LinkIcon = ({ type }: { type: Project["links"][0]["type"] }) => {
     }
 }
 
+export interface Project {
+    id: string
+    title: string
+    category: "Full-Stack" | "Frontend" | "Open Source" | "AI/ML"
+    status: "Completed" | "In Progress" | "Maintained"
+    // Updated structure
+    company?: {
+        name: string
+        url: string
+        location?: string
+        workMode?: string
+    }
+    thumbnail: string
+    videoDemo?: string
+    shortDescription: string
+    longDescription: string
+    metrics?: {
+        label: string
+        value: string
+    }[]
+    stack: {
+        name: string
+        category: "frontend" | "backend" | "devops" | "ai"
+    }[]
+    links: {
+        type: "github" | "live" | "npm" | "case-study"
+        url: string
+    }[]
+}
+
 const ProjectCard = ({ project }: { project: Project }) => {
+    const companyLogo = project.company?.url
+        ? `https://www.google.com/s2/favicons?domain=${new URL(project.company.url).hostname}&sz=64`
+        : null
+
     return (
         <div className="group relative flex flex-col h-full bg-card border rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-primary/50">
             {/* Thumbnail */}
@@ -59,13 +93,31 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
             {/* Content */}
             <div className="flex flex-col grow p-5">
+                {/* Company Detailed Header */}
+                {project.company && (
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                            {companyLogo && <img src={companyLogo} alt="" className="w-5 h-5 rounded-sm" />}
+                            <span className="text-primary text-[11px] font-bold uppercase tracking-tight">
+                                {project.company.name}
+                            </span>
+                        </div>
+                        {project.company.location && (
+                            <div className="flex items-center gap-1 text-muted-foreground text-[10px]">
+                                <MapPin className="w-3 h-3" />
+                                {project.company.location}
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
                 </div>
 
                 <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{project.shortDescription}</p>
 
-                {/* Metrics Grid */}
+                {/* Metrics & Stack sections remain the same... */}
                 {project.metrics && (
                     <div className="grid grid-cols-2 gap-2 mb-4 bg-muted/50 p-2 rounded-lg">
                         {project.metrics.map((metric, i) => (
@@ -77,7 +129,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     </div>
                 )}
 
-                {/* Stack Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
                     {project.stack.slice(0, 4).map((tech, i) => (
                         <span
@@ -87,11 +138,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
                             {tech.name}
                         </span>
                     ))}
-                    {project.stack.length > 4 && (
-                        <span className="text-[11px] text-muted-foreground pt-0.5">
-                            +{project.stack.length - 4} more
-                        </span>
-                    )}
                 </div>
 
                 {/* Action Links */}
@@ -113,7 +159,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
     )
 }
-
 export default function ProjectSection({ className, projects }: { className?: string; projects: Project[] }) {
     const featuredProjects = projects.slice(0, 3)
 
