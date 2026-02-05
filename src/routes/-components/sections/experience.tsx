@@ -95,9 +95,13 @@ export default function ExperienceSection({
                                                             {exp.title}
                                                         </h3>
                                                         <div className="flex items-center gap-1.5 text-muted-foreground mt-1">
-                                                            <span className="text-sm font-semibold text-foreground/80">
+                                                            <a
+                                                                href={exp.company.url}
+                                                                target="_blank"
+                                                                className="text-sm font-semibold text-foreground/80 underline"
+                                                            >
                                                                 {exp.company.name}
-                                                            </span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
