@@ -13,7 +13,7 @@ import { Link } from "@tanstack/react-router"
 export type NavLink = {
     label: string
     href: string
-    onClick?: () => void
+    hash?: string
 }
 
 type NavMenuProps = ComponentProps<typeof NavigationMenu> & {
@@ -22,15 +22,13 @@ type NavMenuProps = ComponentProps<typeof NavigationMenu> & {
 
 export const NavMenu = ({ links, ...props }: NavMenuProps) => (
     <NavigationMenu {...props}>
-        <NavigationMenuList className="space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start data-[orientation=vertical]:justify-start">
+        <NavigationMenuList className="space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-end data-[orientation=vertical]:justify-start">
             {links.map((link) => (
                 <NavigationMenuItem key={link.label}>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        {link?.onClick ? (
-                            <button onClick={link?.onClick}>{link.label}</button>
-                        ) : (
-                            <Link to={link.href}>{link.label}</Link>
-                        )}
+                        <Link to={link.href} hash={link.hash}>
+                            {link.label}
+                        </Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             ))}

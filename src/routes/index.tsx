@@ -18,7 +18,7 @@ function RouteComponent() {
                 <div className="h-24"></div>
                 <section className="relative z-10 max-w-4xl text-center">
                     <Badge asChild className="rounded-full border-border py-1" variant="secondary">
-                        <Link to="/contact">
+                        <Link to="/" hash={"contact"}>
                             Available for Freelance <ArrowUpRight className="ml-1 size-4" />
                         </Link>
                     </Badge>
@@ -35,7 +35,7 @@ function RouteComponent() {
                             <FileText className="h-5! w-5!" />
                         </Button>
                         <Button asChild className="rounded-full text-base shadow-none" size="lg" variant="outline">
-                            <Link to="/contact">
+                            <Link to="/" hash={"contact"}>
                                 <Contact2 className="h-5! w-5!" /> Contact Me
                             </Link>
                         </Button>
@@ -66,7 +66,7 @@ function RouteComponent() {
                 </div>
                 <section>{/*  */}</section>
             </div>
-            <div className="mt-16 lg:mt-16 relative py-16">
+            <div id={"contact"} className="mt-16 lg:mt-16 relative py-16">
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                     <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>

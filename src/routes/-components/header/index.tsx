@@ -2,74 +2,46 @@ import { Button } from "@/components/ui/button"
 import { Logo } from "../logo"
 import type { NavLink } from "./nav-menu"
 import { NavMenu } from "./nav-menu"
-import { NavigationSheet } from "./navigation-sheet"
-import { Link, useRouter } from "@tanstack/react-router"
-const scrollToSection = async (id: string, runBefore?: () => void | Promise<void>) => {
-    await runBefore?.()
-    const element = document.getElementById(id)
-    if (element) {
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        })
-    }
-}
+import { X } from "lucide-react"
+
 export function Header() {
-    const router = useRouter()
     const navLinks: NavLink[] = [
         {
             label: "Home",
             href: "/",
-            onClick: () => {
-                scrollToSection("home", () =>
-                    router.navigate({
-                        to: "/",
-                    }),
-                )
-            },
+            hash: "home",
         },
         {
             label: "Experience",
-            href: "/experience",
-            onClick: () =>
-                scrollToSection("experience", () =>
-                    router.navigate({
-                        to: "/",
-                    }),
-                ),
+            href: "/",
+            hash: "experience",
         },
         {
             label: "Projects",
-            href: "/projects",
-            onClick: () =>
-                scrollToSection("projects", () =>
-                    router.navigate({
-                        to: "/",
-                    }),
-                ),
+            href: "/",
+            hash: "projects",
         },
-        { label: "Contact", href: "/contact" },
+        {
+            label: "Contact",
+            href: "/",
+            hash: "contact",
+        },
     ]
 
     return (
         <div className="sticky top-0 z-40">
             <header>
-                <nav className="fixed inset-x-4 top-6 mx-auto h-16 max-w-(--breakpoint-xl) rounded-full border bg-background">
-                    <div className="mx-auto flex h-full items-center justify-between px-4">
-                        <Logo />
-
-                        {/* Desktop Menu */}
-                        <NavMenu className="hidden md:block" links={navLinks} />
-
-                        <div className="flex items-center gap-3">
-                            <Button asChild className="rounded-full">
-                                <Link to="/contact">Hire Me</Link>
+                <nav className="fixed inset-x-4 top-3 mx-auto h-12 max-w-(--breakpoint-sm) rounded-full border bg-background">
+                    <div className="mx-auto flex h-full items-center justify-between px-3 relative">
+                        <div className="ml-2">
+                            <Logo />
+                        </div>
+                        <NavMenu className="hidden md:block flex-1 w-full" links={navLinks} />
+                        <div className="block md:hidden">
+                            <Button variant={"default"} size={"icon-sm"} className="rounded-full">
+                                <X />
                             </Button>
-
-                            {/* Mobile Menu */}
-                            <div className="md:hidden">
-                                <NavigationSheet links={navLinks} />
-                            </div>
+                            <NavMenu className="absolute top-14 right-0" links={navLinks} orientation="vertical" />
                         </div>
                     </div>
                 </nav>
