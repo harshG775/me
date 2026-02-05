@@ -4,6 +4,7 @@ import ContactSection from "./-components/sections/contact.tsx"
 import ExperienceSection, { Experience } from "./-components/sections/experience.tsx"
 import ProjectSection, { Project } from "./-components/sections/Project.tsx"
 import IntroSection from "./-components/sections/intro.tsx"
+import { Header } from "./-components/header/index.tsx"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -11,50 +12,56 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
     return (
-        <main className="flex-1">
-            <div id={"home"} className="relative flex min-h-[80dvh] items-center justify-center overflow-hidden px-6">
-                <div className="h-24"></div>
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
-                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+        <div className="flex flex-col">
+            <Header />
+            <main className="flex-1">
+                <div
+                    id={"home"}
+                    className="relative flex min-h-[80dvh] items-center justify-center overflow-hidden px-6"
+                >
+                    <div className="h-24"></div>
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                        <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                    </div>
+                    <IntroSection />
                 </div>
-                <IntroSection />
-            </div>
-            <div id={"experience"} className="mt-16 lg:mt-16 relative py-16">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
-                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                <div id={"experience"} className="mt-16 lg:mt-16 relative py-16">
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                        <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                    </div>
+                    <ExperienceSection experiences={experiences} />
                 </div>
-                <ExperienceSection experiences={experiences} />
-            </div>
-            <div id={"projects"} className="mt-16 lg:mt-16 relative py-16">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
-                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                <div id={"projects"} className="mt-16 lg:mt-16 relative py-16">
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                        <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                    </div>
+                    <ProjectSection projects={projects} />
                 </div>
-                <ProjectSection projects={projects} />
-            </div>
-            <div className="mt-16 lg:mt-16 relative py-16">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
-                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                <div className="mt-16 lg:mt-16 relative py-16">
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                        <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                    </div>
+                    <section>{/*  */}</section>
                 </div>
-                <section>{/*  */}</section>
-            </div>
-            <div id={"contact"} className="mt-16 lg:mt-16 relative py-16">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
-                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                <div id={"contact"} className="mt-16 lg:mt-16 relative py-16">
+                    <div className="absolute inset-0 -z-10">
+                        <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                        <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                    </div>
+                    <ContactSection />
                 </div>
-                <ContactSection />
-            </div>
-            <Footer />
-        </main>
+                <Footer />
+            </main>
+        </div>
     )
 }
 
