@@ -1,5 +1,6 @@
-import { LinkedinIcon, GithubIcon, TwitchIcon, TwitterIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Link } from "@tanstack/react-router"
 import { Logo } from "../logo"
 
@@ -27,7 +28,9 @@ export function Footer() {
                         ))}
                     </ul>
                 </div>
+
                 <Separator />
+
                 <div className="flex flex-col-reverse items-center justify-between gap-x-2 gap-y-5 px-6 py-8 sm:flex-row xl:px-0">
                     <span className="text-muted-foreground">
                         &copy; {new Date().getFullYear()}{" "}
@@ -37,20 +40,43 @@ export function Footer() {
                         . All rights reserved.
                     </span>
 
-                    <div className="flex items-center gap-5 text-muted-foreground">
-                        <Link to="/" target="_blank">
-                            <GithubIcon className="h-5 w-5" />
-                        </Link>
-                        <Link to="/" target="_blank">
-                            <LinkedinIcon className="h-5 w-5" />
-                        </Link>
-                        <Link to="/" target="_blank">
-                            <TwitterIcon className="h-5 w-5" />
-                        </Link>
-                        <Link to="/" target="_blank">
-                            <TwitchIcon className="h-5 w-5" />
-                        </Link>
-                    </div>
+                    <TooltipProvider>
+                        <div className="flex items-center gap-1 text-muted-foreground">
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <a
+                                        href="https://github.com/harshG775"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="GitHub"
+                                        className="p-3"
+                                    >
+                                        <GithubIcon className="h-5 w-5 hover:text-foreground transition-colors" />
+                                    </a>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>GitHub</p>
+                                </TooltipContent>
+                            </Tooltip>
+
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <a
+                                        href="https://www.linkedin.com/in/harshg775"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="LinkedIn"
+                                        className="p-3"
+                                    >
+                                        <LinkedinIcon className="h-5 w-5 hover:text-foreground transition-colors" />
+                                    </a>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>LinkedIn</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </div>
+                    </TooltipProvider>
                 </div>
             </div>
         </footer>
