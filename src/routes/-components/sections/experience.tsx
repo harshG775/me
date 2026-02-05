@@ -28,7 +28,10 @@ export type Experience = {
     }[]
 }
 
-export default function ExperienceSection({ ...props }: React.ComponentProps<"section">) {
+export default function ExperienceSection({
+    experiences,
+    ...props
+}: React.ComponentProps<"section"> & { experiences: Experience[] }) {
     const formatDate = (dateStr?: string) => {
         if (!dateStr) return "Present"
         return new Date(dateStr).toLocaleDateString("en-US", {
@@ -37,86 +40,6 @@ export default function ExperienceSection({ ...props }: React.ComponentProps<"se
             timeZone: "UTC",
         })
     }
-
-    const experiences: Experience[] = [
-        {
-            id: "prabhubhakti-lead",
-            title: "Lead Frontend Engineer",
-            employmentType: "Full-time",
-            company: {
-                name: "Prabhubhakti (Spiritual SaaS)",
-                url: "http://prabhubhakti.io",
-                location: "Gurugram",
-                workMode: "On-site",
-            },
-            startDate: "2025-06-01",
-            links: [
-                { label: "prabhubhakti.io", url: "http://prabhubhakti.io", type: "project" },
-                { label: "prabhubhakti.com", url: "http://prabhubhakti.com", type: "project" },
-            ],
-            description: [
-                "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+.",
-                "Architected a multi-tenant SaaS platform with domain/subdomain routing and Razorpay integration.",
-                "Launched 2 astrologer storefronts within 2 months, reducing onboarding time by 70%.",
-                "Collaborated with backend, design, and DevOps teams to ensure production readiness.",
-            ],
-            skills: [
-                { name: "Next.js", category: "frontend" },
-                { name: "Tailwind CSS", category: "frontend" },
-                { name: "Framer Motion", category: "frontend" },
-                { name: "Razorpay", category: "tools" },
-                { name: "Multi-Tenant", category: "backend" },
-            ],
-        },
-        {
-            id: "adda247-sde",
-            title: "Frontend Engineer SDE",
-            employmentType: "Full-time",
-            company: {
-                name: "Metis Eduventures (Adda247)",
-                url: "https://adda247.com",
-                location: "Gurugram",
-                workMode: "On-site",
-            },
-            startDate: "2024-08-01",
-            endDate: "2025-02-01",
-            links: [{ label: "adda247.com", url: "https://adda247.com", type: "project" }],
-            description: [
-                "Built and optimized 5+ AI chatbot features using React.js and OpenAI APIs, automating 30% of customer support.",
-                "Improved initial page load speed by 25% via bundle optimization and tree-shaking.",
-                "Participated in sprint planning and QA cycles in an Agile environment.",
-            ],
-            skills: [
-                { name: "React.js", category: "frontend" },
-                { name: "Zustand", category: "frontend" },
-                { name: "OpenAI", category: "tools" },
-                { name: "Optimization", category: "tools" },
-            ],
-        },
-        {
-            id: "itaxeasy-frontend",
-            title: "Frontend Engineer",
-            employmentType: "Full-time",
-            company: {
-                name: "ItaxEasy",
-                url: "https://itaxeasy.com",
-                location: "Remote",
-                workMode: "Remote",
-            },
-            startDate: "2023-10-01",
-            endDate: "2024-05-01",
-            links: [{ label: "itaxeasy.com", url: "https://itaxeasy.com", type: "project" }],
-            description: [
-                "Revamped UI of a legacy tax-filing platform, reducing bounce rates by 22%.",
-                "Introduced route-based lazy loading, resulting in 18% faster TTI.",
-            ],
-            skills: [
-                { name: "React.js", category: "frontend" },
-                { name: "Tailwind CSS", category: "frontend" },
-                { name: "Performance", category: "tools" },
-            ],
-        },
-    ]
 
     return (
         <section className={cn("max-w-6xl mx-auto px-3 py-12", props.className)} {...props}>

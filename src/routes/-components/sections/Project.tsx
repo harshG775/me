@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ExternalLink, Github, Globe, Package, FileText } from "lucide-react"
+import { ExternalLink, Github, Globe, Package, FileText, ArrowRight } from "lucide-react"
 
 export interface Project {
     id: string
@@ -25,8 +25,6 @@ export interface Project {
     }[]
 }
 
-const projects: Project[] = []
-
 const LinkIcon = ({ type }: { type: Project["links"][0]["type"] }) => {
     switch (type) {
         case "github":
@@ -42,11 +40,113 @@ const LinkIcon = ({ type }: { type: Project["links"][0]["type"] }) => {
     }
 }
 
-export default function ProjectSection({ ...props }: React.ComponentProps<"section">) {
+const ProjectCard = ({ project }: { project: Project }) => {
     return (
-        <section className={cn("max-w-6xl mx-auto px-3 py-12", props.className)} {...props}>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Projects</h2>
-            <div>{/*  */}</div>
+        <div className="group relative flex flex-col h-full bg-card border rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-primary/50">
+            {/* Thumbnail */}
+            <div className="relative aspect-video overflow-hidden">
+                <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute top-3 left-3 flex gap-2">
+                    <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-background/80 backdrop-blur-md border rounded">
+                        {project.category}
+                    </span>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col grow p-5">
+                <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
+                </div>
+
+                <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{project.shortDescription}</p>
+
+                {/* Metrics Grid */}
+                {project.metrics && (
+                    <div className="grid grid-cols-2 gap-2 mb-4 bg-muted/50 p-2 rounded-lg">
+                        {project.metrics.map((metric, i) => (
+                            <div key={i} className="flex flex-col">
+                                <span className="text-[10px] uppercase text-muted-foreground">{metric.label}</span>
+                                <span className="text-xs font-bold">{metric.value}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Stack Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                    {project.stack.slice(0, 4).map((tech, i) => (
+                        <span
+                            key={i}
+                            className="px-2 py-0.5 text-[11px] bg-secondary text-secondary-foreground rounded-full border border-border"
+                        >
+                            {tech.name}
+                        </span>
+                    ))}
+                    {project.stack.length > 4 && (
+                        <span className="text-[11px] text-muted-foreground pt-0.5">
+                            +{project.stack.length - 4} more
+                        </span>
+                    )}
+                </div>
+
+                {/* Action Links */}
+                <div className="flex items-center gap-4 mt-auto pt-4 border-t">
+                    {project.links.map((link, i) => (
+                        <a
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                        >
+                            <LinkIcon type={link.type} />
+                            <span className="capitalize">{link.type}</span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default function ProjectSection({ className, projects }: { className?: string; projects: Project[] }) {
+    const featuredProjects = projects.slice(0, 3)
+
+    return (
+        <section className={cn("py-24 px-6 max-w-7xl mx-auto", className)}>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                        Featured <span className="text-primary">Projects</span>
+                    </h2>
+                    <p className="text-muted-foreground text-lg">
+                        A selection of my recent work in SaaS, AI, and Fintech, focusing on performance and user
+                        experience.
+                    </p>
+                </div>
+
+                <button className="hidden md:flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium transition-all hover:gap-4 hover:opacity-90">
+                    View All Projects <ArrowRight className="w-4 h-4" />
+                </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))}
+            </div>
+
+            {/* Mobile View All Button */}
+            <div className="mt-12 flex md:hidden justify-center">
+                <button className="flex items-center gap-2 px-8 py-4 bg-secondary text-secondary-foreground rounded-xl w-full justify-center font-bold border border-border">
+                    View All Projects <ArrowRight className="w-4 h-4" />
+                </button>
+            </div>
         </section>
     )
 }
