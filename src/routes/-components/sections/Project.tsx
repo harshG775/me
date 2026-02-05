@@ -45,7 +45,7 @@ const LinkIcon = ({ type }: { type: Project["links"][0]["type"] }) => {
 export default function ProjectSection({ ...props }: React.ComponentProps<"section">) {
     return (
         <section className={cn("max-w-6xl mx-auto px-3 py-12", props.className)} {...props}>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Experience</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Projects</h2>
             <div>{/*  */}</div>
         </section>
     )
