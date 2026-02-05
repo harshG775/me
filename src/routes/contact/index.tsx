@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import ContactSection from "../-components/sections/contact"
+import { Footer } from "../-components/footer/index.tsx"
 
 export const Route = createFileRoute("/contact/")({
     component: RouteComponent,
@@ -8,9 +9,10 @@ export const Route = createFileRoute("/contact/")({
 function RouteComponent() {
     return (
         <main>
-            <div className="min-h-[80dvh] py-24">
+            <div className="relative flex min-h-dvh pt-24 items-center justify-center overflow-hidden px-6">
                 <ContactSection />
             </div>
+            <Footer />
         </main>
     )
 }
