@@ -28,7 +28,7 @@ export default function IntroSection() {
                         />
                     </M.div>
 
-                    <M.span
+                    {/* <M.span
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
@@ -40,7 +40,7 @@ export default function IntroSection() {
                         className="absolute text-2xl bottom-0 right-0"
                     >
                         👋
-                    </M.span>
+                    </M.span> */}
                 </div>
             </div>
             <M.h1
