@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Footer } from "./-components/footer/index.tsx"
 import ContactSection from "./-components/sections/contact.tsx"
+import ExperienceSection from "./-components/sections/experience.tsx"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -42,6 +43,14 @@ function RouteComponent() {
             </div>
             <div className="mt-16 lg:mt-16 ">
                 <section>{/*  */}</section>
+            </div>
+            <div className="mt-16 lg:mt-16 relative py-16">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
+                    <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-linear-to-br from-chart-2/5 to-chart-4/5 rounded-full blur-3xl"></div>
+                </div>
+                <ExperienceSection />
             </div>
             <div className="mt-16 lg:mt-16 relative py-16">
                 <div className="absolute inset-0 -z-10">
