@@ -3,6 +3,7 @@ import { ArrowUpRight, Contact2, FileText } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Header } from "./-components/header/index"
+import { Footer } from "./-components/footer/index.tsx"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -43,6 +44,7 @@ function RouteComponent() {
                 <div>
                     <section>{/*  */}</section>
                 </div>
+                <Footer />
             </main>
         </div>
     )

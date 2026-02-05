@@ -7,10 +7,10 @@ import { Link } from "@tanstack/react-router"
 
 export function Header() {
     const navLinks: NavLink[] = [
-        { label: "Home", to: "/" },
-        { label: "Experience", to: "/experience" },
-        { label: "Projects", to: "/projects" },
-        { label: "Contact", to: "/contact" },
+        { label: "Home", href: "/" },
+        { label: "Experience", href: "/experience" },
+        { label: "Projects", href: "/projects" },
+        { label: "Contact", href: "/contact" },
     ]
 
     return (
