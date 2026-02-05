@@ -6,6 +6,7 @@ import appCss from "../styles.css?url"
 
 import type { QueryClient } from "@tanstack/react-query"
 import TanStackQueryDevtools from "@/integrations/tanstack-query/devtools"
+import { Header } from "./-components/header"
 
 interface MyRouterContext {
     queryClient: QueryClient
@@ -43,7 +44,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <HeadContent />
             </head>
             <body>
-                {children}
+                <div className="flex flex-col">
+                    <Header />
+                    {children}
+                </div>
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",
