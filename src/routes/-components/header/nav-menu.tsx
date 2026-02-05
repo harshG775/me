@@ -13,6 +13,7 @@ import { Link } from "@tanstack/react-router"
 export type NavLink = {
     label: string
     href: string
+    onClick?: () => void
 }
 
 type NavMenuProps = ComponentProps<typeof NavigationMenu> & {
@@ -25,7 +26,11 @@ export const NavMenu = ({ links, ...props }: NavMenuProps) => (
             {links.map((link) => (
                 <NavigationMenuItem key={link.label}>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to={link.href}>{link.label}</Link>
+                        {link?.onClick ? (
+                            <button onClick={link?.onClick}>{link.label}</button>
+                        ) : (
+                            <Link to={link.href}>{link.label}</Link>
+                        )}
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             ))}

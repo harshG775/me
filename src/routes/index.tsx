@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
     return (
         <main className="flex-1">
-            <div className="relative flex min-h-dvh items-center justify-center overflow-hidden px-6">
+            <div id={"home"} className="relative flex min-h-dvh items-center justify-center overflow-hidden px-6">
                 <div className="h-24"></div>
                 <section className="relative z-10 max-w-4xl text-center">
                     <Badge asChild className="rounded-full border-border py-1" variant="secondary">
@@ -42,7 +42,7 @@ function RouteComponent() {
                     </div>
                 </section>
             </div>
-            <div className="mt-16 lg:mt-16 relative py-16">
+            <div id={"experience"} className="mt-16 lg:mt-16 relative py-16">
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                     <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
@@ -50,7 +50,7 @@ function RouteComponent() {
                 </div>
                 <ExperienceSection experiences={experiences} />
             </div>
-            <div className="mt-16 lg:mt-16 relative py-16">
+            <div id={"projects"} className="mt-16 lg:mt-16 relative py-16">
                 <div className="absolute inset-0 -z-10">
                     <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                     <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>

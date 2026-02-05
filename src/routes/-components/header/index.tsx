@@ -3,13 +3,51 @@ import { Logo } from "../logo"
 import type { NavLink } from "./nav-menu"
 import { NavMenu } from "./nav-menu"
 import { NavigationSheet } from "./navigation-sheet"
-import { Link } from "@tanstack/react-router"
-
+import { Link, useRouter } from "@tanstack/react-router"
+const scrollToSection = async (id: string, runBefore?: () => void | Promise<void>) => {
+    await runBefore?.()
+    const element = document.getElementById(id)
+    if (element) {
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        })
+    }
+}
 export function Header() {
+    const router = useRouter()
     const navLinks: NavLink[] = [
-        { label: "Home", href: "/" },
-        { label: "Experience", href: "/experience" },
-        { label: "Projects", href: "/projects" },
+        {
+            label: "Home",
+            href: "/",
+            onClick: () => {
+                scrollToSection("home", () =>
+                    router.navigate({
+                        to: "/",
+                    }),
+                )
+            },
+        },
+        {
+            label: "Experience",
+            href: "/experience",
+            onClick: () =>
+                scrollToSection("experience", () =>
+                    router.navigate({
+                        to: "/",
+                    }),
+                ),
+        },
+        {
+            label: "Projects",
+            href: "/projects",
+            onClick: () =>
+                scrollToSection("projects", () =>
+                    router.navigate({
+                        to: "/",
+                    }),
+                ),
+        },
         { label: "Contact", href: "/contact" },
     ]
 
