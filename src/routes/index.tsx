@@ -92,8 +92,9 @@ const experiences: Experience[] = [
         },
         startDate: "2025-06-01",
         links: [
+            { label: "prabhubhakti.com", url: "http://learn.prabhubhakti.io", type: "project" },
+            { label: "flownic", url: "https://ebook.flownic.io", type: "project" },
             { label: "prabhubhakti.io", url: "http://prabhubhakti.io", type: "project" },
-            { label: "prabhubhakti.com", url: "http://prabhubhakti.com", type: "project" },
         ],
         description: [
             "Developed Prabhubhakti's entire landing and SaaS website from scratch using Next.js, Tailwind CSS, and Framer Motion, increasing SEO scores to 95+.",
@@ -178,7 +179,7 @@ const projects: Project[] = [
             { name: "Razorpay", category: "backend" },
             { name: "Domain Routing", category: "devops" },
         ],
-        links: [{ type: "live", url: "https://prabhubhakti.io" }],
+        links: [{ type: "live", url: "https://learn.prabhubhakti.io" }],
     },
     {
         id: "kalpi-capital",
