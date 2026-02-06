@@ -53,7 +53,7 @@ export default function IntroSection() {
                         hash={"contact"}
                         className={cn(
                             buttonVariants({ variant: "default", size: "lg" }),
-                            "rounded-full h-14 px-12 flex w-full flex-1",
+                            "rounded-full h-12 lg:h-14 flex w-full flex-1",
                         )}
                     >
                         Contact Me
@@ -63,7 +63,7 @@ export default function IntroSection() {
                         to="/resume"
                         className={cn(
                             buttonVariants({ variant: "outline", size: "lg" }),
-                            "rounded-full h-14 px-12 flex w-full flex-1",
+                            "rounded-full h-12 lg:h-14 flex w-full flex-1",
                         )}
                     >
                         My Resume
@@ -75,7 +75,7 @@ export default function IntroSection() {
                                 asChild
                                 className={cn(
                                     buttonVariants({ variant: "outline", size: "icon-lg" }),
-                                    "rounded-full h-14 w-14",
+                                    "rounded-full size-12 lg:size-14",
                                 )}
                             >
                                 <a
@@ -85,7 +85,7 @@ export default function IntroSection() {
                                     aria-label="LinkedIn"
                                     className="p-3"
                                 >
-                                    <LinkedinIcon className="size-8 hover:text-foreground transition-colors" />
+                                    <LinkedinIcon className="size-6 lg:size-8 hover:text-foreground transition-colors" />
                                 </a>
                             </TooltipTrigger>
                             <TooltipContent>
@@ -97,7 +97,7 @@ export default function IntroSection() {
                                 asChild
                                 className={cn(
                                     buttonVariants({ variant: "outline", size: "icon-lg" }),
-                                    "rounded-full h-14 w-14",
+                                    "rounded-full size-12 lg:size-14",
                                 )}
                             >
                                 <a
@@ -107,7 +107,7 @@ export default function IntroSection() {
                                     aria-label="GitHub"
                                     className="p-3"
                                 >
-                                    <GithubIcon className="size-8 hover:text-foreground transition-colors" />
+                                    <GithubIcon className="size-6 lg:size-8 hover:text-foreground transition-colors" />
                                 </a>
                             </TooltipTrigger>
                             <TooltipContent>
