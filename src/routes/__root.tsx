@@ -6,12 +6,20 @@ import appCss from "../styles.css?url"
 
 import type { QueryClient } from "@tanstack/react-query"
 import TanStackQueryDevtools from "@/integrations/tanstack-query/devtools"
+import { ThemeProvider } from "@/components/contexts/theme-provider"
+import { getThemeServerFn } from "@/lib/server-fn/theme"
+import ThemeMode from "@/components/theme-mode"
+import { cn } from "@/lib/utils"
 
 interface MyRouterContext {
     queryClient: QueryClient
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
+    loader: async () => {
+        const theme = await getThemeServerFn()
+        return { theme }
+    },
     head: () => ({
         meta: [
             {
@@ -37,16 +45,23 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+    const { theme } = Route.useLoaderData()
+
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="en" className={cn("scroll-smooth", theme)} suppressHydrationWarning>
             <head>
                 <HeadContent />
             </head>
-            <body className="dark">
-                {children}
+            <body>
+                <ThemeProvider theme={theme}>
+                    {children}
+                    <div className="fixed bottom-6 right-6 z-50">
+                        <ThemeMode />
+                    </div>
+                </ThemeProvider>
                 <TanStackDevtools
                     config={{
-                        position: "bottom-right",
+                        position: "bottom-left",
                     }}
                     plugins={[
                         {
