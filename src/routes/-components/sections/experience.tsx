@@ -42,7 +42,7 @@ export default function ExperienceSection({
     }
 
     return (
-        <section className={cn("max-w-6xl mx-auto px-3 py-12", props.className)} {...props}>
+        <section className={cn("max-w-(--breakpoint-xl) mx-auto px-3 py-12", props.className)} {...props}>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Experience</h2>
 
             <div className="relative">

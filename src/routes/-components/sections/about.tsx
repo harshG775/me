@@ -9,7 +9,7 @@ export default function AboutSection({ ...props }: React.ComponentProps<"section
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={cn("max-w-6xl mx-auto px-3 py-12 text-center", props.className)}
+            className={cn("max-w-(--breakpoint-xl) mx-auto px-3 py-12 text-center", props.className)}
         >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">About me</h2>
 

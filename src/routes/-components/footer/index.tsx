@@ -14,7 +14,7 @@ const footerLinks = [
 export function Footer() {
     return (
         <footer className="border-t">
-            <div className="mx-auto max-w-(--breakpoint-xl)">
+            <div className="mx-auto max-w-(--breakpoint-lg)">
                 <div className="flex flex-col items-center justify-start py-12">
                     <Logo />
 

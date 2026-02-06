@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 
 export default function ContactSection({ ...props }: React.ComponentProps<"section">) {
     return (
-        <section className={cn("max-w-6xl mx-auto px-3", props.className)} {...props}>
+        <section className={cn("max-w-(--breakpoint-xl) mx-auto px-3", props.className)} {...props}>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Get In Touch</h2>
             <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-8">

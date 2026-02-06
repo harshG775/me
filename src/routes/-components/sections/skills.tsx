@@ -100,7 +100,7 @@ const skillCategories = [
 
 export default function SkillsSection() {
     return (
-        <section className="max-w-6xl mx-auto px-3 py-16">
+        <section className="max-w-(--breakpoint-xl) mx-auto px-3 py-16">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">My Skills</h2>
 
             <M.div
