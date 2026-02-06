@@ -1,8 +1,4 @@
-// client-side component
-"use client"
-
 import { cn } from "@/lib/utils"
-// Import necessary dependencies and components.
 import { motion as M } from "motion/react"
 
 export default function AboutSection({ ...props }: React.ComponentProps<"section">) {
@@ -10,30 +6,16 @@ export default function AboutSection({ ...props }: React.ComponentProps<"section
         <M.section
             id="about"
             initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.175 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className={cn("max-w-6xl mx-auto px-3 py-12 text-center", props.className)}
         >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">About me</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">About me</h2>
 
-            {/* Display a paragraph with information about the user's background and interests. */}
-            <p className="mb-3">
-                After passing out my <b className="font-medium">High School</b>, I decided to pursue my passion for
-                programming. I enrolled in a coding bootcamp and learned{" "}
-                <b className="font-medium">full-stack web development</b>.{" "}
-                <i className="italic">My favorite part of programming</i> is the problem-solving aspect. I{" "}
-                <u className="underline">love</u> the feeling of finally figuring out a solution to a problem. My core
-                stack is <b className="font-medium">React, Next.js, Node.js, and MySQL</b>. I am also familiar with
-                TypeScript and Prisma. I am always looking to learn new technologies. I am currently looking for a{" "}
-                <b className="font-medium">full-time position</b> as a software developer.
-            </p>
-
-            {/* Display another paragraph about the user's interests and hobbies. */}
-            <p>
-                <i className="italic">When I'm not coding</i>, I enjoy playing video games, watching movies, and reading
-                novels. I also enjoy <b className="font-medium">learning new things</b>. I am currently learning about{" "}
-                <b className="font-medium">astronomy and psychology</b>. I'm also learning how to build and program
-                robots.
+            <p className="max-w-3xl mx-auto text-base md:text-lg text-muted-foreground">
+                I'm a passionate web developer crafting beautiful, functional experiences that bring ideas to life
+                through code.
             </p>
         </M.section>
     )
