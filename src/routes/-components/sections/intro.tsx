@@ -1,9 +1,10 @@
 import { motion as M } from "motion/react"
 import { Link } from "@tanstack/react-router"
-import { Download, GithubIcon, LinkedinIcon, LucideArrowRight } from "lucide-react"
+import { Download, LucideArrowRight } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip.tsx"
 import { cn } from "@/lib/utils"
+import { LinkedinIcon, GithubIcon } from "@/lib/icons"
 
 export default function IntroSection() {
     const OWNER_NAME = "Harsh"
@@ -78,20 +79,19 @@ export default function IntroSection() {
                                 )}
                             >
                                 <a
-                                    href="https://github.com/harshG775"
+                                    href="https://www.linkedin.com/in/harshg775"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="GitHub"
+                                    aria-label="LinkedIn"
                                     className="p-3"
                                 >
-                                    <GithubIcon className="h-5 w-5 hover:text-foreground transition-colors" />
+                                    <LinkedinIcon className="size-8 hover:text-foreground transition-colors" />
                                 </a>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>GitHub</p>
+                                <p>LinkedIn</p>
                             </TooltipContent>
                         </Tooltip>
-
                         <Tooltip>
                             <TooltipTrigger
                                 asChild
@@ -101,17 +101,17 @@ export default function IntroSection() {
                                 )}
                             >
                                 <a
-                                    href="https://www.linkedin.com/in/harshg775"
+                                    href="https://github.com/harshG775"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="LinkedIn"
+                                    aria-label="GitHub"
                                     className="p-3"
                                 >
-                                    <LinkedinIcon className="h-5 w-5 hover:text-foreground transition-colors" />
+                                    <GithubIcon className="size-8 hover:text-foreground transition-colors" />
                                 </a>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>LinkedIn</p>
+                                <p>GitHub</p>
                             </TooltipContent>
                         </Tooltip>
                     </div>
