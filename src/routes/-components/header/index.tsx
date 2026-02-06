@@ -62,11 +62,11 @@ export function Header() {
             className="sticky top-0 z-40"
         >
             <header>
-                <nav className="fixed top-3 left-4 md:left-0 md:right-0 h-12 max-w-max mx-auto rounded-full border bg-background">
+                <nav className="fixed top-3 right-4 md:left-0 md:right-0 h-14 max-w-max mx-auto rounded-full border bg-background">
                     <div className="relative flex h-full items-center px-2 md:px-3">
                         <NavMenu className="hidden md:block" links={navLinks} />
                         <div className="md:hidden">
-                            <Button size="icon-sm" className="rounded-full" onClick={() => setOpen((v) => !v)}>
+                            <Button size="icon-lg" className="rounded-full" onClick={() => setOpen((v) => !v)}>
                                 <M.div animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
                                     {open ? <X /> : <Menu />}
                                 </M.div>
@@ -79,10 +79,10 @@ export function Header() {
                                         animate="visible"
                                         exit="hidden"
                                         variants={menuVariants}
-                                        className="absolute top-14 left-0 flex flex-col gap-2"
+                                        className="absolute top-14 right-0 flex flex-col gap-2"
                                     >
                                         <NavigationMenu orientation="vertical">
-                                            <NavigationMenuList className="flex flex-col items-start gap-2">
+                                            <NavigationMenuList className="flex flex-col items-end gap-2">
                                                 {navLinks.map((link) => {
                                                     const Icon = link.icon
                                                     return (
