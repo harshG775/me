@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router"
 import { Download, GithubIcon, LinkedinIcon, LucideArrowRight } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip.tsx"
+import { cn } from "@/lib/utils"
 
 export default function IntroSection() {
     const OWNER_NAME = "Harsh"
@@ -28,20 +29,6 @@ export default function IntroSection() {
                             className="h-28 w-28 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                         />
                     </M.div>
-
-                    {/* <M.span
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 125,
-                            delay: 0.1,
-                            duration: 0.7,
-                        }}
-                        className="absolute text-2xl bottom-0 right-0"
-                    >
-                        👋
-                    </M.span> */}
                 </div>
             </div>
             <M.h1
@@ -54,32 +41,43 @@ export default function IntroSection() {
                 experience. I enjoy building <i className="italic">sites and apps</i>. My focus is{" "}
                 <u className="underline">React - (Next.js, Tanstack)</u>.
             </M.h1>
-            {/* <p className="mt-6 text-foreground/80 md:text-lg">
-                            I'm a passionate web developer crafting beautiful, functional experiences that bring ideas to
-                            life through code.
-                        </p> */}
             <TooltipProvider>
                 <M.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="mt-12 flex flex-wrap items-center justify-center gap-4"
+                    className="mt-12 max-w-lg mx-auto flex flex-wrap items-center justify-center gap-4"
                 >
-                    <Button asChild size="lg" variant="default">
-                        <Link to="/" hash={"contact"}>
-                            Contact Me
-                            <LucideArrowRight className="h-5! w-5!" />
-                        </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline">
-                        <Link to="/resume">
-                            My Resume
-                            <Download className="h-5! w-5!" />
-                        </Link>
-                    </Button>
+                    <Link
+                        to="/"
+                        hash={"contact"}
+                        className={cn(
+                            buttonVariants({ variant: "default", size: "lg" }),
+                            "rounded-full h-14 px-12 flex w-full flex-1",
+                        )}
+                    >
+                        Contact Me
+                        <LucideArrowRight className="h-5! w-5!" />
+                    </Link>
+                    <Link
+                        to="/resume"
+                        className={cn(
+                            buttonVariants({ variant: "outline", size: "lg" }),
+                            "rounded-full h-14 px-12 flex w-full flex-1",
+                        )}
+                    >
+                        My Resume
+                        <Download className="h-5! w-5!" />
+                    </Link>
                     <div className="flex gap-4">
                         <Tooltip>
-                            <TooltipTrigger asChild className={buttonVariants({ variant: "outline", size: "icon-lg" })}>
+                            <TooltipTrigger
+                                asChild
+                                className={cn(
+                                    buttonVariants({ variant: "outline", size: "icon-lg" }),
+                                    "rounded-full h-14 w-14",
+                                )}
+                            >
                                 <a
                                     href="https://github.com/harshG775"
                                     target="_blank"
@@ -96,7 +94,13 @@ export default function IntroSection() {
                         </Tooltip>
 
                         <Tooltip>
-                            <TooltipTrigger asChild className={buttonVariants({ variant: "outline", size: "icon-lg" })}>
+                            <TooltipTrigger
+                                asChild
+                                className={cn(
+                                    buttonVariants({ variant: "outline", size: "icon-lg" }),
+                                    "rounded-full h-14 w-14",
+                                )}
+                            >
                                 <a
                                     href="https://www.linkedin.com/in/harshg775"
                                     target="_blank"
