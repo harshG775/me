@@ -20,7 +20,7 @@ function RouteComponent() {
             <main className="flex-1">
                 <div
                     id={"home"}
-                    className=" relative flex min-h-[90dvh] pt-16 items-center justify-center overflow-hidden px-6"
+                    className="relative pt-16 px-3 lg:px-6 min-h-[90dvh] flex items-center justify-center overflow-hidden"
                 >
                     {/* dark */}
                     {/* Deep Ocean Glow */}
@@ -51,23 +51,23 @@ function RouteComponent() {
                     />
                     <IntroSection />
                 </div>
-                <div id={"about"} className="relative py-16">
+                <div id={"about"} className="relative pt-16 px-3 lg:px-6 overflow-hidden">
                     {/*  */}
                     <AboutSection />
                 </div>
-                <div id={"experience"} className="relative py-16">
+                <div id={"experience"} className="relative pt-16 px-3 lg:px-6">
                     {/*  */}
                     <ExperienceSection experiences={experiences} />
                 </div>
-                <div id={"projects"} className="relative py-16">
+                <div id={"projects"} className="relative pt-16 px-3 lg:px-6">
                     {/*  */}
                     <ProjectSection projects={projects} />
                 </div>
-                <div id="skills" className="relative py-16">
+                <div id="skills" className="relative pt-16 px-3 lg:px-6">
                     {/*  */}
                     <SkillsSection />
                 </div>
-                <div id={"contact"} className="relative py-16">
+                <div id={"contact"} className="relative pt-16 px-3 lg:px-6">
                     {/*  */}
                     <ContactSection />
                 </div>

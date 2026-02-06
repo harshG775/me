@@ -25,7 +25,7 @@ export default function IntroSection() {
                             alt={`${OWNER_NAME.split(" ")[0]} portrait`}
                             width={192}
                             height={192}
-                            className="h-32 w-32 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                            className="h-28 w-28 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                         />
                     </M.div>
 
@@ -52,7 +52,7 @@ export default function IntroSection() {
                 <b className="font-bold">Hi, I&apos;m {OWNER_NAME.split(" ")[0]}.</b> I&apos;m a{" "}
                 <b className="font-bold">Frontend developer</b> with <b className="font-bold">2+ years</b> of
                 experience. I enjoy building <i className="italic">sites and apps</i>. My focus is{" "}
-                <u className="underline">React - (Next.js, Tanstack/Start)</u>.
+                <u className="underline">React - (Next.js, Tanstack)</u>.
             </M.h1>
             {/* <p className="mt-6 text-foreground/80 md:text-lg">
                             I'm a passionate web developer crafting beautiful, functional experiences that bring ideas to

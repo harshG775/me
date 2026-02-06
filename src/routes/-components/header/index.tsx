@@ -62,11 +62,11 @@ export function Header() {
             className="sticky top-0 z-40"
         >
             <header>
-                <nav className="fixed top-3 left-4 md:left-0 md:right-0 h-12 max-w-max mx-auto rounded-full border bg-background">
+                <nav className="fixed top-3 left-4 md:left-0 md:right-0 h-12 max-w-max mx-auto rounded-md border bg-background">
                     <div className="relative flex h-full items-center px-2 md:px-3">
                         <NavMenu className="hidden md:block" links={navLinks} />
                         <div className="md:hidden">
-                            <Button size="icon-sm" className="rounded-full" onClick={() => setOpen((v) => !v)}>
+                            <Button size="icon-sm" className="rounded-md" onClick={() => setOpen((v) => !v)}>
                                 <M.div animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
                                     {open ? <X /> : <Menu />}
                                 </M.div>
@@ -90,7 +90,7 @@ export function Header() {
                                                             <NavigationMenuItem>
                                                                 <NavigationMenuLink
                                                                     asChild
-                                                                    className="flex flex-row items-center rounded-full border bg-background px-4 py-2 shadow-sm transition hover:bg-muted"
+                                                                    className="flex flex-row items-center rounded-md border bg-background px-4 py-2 shadow-sm transition hover:bg-muted"
                                                                 >
                                                                     <Link to={link.href} hash={link.hash}>
                                                                         <Icon />
