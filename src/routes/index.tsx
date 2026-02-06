@@ -19,7 +19,7 @@ function RouteComponent() {
             <main className="flex-1">
                 <div
                     id={"home"}
-                    className=" relative flex min-h-dvh pt-16 items-center justify-center overflow-hidden px-6"
+                    className=" relative flex min-h-[90dvh] pt-16 items-center justify-center overflow-hidden px-6"
                 >
                     {/* dark */}
                     {/* Deep Ocean Glow */}
