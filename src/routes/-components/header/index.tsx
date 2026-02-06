@@ -3,7 +3,7 @@ import { motion as M, AnimatePresence, easeOut } from "motion/react"
 import { Button } from "@/components/ui/button"
 import type { NavLink } from "./nav-menu"
 import { NavMenu } from "./nav-menu"
-import { X, Menu } from "lucide-react"
+import { X, Menu, Home, User, FolderGit2, Wrench, Mail, Briefcase } from "lucide-react"
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -44,17 +44,16 @@ const itemVariants = {
 }
 
 export function Header() {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
 
-    const navLinks: NavLink[] = [
-        { label: "Home", href: "/", hash: "home" },
-        { label: "About", href: "/", hash: "about" },
-        { label: "Experience", href: "/", hash: "experience" },
-        { label: "Projects", href: "/", hash: "projects" },
-        { label: "Skills", href: "/", hash: "skills" },
-        { label: "Contact", href: "/", hash: "contact" },
+    const navLinks: (NavLink & { icon: React.ElementType })[] = [
+        { label: "Home", href: "/", hash: "home", icon: Home },
+        { label: "About", href: "/", hash: "about", icon: User },
+        { label: "Experience", href: "/", hash: "experience", icon: Briefcase },
+        { label: "Projects", href: "/", hash: "projects", icon: FolderGit2 },
+        { label: "Skills", href: "/", hash: "skills", icon: Wrench },
+        { label: "Contact", href: "/", hash: "contact", icon: Mail },
     ]
-
     return (
         <M.div
             initial={{ opacity: 0, y: -16 }}
@@ -84,20 +83,24 @@ export function Header() {
                                     >
                                         <NavigationMenu orientation="vertical">
                                             <NavigationMenuList className="flex flex-col items-start gap-2">
-                                                {navLinks.map((link) => (
-                                                    <M.div key={link.label} variants={itemVariants}>
-                                                        <NavigationMenuItem>
-                                                            <NavigationMenuLink
-                                                                asChild
-                                                                className="block rounded-full border bg-background px-4 py-2 shadow-sm transition hover:bg-muted"
-                                                            >
-                                                                <Link to={link.href} hash={link.hash}>
-                                                                    {link.label}
-                                                                </Link>
-                                                            </NavigationMenuLink>
-                                                        </NavigationMenuItem>
-                                                    </M.div>
-                                                ))}
+                                                {navLinks.map((link) => {
+                                                    const Icon = link.icon
+                                                    return (
+                                                        <M.div key={link.label} variants={itemVariants}>
+                                                            <NavigationMenuItem>
+                                                                <NavigationMenuLink
+                                                                    asChild
+                                                                    className="flex flex-row items-center rounded-full border bg-background px-4 py-2 shadow-sm transition hover:bg-muted"
+                                                                >
+                                                                    <Link to={link.href} hash={link.hash}>
+                                                                        <Icon />
+                                                                        {link.label}
+                                                                    </Link>
+                                                                </NavigationMenuLink>
+                                                            </NavigationMenuItem>
+                                                        </M.div>
+                                                    )
+                                                })}
                                             </NavigationMenuList>
                                         </NavigationMenu>
                                     </M.div>
