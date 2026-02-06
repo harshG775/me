@@ -182,7 +182,7 @@ function RouteComponent() {
             </div>
 
             {/* Header */}
-            <main className="shadow-lg rounded-xl print:shadow-none print:rounded-none font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-gray-800">
+            <main className="shadow-lg rounded-xs print:shadow-none print:rounded-none font-arial text-sm print:text-xs leading-tight print:leading-tight max-w-4xl mx-auto p-4 print:p-0 print:mx-0 print:max-w-full bg-white text-neutral-800 dark:bg-neutral-900 dark:text-white">
                 <header className="mb-4 print:mb-2 flex flex-col gap-1 text-sm text-center">
                     <h1 className="text-2xl font-bold leading-none uppercase">{name}</h1>
                     <p className="text-lg font-semibold text-muted-foreground">{title}</p>
