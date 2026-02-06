@@ -1,7 +1,7 @@
 import { motion as M } from "motion/react"
 import { Link } from "@tanstack/react-router"
 import { Download, GithubIcon, LinkedinIcon, LucideArrowRight } from "lucide-react"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip.tsx"
 import { cn } from "@/lib/utils"
 
@@ -21,7 +21,6 @@ export default function IntroSection() {
                         }}
                     >
                         <img
-                            // src="/profile.png"
                             src="https://media.licdn.com/dms/image/v2/D5603AQGMIt9PZgGNZQ/profile-displayphoto-crop_800_800/B56ZvMVIWyGsAM-/0/1768659654789?e=1772064000&v=beta&t=hn4Pq2ovf3TOUmG2FggHtOq5hyS3SG6f1FlNwMcIIlo"
                             alt={`${OWNER_NAME.split(" ")[0]} portrait`}
                             width={192}

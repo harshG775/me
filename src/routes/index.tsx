@@ -71,7 +71,9 @@ function RouteComponent() {
                     {/*  */}
                     <ContactSection />
                 </div>
-                <Footer />
+                <div className="pt-16">
+                    <Footer />
+                </div>
             </main>
         </div>
     )

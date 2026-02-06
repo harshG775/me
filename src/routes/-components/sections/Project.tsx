@@ -164,33 +164,12 @@ export default function ProjectSection({ className, projects }: { className?: st
 
     return (
         <section className={cn("py-24 px-6 max-w-7xl mx-auto", className)}>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-                <div className="max-w-2xl">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                        Featured <span className="text-primary">Projects</span>
-                    </h2>
-                    <p className="text-muted-foreground text-lg">
-                        A selection of my recent work in SaaS, AI, and Fintech, focusing on performance and user
-                        experience.
-                    </p>
-                </div>
-
-                <button className="hidden md:flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium transition-all hover:gap-4 hover:opacity-90">
-                    View All Projects <ArrowRight className="w-4 h-4" />
-                </button>
-            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-12">My projects</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {featuredProjects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                 ))}
-            </div>
-
-            {/* Mobile View All Button */}
-            <div className="mt-12 flex md:hidden justify-center">
-                <button className="flex items-center gap-2 px-8 py-4 bg-secondary text-secondary-foreground rounded-xl w-full justify-center font-bold border border-border">
-                    View All Projects <ArrowRight className="w-4 h-4" />
-                </button>
             </div>
         </section>
     )

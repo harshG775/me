@@ -15,13 +15,13 @@ export default function AboutSection({ ...props }: React.ComponentProps<"section
 
             <div className="max-w-4xl mx-auto text-base md:text-lg text-muted-foreground space-y-5">
                 <p>
-                    I’m a <strong>Lead Frontend Engineer</strong> and Full Stack Developer with
+                    I'm a <strong>Lead Frontend Engineer</strong> and Full Stack Developer with
                     <strong> 2+ years of experience</strong>, focused on building scalable, high-performance web
                     applications using <strong>Next.js, React, Tailwind CSS, and Node.js</strong>.
                 </p>
 
                 <p>
-                    Currently, I’m leading frontend architecture at{" "}
+                    Currently, I'm leading frontend architecture at{" "}
                     <strong className="text-foreground">Prabhubhakti</strong>, a SaaS platform where I'm building a{" "}
                     <strong>multi-tenant system</strong> from scratch. I design and ship production-ready features,
                     admin dashboards, and payment flows, improving <strong>SEO to 95+</strong> and reducing merchant
