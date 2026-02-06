@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
 // https://www.sanidhyy.name/#contact
 function RouteComponent() {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col overflow-hidden">
             <Header />
             <main className="flex-1">
                 <div

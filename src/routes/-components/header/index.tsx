@@ -32,10 +32,13 @@ const itemVariants = {
     hidden: {
         opacity: 0,
         y: -10,
+        x: 20,
     },
     visible: {
         opacity: 1,
         y: 0,
+        x: 0,
+
         transition: {
             duration: 0.25,
             ease: easeOut,
