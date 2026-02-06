@@ -13,28 +13,25 @@ export default function AboutSection({ ...props }: React.ComponentProps<"section
         >
             <h2 className="text-4xl md:text-5xl font-bold mb-8">About me</h2>
 
-            <div className="max-w-4xl mx-auto text-base md:text-lg text-muted-foreground space-y-6">
+            <div className="max-w-4xl mx-auto text-base md:text-lg text-muted-foreground space-y-5">
                 <p>
-                    I am a <strong>Lead Frontend Engineer</strong> and Full Stack Developer with over 2 years of
-                    experience. Currently, I am architecting the digital infrastructure at{" "}
-                    <strong className="text-foreground">Prabhubhakti (Spiritual SaaS)</strong>, building a scalable{" "}
-                    <strong>multi-tenant platform</strong> from the ground up using{" "}
-                    <strong>Next.js, Tailwind CSS, and Node.js</strong>.
+                    I’m a <strong>Lead Frontend Engineer</strong> and Full Stack Developer with
+                    <strong> 2+ years of experience</strong>, focused on building scalable, high-performance web
+                    applications using <strong>Next.js, React, Tailwind CSS, and Node.js</strong>.
                 </p>
 
                 <p>
-                    My recent work focuses on complex system design, including <strong>domain/subdomain routing</strong>{" "}
-                    for distinct tenants like <strong>Astrologer storefronts and E-book platforms</strong>. I developed
-                    comprehensive <strong>Admin and Superadmin dashboards</strong> to manage these ecosystems,
-                    integrating <strong>Razorpay</strong> and optimizing performance to achieve{" "}
-                    <strong>95+ SEO scores</strong>
-                    while reducing merchant onboarding time by <strong>70%</strong>.
+                    Currently, I’m leading frontend architecture at{" "}
+                    <strong className="text-foreground">Prabhubhakti</strong>, a SaaS platform where I'm building a{" "}
+                    <strong>multi-tenant system</strong> from scratch. I design and ship production-ready features,
+                    admin dashboards, and payment flows, improving <strong>SEO to 95+</strong> and reducing merchant
+                    onboarding time by <strong>70%</strong>.
                 </p>
 
                 <p>
-                    Previously, I built internal chatbot tools at <strong>Adda247</strong> and LeetCode-style coding
-                    platforms. I am passionate about bridging the gap between sophisticated backend logic and polished,
-                    interactive user interfaces.
+                    Previously, I worked at <strong className="text-foreground">Adda247 (Metis Eduventures)</strong>,
+                    building internal tools and interactive platforms. I enjoy translating complex business logic into
+                    clean, intuitive user experiences.
                 </p>
             </div>
         </M.section>
