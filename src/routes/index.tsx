@@ -19,9 +19,8 @@ function RouteComponent() {
             <main className="flex-1">
                 <div
                     id={"home"}
-                    className="relative flex min-h-[80dvh] items-center justify-center overflow-hidden px-6"
+                    className="relative flex min-h-[90dvh] pt-16 items-center justify-center overflow-hidden px-6"
                 >
-                    <div className="h-24"></div>
                     <div className="absolute inset-0 -z-10">
                         <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                         <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
@@ -29,7 +28,7 @@ function RouteComponent() {
                     </div>
                     <IntroSection />
                 </div>
-                <div id={"experience"} className="mt-16 lg:mt-16 relative py-16">
+                <div id={"experience"} className="relative py-16">
                     <div className="absolute inset-0 -z-10">
                         <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                         <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
@@ -37,7 +36,7 @@ function RouteComponent() {
                     </div>
                     <ExperienceSection experiences={experiences} />
                 </div>
-                <div id={"projects"} className="mt-16 lg:mt-16 relative py-16">
+                <div id={"projects"} className="relative py-16">
                     <div className="absolute inset-0 -z-10">
                         <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                         <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
@@ -45,7 +44,7 @@ function RouteComponent() {
                     </div>
                     <ProjectSection projects={projects} />
                 </div>
-                <div id="skills" className="mt-16 lg:mt-16 relative py-16">
+                <div id="skills" className="relative py-16">
                     <div className="absolute inset-0 -z-10">
                         <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                         <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
@@ -53,7 +52,7 @@ function RouteComponent() {
                     </div>
                     <SkillsSection />
                 </div>
-                <div id={"contact"} className="mt-16 lg:mt-16 relative py-16">
+                <div id={"contact"} className="relative py-16">
                     <div className="absolute inset-0 -z-10">
                         <div className="absolute top-20 left-20 w-36 h-36 bg-primary/10 organic-shape animate-float"></div>
                         <div className="absolute bottom-32 right-16 w-28 h-28 bg-accent/20 organic-shape-2 animate-pulse-soft"></div>
