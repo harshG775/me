@@ -1,21 +1,27 @@
-import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react"
+import { useState } from "react"
+import { AlertCircle, CheckCircle2, Loader2, Mail, MapPin, Phone, Send } from "lucide-react"
 import * as z from "zod"
 import { useForm } from "@tanstack/react-form"
-import { toast } from "sonner"
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { cn } from "@/lib/utils"
 import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/ui/field"
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from "@/components/ui/input-group"
 
 const formSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters.").max(50),
-    email: z.string().email("Please enter a valid email address."),
-    message: z.string().min(5, "Message must be at least 5 characters.").max(1000, "Message is too long."),
+    name: z.string().min(2).max(50),
+    email: z.string().email(),
+    message: z.string().min(5).max(1000),
 })
 
+type Status = "idle" | "success" | "error"
+
 export default function ContactSection({ ...props }: React.ComponentProps<"section">) {
+    const [status, setStatus] = useState<Status>("idle")
+
     const form = useForm({
         defaultValues: {
             name: "",
@@ -26,20 +32,28 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
             onSubmit: formSchema,
         },
         onSubmit: async ({ value }) => {
-            try {
-                // TODO: replace with real API
-                await new Promise((r) => setTimeout(r, 1000))
+            setStatus("idle")
 
-                toast.success("Message sent!", {
-                    description: "Thanks for reaching out. I’ll get back to you shortly.",
-                    position: "bottom-right",
+            try {
+                const formData = new FormData()
+                formData.append("access_key", "a81fb54c-0703-4f4f-8e5d-0b5b73475f03")
+                formData.append("name", value.name)
+                formData.append("email", value.email)
+                formData.append("message", value.message)
+
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData,
                 })
 
+                const data = await response.json()
+
+                if (!data.success) throw new Error()
+
+                setStatus("success")
                 form.reset()
             } catch {
-                toast.error("Something went wrong", {
-                    description: "Please try again or email me directly.",
-                })
+                setStatus("error")
             }
         },
     })
@@ -51,9 +65,8 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
                 <div className="space-y-8">
                     <div className="space-y-4">
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Let’s build something great.</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                            I'm always interested in new opportunities and exciting <strong>projects</strong>. Whether
-                            you have a question or just want to say hi, I'll try my best to get back to you!
+                        <p className="text-lg text-muted-foreground">
+                            Open to new opportunities and exciting projects.
                         </p>
                     </div>
 
@@ -69,15 +82,14 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
                                 </a>
                             </div>
                         </div>
+
                         <div className="flex items-center gap-4">
                             <div className="p-3 rounded-lg bg-primary/10 text-primary">
                                 <Phone className="w-6 h-6" />
                             </div>
                             <div>
                                 <p className="text-sm text-muted-foreground">Phone</p>
-                                <a href="mailto:hgaur491@gmail.com" className="text-lg font-semibold hover:underline">
-                                    +91 9310745921
-                                </a>
+                                <p className="text-lg font-semibold">+91 9310745921</p>
                             </div>
                         </div>
 
@@ -100,7 +112,23 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
                         <CardDescription>I usually reply within 24 hours.</CardDescription>
                     </CardHeader>
 
-                    <CardContent>
+                    <CardContent className="space-y-4">
+                        {status === "success" && (
+                            <Alert className="border-green-500/30 bg-green-500/10">
+                                <CheckCircle2 className="h-4 w-4 text-green-600" />
+                                <AlertTitle>Message sent</AlertTitle>
+                                <AlertDescription>Thanks for reaching out. I’ll get back to you soon.</AlertDescription>
+                            </Alert>
+                        )}
+
+                        {status === "error" && (
+                            <Alert variant="destructive">
+                                <AlertCircle className="h-4 w-4" />
+                                <AlertTitle>Something went wrong</AlertTitle>
+                                <AlertDescription>Please try again later or email me directly.</AlertDescription>
+                            </Alert>
+                        )}
+
                         <form
                             id="contact-form"
                             onSubmit={(e) => {
@@ -152,24 +180,24 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
                                                 value={field.state.value}
                                                 onBlur={field.handleBlur}
                                                 onChange={(e) => field.handleChange(e.target.value)}
-                                                placeholder="Hi Harsh, we’d like to discuss a role or project involving…"
                                                 rows={5}
+                                                placeholder="Hi Harsh, we’d like to discuss a role or project…"
                                                 className="resize-none"
                                             />
                                             <InputGroupAddon align="block-end">
                                                 <InputGroupText className="text-[10px] font-bold">
-                                                    {field.state.value.length}
-                                                    /1000
+                                                    {field.state.value.length}/1000
                                                 </InputGroupText>
                                             </InputGroupAddon>
                                         </InputGroup>
-                                        <FieldDescription>
-                                            Share a few details about the role, project, or idea.
-                                        </FieldDescription>
+                                        <FieldDescription>A short message is perfect.</FieldDescription>
                                         <FieldError errors={field.state.meta.errors} />
                                     </Field>
                                 )}
                             </form.Field>
+
+                            {/* Honeypot */}
+                            <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" />
                         </form>
                     </CardContent>
 
@@ -179,7 +207,7 @@ export default function ContactSection({ ...props }: React.ComponentProps<"secti
                                 <Button
                                     type="submit"
                                     form="contact-form"
-                                    className="w-full gap-2 h-12"
+                                    className="w-full h-12 gap-2"
                                     disabled={!canSubmit || isSubmitting}
                                 >
                                     {isSubmitting ? (
