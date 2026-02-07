@@ -1,15 +1,13 @@
-import { TanStackDevtools } from "@tanstack/react-devtools"
 import { HeadContent, Scripts, createRootRouteWithContext } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
+import { TanStackDevtools } from "@tanstack/react-devtools"
 
 import appCss from "../styles.css?url"
-
 import type { QueryClient } from "@tanstack/react-query"
 import TanStackQueryDevtools from "@/integrations/tanstack-query/devtools"
 import { ThemeProvider } from "@/components/contexts/theme-provider"
-import { getThemeServerFn } from "@/lib/server-fn/theme"
-import ThemeMode from "@/components/theme-mode"
 import { cn } from "@/lib/utils"
+import { getThemeServerFn } from "@/lib/server-fn/theme"
 
 interface MyRouterContext {
     queryClient: QueryClient
@@ -18,8 +16,14 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
     loader: async () => {
         const theme = await getThemeServerFn()
-        return { host: "www.harshgaur.in", theme }
+        return { host: "www.harshgaur.in", theme: theme || "dark" }
     },
+    notFoundComponent: () => (
+        <div className="p-10 text-center">
+            <h1 className="text-2xl font-bold">404</h1>
+            <p>Page not found</p>
+        </div>
+    ),
     head: ({ loaderData }) => {
         const title = "Harsh Gaur — Frontend Engineer | React, Next.js, TypeScript"
 
@@ -69,7 +73,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
             ],
         }
     },
-
     shellComponent: RootDocument,
 })
 
@@ -77,20 +80,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     const { theme } = Route.useLoaderData()
 
     return (
-        <html lang="en" className={cn("scroll-smooth", theme ? theme : "dark")} suppressHydrationWarning>
+        <html lang="en" className={cn("scroll-smooth", theme)} suppressHydrationWarning>
             <head>
                 <HeadContent />
             </head>
             <body>
-                <ThemeProvider theme={theme}>
-                    {children}
-                    <div className="fixed bottom-6 right-6 z-50">
-                        <ThemeMode />
-                    </div>
-                </ThemeProvider>
+                <ThemeProvider theme={theme}>{children}</ThemeProvider>
                 <TanStackDevtools
                     config={{
-                        position: "bottom-left",
+                        position: "bottom-right",
                     }}
                     plugins={[
                         {

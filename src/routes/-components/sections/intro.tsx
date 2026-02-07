@@ -2,9 +2,9 @@ import { motion as M } from "motion/react"
 import { Link } from "@tanstack/react-router"
 import { Download, LucideArrowRight } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip.tsx"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
-import { GithubIcon, LinkedinIcon } from "@/lib/icons"
+import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function IntroSection() {
     const OWNER_NAME = "Harsh"
