@@ -77,7 +77,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     const { theme } = Route.useLoaderData()
 
     return (
-        <html lang="en" className={cn("scroll-smooth", theme)} suppressHydrationWarning>
+        <html lang="en" className={cn("scroll-smooth", theme ? theme : "dark")} suppressHydrationWarning>
             <head>
                 <HeadContent />
             </head>

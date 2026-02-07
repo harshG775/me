@@ -1,11 +1,11 @@
+import { Link, createFileRoute } from "@tanstack/react-router"
+
+import { ArrowLeft, Download, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { createFileRoute, Link } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/resume/")({
     component: RouteComponent,
 })
-
-import { Mail, Phone, MapPin, Github, Linkedin, Download, ArrowLeft } from "lucide-react"
 
 const resumeData = {
     metadata: {

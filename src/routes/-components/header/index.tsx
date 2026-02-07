@@ -1,16 +1,16 @@
 import { useState } from "react"
-import { motion as M, AnimatePresence, easeOut } from "motion/react"
-import { Button } from "@/components/ui/button"
-import type { NavLink } from "./nav-menu"
+import { AnimatePresence, motion as M, easeOut } from "motion/react"
+import { Briefcase, FolderGit2, Home, Mail, Menu, User, Wrench, X } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 import { NavMenu } from "./nav-menu"
-import { X, Menu, Home, User, FolderGit2, Wrench, Mail, Briefcase } from "lucide-react"
+import type { NavLink } from "./nav-menu"
+import { Button } from "@/components/ui/button"
 import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { Link } from "@tanstack/react-router"
 
 const menuVariants = {
     hidden: {
@@ -49,7 +49,7 @@ const itemVariants = {
 export function Header() {
     const [open, setOpen] = useState(true)
 
-    const navLinks: (NavLink & { icon: React.ElementType })[] = [
+    const navLinks: Array<NavLink & { icon: React.ElementType }> = [
         { label: "Home", href: "/", hash: "home", icon: Home },
         { label: "About", href: "/", hash: "about", icon: User },
         { label: "Experience", href: "/", hash: "experience", icon: Briefcase },

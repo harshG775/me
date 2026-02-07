@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
 import { motion as M } from "motion/react"
+import { cn } from "@/lib/utils"
 
 export default function AboutSection({ ...props }: React.ComponentProps<"section">) {
     return (

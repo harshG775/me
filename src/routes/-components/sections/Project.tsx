@@ -1,5 +1,5 @@
+import { ArrowRight, ExternalLink, FileText, Github, Globe, MapPin, Package } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { ExternalLink, Github, Globe, Package, FileText, ArrowRight, MapPin } from "lucide-react"
 
 export interface Project {
     id: string
@@ -11,18 +11,18 @@ export interface Project {
     videoDemo?: string
     shortDescription: string
     longDescription: string
-    metrics?: {
+    metrics?: Array<{
         label: string
         value: string
-    }[]
-    stack: {
+    }>
+    stack: Array<{
         name: string
         category: "frontend" | "backend" | "devops" | "ai"
-    }[]
-    links: {
+    }>
+    links: Array<{
         type: "github" | "live" | "npm" | "case-study"
         url: string
-    }[]
+    }>
 }
 
 const LinkIcon = ({ type }: { type: Project["links"][0]["type"] }) => {
@@ -56,18 +56,18 @@ export interface Project {
     videoDemo?: string
     shortDescription: string
     longDescription: string
-    metrics?: {
+    metrics?: Array<{
         label: string
         value: string
-    }[]
-    stack: {
+    }>
+    stack: Array<{
         name: string
         category: "frontend" | "backend" | "devops" | "ai"
-    }[]
-    links: {
+    }>
+    links: Array<{
         type: "github" | "live" | "npm" | "case-study"
         url: string
-    }[]
+    }>
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
@@ -159,7 +159,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
     )
 }
-export default function ProjectSection({ className, projects }: { className?: string; projects: Project[] }) {
+export default function ProjectSection({ className, projects }: { className?: string; projects: Array<Project> }) {
     const featuredProjects = projects.slice(0, 3)
 
     return (

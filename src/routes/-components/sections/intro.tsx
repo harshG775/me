@@ -4,7 +4,7 @@ import { Download, LucideArrowRight } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip.tsx"
 import { cn } from "@/lib/utils"
-import { LinkedinIcon, GithubIcon } from "@/lib/icons"
+import { GithubIcon, LinkedinIcon } from "@/lib/icons"
 
 export default function IntroSection() {
     const OWNER_NAME = "Harsh"

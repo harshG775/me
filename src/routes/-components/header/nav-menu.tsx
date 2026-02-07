@@ -1,5 +1,6 @@
 "use client"
 
+import { Link } from "@tanstack/react-router"
 import type { ComponentProps } from "react"
 import {
     NavigationMenu,
@@ -8,7 +9,6 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Link } from "@tanstack/react-router"
 
 export type NavLink = {
     label: string
@@ -17,7 +17,7 @@ export type NavLink = {
 }
 
 type NavMenuProps = ComponentProps<typeof NavigationMenu> & {
-    links: NavLink[]
+    links: Array<NavLink>
 }
 
 export const NavMenu = ({ links, ...props }: NavMenuProps) => (

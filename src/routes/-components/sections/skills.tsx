@@ -1,7 +1,7 @@
 "use client"
 
-import { easeOut, motion as M } from "motion/react"
-import { Code2, Server, Database, Wrench, Brain, CheckCircle2 } from "lucide-react"
+import { motion as M, easeOut } from "motion/react"
+import { Brain, CheckCircle2, Code2, Database, Server, Wrench } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 

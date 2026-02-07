@@ -1,8 +1,8 @@
 import { GithubIcon, LinkedinIcon } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Link } from "@tanstack/react-router"
 import { Logo } from "../logo"
+import { Separator } from "@/components/ui/separator"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 const footerLinks = [
     { label: "Home", href: "/" },

@@ -1,7 +1,7 @@
+import { Briefcase, Calendar, ExternalLink, Globe, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { Briefcase, Calendar, MapPin, ExternalLink, Globe } from "lucide-react"
 
 export type Experience = {
     id: string
@@ -16,22 +16,22 @@ export type Experience = {
     }
     startDate: string
     endDate?: string
-    links: {
+    links: Array<{
         label: string
         url: string
         type: "project" | "article" | "repo" | "demo"
-    }[]
-    description: string[]
-    skills: {
+    }>
+    description: Array<string>
+    skills: Array<{
         name: string
         category: "frontend" | "backend" | "tools" | "devops"
-    }[]
+    }>
 }
 
 export default function ExperienceSection({
     experiences,
     ...props
-}: React.ComponentProps<"section"> & { experiences: Experience[] }) {
+}: React.ComponentProps<"section"> & { experiences: Array<Experience> }) {
     const formatDate = (dateStr?: string) => {
         if (!dateStr) return "Present"
         return new Date(dateStr).toLocaleDateString("en-US", {

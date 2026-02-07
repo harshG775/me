@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router"
 import ContactSection from "./-components/sections/contact.tsx"
-import ExperienceSection, { Experience } from "./-components/sections/experience.tsx"
-import ProjectSection, { Project } from "./-components/sections/Project.tsx"
+import ExperienceSection from "./-components/sections/experience.tsx"
+import ProjectSection from "./-components/sections/Project.tsx"
 import IntroSection from "./-components/sections/intro.tsx"
 import { Header } from "./-components/header/index.tsx"
 import SkillsSection from "./-components/sections/skills.tsx"
 import AboutSection from "./-components/sections/about.tsx"
 import { Footer } from "./-components/footer/index.tsx"
+import type { Project } from "./-components/sections/Project.tsx"
+import type { Experience } from "./-components/sections/experience.tsx"
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
@@ -79,7 +81,7 @@ function RouteComponent() {
     )
 }
 
-const experiences: Experience[] = [
+const experiences: Array<Experience> = [
     {
         id: "prabhubhakti-lead",
         title: "Lead Frontend Engineer",
@@ -160,7 +162,7 @@ const experiences: Experience[] = [
     },
 ]
 
-const projects: Project[] = [
+const projects: Array<Project> = [
     {
         id: "prabhubhakti-saas",
         title: "Prabhubhakti SaaS Platform",
