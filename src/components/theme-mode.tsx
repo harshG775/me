@@ -1,5 +1,5 @@
 import { motion as M } from "motion/react"
-import { Sun, Moon } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "./contexts/theme-provider"
 
 export default function ThemeMode() {
