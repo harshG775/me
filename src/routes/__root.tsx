@@ -8,6 +8,7 @@ import TanStackQueryDevtools from "@/integrations/tanstack-query/devtools"
 import { ThemeProvider } from "@/components/contexts/theme-provider"
 import { cn } from "@/lib/utils"
 import { getThemeServerFn } from "@/lib/server-fn/theme"
+import ThemeMode from "@/components/ui/theme-mode"
 
 interface MyRouterContext {
     queryClient: QueryClient
@@ -85,7 +86,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <HeadContent />
             </head>
             <body>
-                <ThemeProvider theme={theme}>{children}</ThemeProvider>
+                <ThemeProvider theme={theme}>
+                    {children}
+                    <div className="fixed bottom-4 right-4">
+                        <ThemeMode />
+                    </div>
+                </ThemeProvider>
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",
