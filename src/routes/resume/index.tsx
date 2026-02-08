@@ -158,6 +158,9 @@ export const metadata = resumeData.metadata
 function RouteComponent() {
     const { name, title, contact, summary, experience, projects, skills, education, certifications, atsKeywords } =
         resumeData
+    const handlePrint = () => {
+        if (typeof window !== "undefined") window.print()
+    }
 
     return (
         <>
@@ -171,7 +174,7 @@ function RouteComponent() {
                     </Button>
                     <Button
                         variant={"secondary"}
-                        onClick={() => window.print()}
+                        onClick={handlePrint}
                         size="lg"
                         className="h-12 px-5 font-medium text-base gap-2"
                     >
@@ -249,21 +252,24 @@ function RouteComponent() {
                                     {job.period} | {job.location}
                                 </p>
                             </div>
-                            {job.links && (
-                                <div className="text-xs mb-1">
-                                    {job.links.map((link, idx) => (
+                            {job.links?.map((link, idx) => {
+                                try {
+                                    return (
                                         <a
                                             key={idx}
                                             href={link}
-                                            className="mr-2 underline"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            className="mr-2 underline"
                                         >
                                             {new URL(link).hostname}
                                         </a>
-                                    ))}
-                                </div>
-                            )}
+                                    )
+                                } catch {
+                                    return null
+                                }
+                            })}
+
                             <ul className="list-disc ml-5 space-y-1">
                                 {job.points.slice(0, 3).map((point, i) => (
                                     <li key={i}>{point}</li>
@@ -280,9 +286,9 @@ function RouteComponent() {
                             <div className="flex items-center justify-between">
                                 <h3 className="font-semibold">{project.name}</h3>
                                 <div>
-                                    {project.links && (
-                                        <div className="text-xs mb-1">
-                                            {project.links.map((link, idx) => (
+                                    {project.links?.map((link, idx) => {
+                                        try {
+                                            return (
                                                 <a
                                                     key={idx}
                                                     href={link}
@@ -292,9 +298,11 @@ function RouteComponent() {
                                                 >
                                                     {new URL(link).hostname}
                                                 </a>
-                                            ))}
-                                        </div>
-                                    )}
+                                            )
+                                        } catch {
+                                            return null
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <p className="text-xs mb-1">Tech Stack: {project.stack}</p>

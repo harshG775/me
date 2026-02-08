@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/contexts/theme-provider"
 import { cn } from "@/lib/utils"
 import { getThemeServerFn } from "@/lib/server-fn/theme"
 import ThemeMode from "@/components/ui/theme-mode"
+import { seo } from "@/lib/seo"
 
 interface MyRouterContext {
     queryClient: QueryClient
@@ -17,7 +18,7 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
     loader: async () => {
         const theme = await getThemeServerFn()
-        return { host: "www.harshgaur.in", theme: theme || "dark" }
+        return { host: "https://www.harshgaur.in", theme: theme || "dark" }
     },
     notFoundComponent: () => (
         <div className="p-10 text-center">
@@ -31,9 +32,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         const description =
             "Portfolio of Harsh Gaur, a Frontend Engineer with 2+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and TanStack."
 
-        const image = `${loaderData?.host}/logo.png`
-
-        const url = `${loaderData?.host}`
+        const url = loaderData?.host
+        // const image = `${url}/logo.png`
 
         return {
             meta: [
@@ -44,32 +44,27 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     name: "viewport",
                     content: "width=device-width, initial-scale=1",
                 },
-                // SEO
-                { title: title },
-                { name: "description", content: description },
-                {
-                    name: "keywords",
-                    content: "movies, tv shows, streaming, watch online, latest movies, series, OnyxStream",
-                },
-
-                // Open Graph
-                { property: "og:type", content: "website" },
-                { property: "og:title", content: title },
-                { property: "og:description", content: description },
-                { property: "og:image", content: image },
-                { property: "og:url", content: url },
-
-                // Twitter
-                { name: "twitter:card", content: "summary_large_image" },
-                { name: "twitter:title", content: title },
-                { name: "twitter:description", content: description },
-                { name: "twitter:image", content: image },
-                { name: "twitter:url", content: url },
+                ...seo({
+                    title: title,
+                    description: description,
+                    keywords: "frontend engineer, react developer, typescript, portfolio",
+                    url: url,
+                    twitterHandle: "@Harsh_G775",
+                }),
             ],
             links: [
                 {
                     rel: "stylesheet",
                     href: appCss,
+                },
+                {
+                    rel: "canonical",
+                    href: loaderData?.host,
+                },
+                {
+                    rel: "sitemap",
+                    type: "application/xml",
+                    href: "/sitemap.xml",
                 },
             ],
         }

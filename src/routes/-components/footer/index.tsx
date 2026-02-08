@@ -5,10 +5,12 @@ import { Separator } from "@/components/ui/separator"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 const footerLinks = [
-    { label: "Home", href: "/" },
-    { label: "Experience", href: "/experience" },
-    { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/", hash: "home" },
+    { label: "About", href: "/", hash: "about" },
+    { label: "Experience", href: "/", hash: "experience" },
+    { label: "Projects", href: "/", hash: "projects" },
+    { label: "Skills", href: "/", hash: "skills" },
+    { label: "Contact", href: "/", hash: "contact" },
 ]
 
 export function Footer() {
@@ -19,9 +21,9 @@ export function Footer() {
                     <Logo />
 
                     <ul className="mt-6 flex flex-wrap items-center gap-4">
-                        {footerLinks.map(({ label, href }) => (
+                        {footerLinks.map(({ label, href, hash }) => (
                             <li key={label}>
-                                <Link className="text-muted-foreground hover:text-foreground" to={href}>
+                                <Link className="text-muted-foreground hover:text-foreground" to={href} hash={hash}>
                                     {label}
                                 </Link>
                             </li>
