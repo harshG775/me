@@ -23,10 +23,10 @@ const config = defineConfig({
         }),
         tailwindcss(),
         tanstackStart({
-            prerender: {
-                enabled: true,
-                crawlLinks: true,
-            },
+            // prerender: {
+            //     enabled: true,
+            //     crawlLinks: true,
+            // },
             sitemap: {
                 enabled: true,
                 host: "https://www.harshgaur.in",
