@@ -286,9 +286,9 @@ function RouteComponent() {
                             <div className="flex items-center justify-between">
                                 <h3 className="font-semibold">{project.name}</h3>
                                 <div>
-                                    {project.links && (
-                                        <div className="text-xs mb-1">
-                                            {project.links.map((link, idx) => (
+                                    {project.links?.map((link, idx) => {
+                                        try {
+                                            return (
                                                 <a
                                                     key={idx}
                                                     href={link}
@@ -298,9 +298,11 @@ function RouteComponent() {
                                                 >
                                                     {new URL(link).hostname}
                                                 </a>
-                                            ))}
-                                        </div>
-                                    )}
+                                            )
+                                        } catch {
+                                            return null
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <p className="text-xs mb-1">Tech Stack: {project.stack}</p>
