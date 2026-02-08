@@ -22,7 +22,16 @@ const config = defineConfig({
             projects: ["./tsconfig.json"],
         }),
         tailwindcss(),
-        tanstackStart(),
+        tanstackStart({
+            prerender: {
+                enabled: true,
+                crawlLinks: true,
+            },
+            sitemap: {
+                enabled: true,
+                host: "https://www.harshgaur.in",
+            },
+        }),
         viteReact({
             babel: {
                 plugins: ["babel-plugin-react-compiler"],
