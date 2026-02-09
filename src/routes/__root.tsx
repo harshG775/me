@@ -33,7 +33,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
             "Portfolio of Harsh Gaur, a Frontend Engineer with 2+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and TanStack."
 
         const url = loaderData?.host
-        // const image = `${url}/logo.png`
+        const image = `${url}/logo-with-bg.png`
 
         return {
             meta: [
@@ -49,6 +49,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     description: description,
                     keywords: "frontend engineer, react developer, typescript, portfolio",
                     url: url,
+                    image: image,
                     twitterHandle: "@Harsh_G775",
                 }),
             ],
