@@ -29,6 +29,7 @@ export const seo = ({
         /* Twitter */
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+        { name: "twitter:url", content: url },
 
         /* Conditional Twitter Handle */
         ...(twitterHandle
