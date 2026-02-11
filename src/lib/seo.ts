@@ -1,3 +1,4 @@
+// https://realfavicongenerator.net/
 export const seo = ({
     title,
     description,
