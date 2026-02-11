@@ -33,7 +33,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
             "Portfolio of Harsh Gaur, a Frontend Engineer with 2+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and TanStack."
 
         const url = loaderData?.host
-        const image = `${url}/logo-with-bg.png`
+        const image = `${url}/logo.png`
         const twitterHandle = "@Harsh_G775"
         const themeColor = loaderData?.theme === "dark" ? "#171c23" : "#f8f9fa"
         return {
