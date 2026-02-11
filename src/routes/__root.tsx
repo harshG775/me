@@ -35,6 +35,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         const url = loaderData?.host
         const image = `${url}/logo-with-bg.png`
         const twitterHandle = "@Harsh_G775"
+        const themeColor = loaderData?.theme === "dark" ? "#171c23" : "#f8f9fa"
         return {
             meta: [
                 {
@@ -43,6 +44,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                 {
                     name: "viewport",
                     content: "width=device-width, initial-scale=1",
+                },
+                {
+                    name: "theme-color",
+                    content: themeColor,
                 },
                 ...seo({
                     title: title,
