@@ -34,7 +34,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
         const url = loaderData?.host
         const image = `${url}/logo-with-bg.png`
-
+        const twitterHandle = "@Harsh_G775"
         return {
             meta: [
                 {
@@ -50,7 +50,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     keywords: "frontend engineer, react developer, typescript, portfolio",
                     url: url,
                     image: image,
-                    twitterHandle: "@Harsh_G775",
+                    twitterHandle: twitterHandle,
                 }),
             ],
             links: [
@@ -60,12 +60,36 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                 },
                 {
                     rel: "canonical",
-                    href: loaderData?.host,
+                    href: url,
                 },
                 {
                     rel: "sitemap",
                     type: "application/xml",
                     href: "/sitemap.xml",
+                },
+                {
+                    rel: "icon",
+                    type: "image/png",
+                    href: "/favicons/favicon-96x96.png",
+                    sizes: "96x96",
+                },
+                {
+                    rel: "icon",
+                    type: "image/svg+xml",
+                    href: "/favicons/favicon.svg",
+                },
+                {
+                    rel: "shortcut icon",
+                    href: "/favicons/favicon.ico",
+                },
+                {
+                    rel: "apple-touch-icon",
+                    sizes: "180x180",
+                    href: "/favicons/apple-touch-icon.png",
+                },
+                {
+                    rel: "manifest",
+                    href: "/favicons/site.webmanifest",
                 },
             ],
         }
