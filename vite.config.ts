@@ -25,11 +25,11 @@ const config = defineConfig({
         tanstackStart({
             // prerender: {
             //     enabled: true,
-            //     crawlLinks: true,
+            //     crawlLinks: true, // Discovers all linkable pages
             // },
-            // sitemap: {
+            // sitemap: { // for generating sitemap copy from .output\public\sitemap.xml and past into public/sitemap.xml
             //     enabled: true,
-            //     host: "https://www.harshgaur.in",
+            //     host: "https://harshgaur.in",
             // },
         }),
         viteReact({
