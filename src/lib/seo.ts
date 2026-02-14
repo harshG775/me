@@ -1,3 +1,4 @@
+// https://realfavicongenerator.net/
 export const seo = ({
     title,
     description,
@@ -6,6 +7,7 @@ export const seo = ({
     url,
     keywords,
     twitterHandle,
+    appName, // iOS / PWA app title
 }: {
     title: string
     description?: string
@@ -14,24 +16,36 @@ export const seo = ({
     url?: string
     keywords?: string
     twitterHandle?: `@${string}`
+    appName?: string
 }) => {
     const tags = [
+        // Document title
         { title },
-        { name: "description", content: description },
-        { name: "keywords", content: keywords },
 
-        /* Open Graph */
+        // Basic SEO
+        ...(description ? [{ name: "description", content: description }] : []),
+        ...(keywords ? [{ name: "keywords", content: keywords }] : []),
+
+        // iOS / PWA
+        ...(appName
+            ? [
+                  { name: "apple-mobile-web-app-title", content: appName },
+                  { name: "application-name", content: appName },
+              ]
+            : []),
+
+        // Open Graph
         { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:url", content: url },
+        ...(description ? [{ property: "og:description", content: description }] : []),
+        ...(url ? [{ property: "og:url", content: url }] : []),
         { property: "og:type", content: type },
 
-        /* Twitter */
+        // Twitter
         { name: "twitter:title", content: title },
-        { name: "twitter:description", content: description },
-        { name: "twitter:url", content: url },
+        ...(description ? [{ name: "twitter:description", content: description }] : []),
+        ...(url ? [{ name: "twitter:url", content: url }] : []),
 
-        /* Conditional Twitter Handle */
+        // Twitter handle
         ...(twitterHandle
             ? [
                   { name: "twitter:creator", content: twitterHandle },
@@ -39,7 +53,7 @@ export const seo = ({
               ]
             : []),
 
-        /* image */
+        // Images
         ...(image
             ? [
                   { name: "twitter:card", content: "summary_large_image" },

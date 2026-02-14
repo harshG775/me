@@ -18,7 +18,8 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
     loader: async () => {
         const theme = await getThemeServerFn()
-        return { host: "https://www.harshgaur.in", theme: theme || "dark" }
+
+        return { host: "https://harshgaur.in", theme: theme || "dark" }
     },
     notFoundComponent: () => (
         <div className="p-10 text-center">
@@ -27,8 +28,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         </div>
     ),
     head: ({ loaderData }) => {
+        const appName = "Harsh Gaur"
         const title = "Harsh Gaur — Frontend Engineer | React, Next.js, TypeScript"
-
         const description =
             "Portfolio of Harsh Gaur, a Frontend Engineer with 2+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and TanStack."
 
@@ -50,13 +51,18 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     content: themeColor,
                 },
                 ...seo({
-                    title: title,
-                    description: description,
+                    title,
+                    description,
                     keywords: "frontend engineer, react developer, typescript, portfolio",
-                    url: url,
-                    image: image,
-                    twitterHandle: twitterHandle,
+                    url,
+                    image,
+                    twitterHandle,
+                    appName: appName,
                 }),
+                {
+                    name: "google-site-verification",
+                    content: "googlee00a17c4f7c5d0b6.html",
+                },
             ],
             links: [
                 {
