@@ -23,10 +23,10 @@ const config = defineConfig({
         }),
         tailwindcss(),
         tanstackStart({
-            prerender: {
-                enabled: true,
-                crawlLinks: true, // Discovers all linkable pages
-            },
+            // prerender: {
+            //     enabled: true,
+            //     crawlLinks: true, // Discovers all linkable pages
+            // },
             // sitemap: { // for generating sitemap copy from .output\public\sitemap.xml and past into public/sitemap.xml
             //     enabled: true,
             //     host: "https://harshgaur.in",
