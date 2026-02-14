@@ -153,8 +153,6 @@ const resumeData = {
     ],
 }
 
-export const metadata = resumeData.metadata
-
 function RouteComponent() {
     const { name, title, contact, summary, experience, projects, skills, education, certifications, atsKeywords } =
         resumeData
