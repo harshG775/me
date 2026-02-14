@@ -18,7 +18,8 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
     loader: async () => {
         const theme = await getThemeServerFn()
-        return { host: "https://www.harshgaur.in", theme: theme || "dark" }
+
+        return { host: "https://harshgaur.in", theme: theme || "dark" }
     },
     notFoundComponent: () => (
         <div className="p-10 text-center">
@@ -58,6 +59,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     twitterHandle,
                     appName: appName,
                 }),
+                {
+                    name: "google-site-verification",
+                    content: "googlee00a17c4f7c5d0b6.html",
+                },
             ],
             links: [
                 {

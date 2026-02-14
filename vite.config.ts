@@ -27,10 +27,10 @@ const config = defineConfig({
             //     enabled: true,
             //     crawlLinks: true,
             // },
-            sitemap: {
-                enabled: true,
-                host: "https://www.harshgaur.in",
-            },
+            // sitemap: {
+            //     enabled: true,
+            //     host: "https://www.harshgaur.in",
+            // },
         }),
         viteReact({
             babel: {
