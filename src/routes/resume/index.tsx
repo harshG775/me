@@ -157,7 +157,7 @@ function RouteComponent() {
     const { name, title, contact, summary, experience, projects, skills, education, certifications, atsKeywords } =
         resumeData
     const handlePrint = () => {
-        if (typeof window !== "undefined") window.print()
+        window.print()
     }
 
     return (
