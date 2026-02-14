@@ -23,14 +23,14 @@ const config = defineConfig({
         }),
         tailwindcss(),
         tanstackStart({
-            // prerender: {
-            //     enabled: true,
-            //     crawlLinks: true,
-            // },
-            // sitemap: {
-            //     enabled: true,
-            //     host: "https://www.harshgaur.in",
-            // },
+            prerender: {
+                enabled: true,
+                crawlLinks: true, // Discovers all linkable pages
+            },
+            sitemap: {
+                enabled: true,
+                host: "https://harshgaur.in",
+            },
         }),
         viteReact({
             babel: {

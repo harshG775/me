@@ -1,10 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-# Block internal / non-SEO routes if any
-Disallow: /api/
-Disallow: /_dev/
-Disallow: /auth/
-
 Allow: /
 
-Sitemap: https://www.harshgaur.in/sitemap.xml
+Sitemap: https://harshgaur.in/sitemap.xml
+
+# Block internal / non-SEO routes if any
+Disallow: /api/
