@@ -27,10 +27,10 @@ const config = defineConfig({
                 enabled: true,
                 crawlLinks: true, // Discovers all linkable pages
             },
-            sitemap: {
-                enabled: true,
-                host: "https://harshgaur.in",
-            },
+            // sitemap: { // for generating sitemap copy from .output\public\sitemap.xml and past into public/sitemap.xml
+            //     enabled: true,
+            //     host: "https://harshgaur.in",
+            // },
         }),
         viteReact({
             babel: {
