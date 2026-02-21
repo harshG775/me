@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResumeIndexRouteImport } from './routes/resume/index'
+import { Route as ResumesResume_idRouteImport } from './routes/resumes/$resume_id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +23,39 @@ const ResumeIndexRoute = ResumeIndexRouteImport.update({
   path: '/resume/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResumesResume_idRoute = ResumesResume_idRouteImport.update({
+  id: '/resumes/$resume_id',
+  path: '/resumes/$resume_id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/resumes/$resume_id': typeof ResumesResume_idRoute
   '/resume/': typeof ResumeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/resumes/$resume_id': typeof ResumesResume_idRoute
   '/resume': typeof ResumeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/resumes/$resume_id': typeof ResumesResume_idRoute
   '/resume/': typeof ResumeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume/'
+  fullPaths: '/' | '/resumes/$resume_id' | '/resume/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/resume'
-  id: '__root__' | '/' | '/resume/'
+  to: '/' | '/resumes/$resume_id' | '/resume'
+  id: '__root__' | '/' | '/resumes/$resume_id' | '/resume/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ResumesResume_idRoute: typeof ResumesResume_idRoute
   ResumeIndexRoute: typeof ResumeIndexRoute
 }
 
@@ -65,11 +75,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResumeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resumes/$resume_id': {
+      id: '/resumes/$resume_id'
+      path: '/resumes/$resume_id'
+      fullPath: '/resumes/$resume_id'
+      preLoaderRoute: typeof ResumesResume_idRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ResumesResume_idRoute: ResumesResume_idRoute,
   ResumeIndexRoute: ResumeIndexRoute,
 }
 export const routeTree = rootRouteImport
