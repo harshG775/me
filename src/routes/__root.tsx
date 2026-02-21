@@ -105,6 +105,21 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
             ],
         }
     },
+    scripts(ctx) {
+        const googleTagId = "G-RJ9WBTSDZF"
+        return [
+            { src: `https://www.googletagmanager.com/gtag/js?id=${googleTagId}`, async: true },
+            {
+                innerHTML: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag("js", new Date());
+
+                gtag("config", "${googleTagId}");
+                `,
+            },
+        ]
+    },
     shellComponent: RootDocument,
 })
 
