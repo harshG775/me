@@ -118,6 +118,19 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                 gtag("config", "${googleTagId}");
                 `,
             },
+            {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    name: "Harsh Gaur",
+                    url: "https://harshgaur.in",
+                    image: "https://harshgaur.in/profile.jpg",
+                    jobTitle: "Frontend Engineer",
+                    description: "Frontend Engineer specializing in React, Next.js, TypeScript, and TanStack.",
+                    sameAs: ["https://www.linkedin.com/in/harshg775", "https://github.com/harshG775"],
+                }),
+            },
         ]
     },
     shellComponent: RootDocument,
