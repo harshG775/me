@@ -22,11 +22,11 @@ export default function IntroSection() {
                         }}
                     >
                         <img
-                            src="https://media.licdn.com/dms/image/v2/D5603AQGMIt9PZgGNZQ/profile-displayphoto-crop_800_800/B56ZvMVIWyGsAM-/0/1768659654789?e=1772064000&v=beta&t=hn4Pq2ovf3TOUmG2FggHtOq5hyS3SG6f1FlNwMcIIlo"
+                            src="/profile.png"
                             alt={`${OWNER_NAME.split(" ")[0]} portrait`}
                             width={192}
                             height={192}
-                            className="h-28 w-28 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                            className="size-38 rounded-full object-cover border-[0.2rem] border-white shadow-xl"
                         />
                     </M.div>
                 </div>
