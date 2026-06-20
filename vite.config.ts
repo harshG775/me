@@ -1,42 +1,22 @@
-import { URL, fileURLToPath } from "node:url"
 import { defineConfig } from "vite"
 import { devtools } from "@tanstack/devtools-vite"
-import { tanstackStart } from "@tanstack/react-start/plugin/vite"
-import viteReact from "@vitejs/plugin-react"
-import viteTsConfigPaths from "vite-tsconfig-paths"
 
+import { tanstackStart } from "@tanstack/react-start/plugin/vite"
+
+import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react"
+import babel from "@rolldown/plugin-babel"
 import tailwindcss from "@tailwindcss/vite"
 import { nitro } from "nitro/vite"
 
 const config = defineConfig({
-    resolve: {
-        alias: {
-            "@": fileURLToPath(new URL("./src", import.meta.url)),
-        },
-    },
+    resolve: { tsconfigPaths: true },
     plugins: [
         devtools(),
-        nitro(),
-        // this is the plugin that enables path aliases
-        viteTsConfigPaths({
-            projects: ["./tsconfig.json"],
-        }),
+        nitro({ rollupConfig: { external: [/^@sentry\//] } }),
         tailwindcss(),
-        tanstackStart({
-            // prerender: {
-            //     enabled: true,
-            //     crawlLinks: true, // Discovers all linkable pages
-            // },
-            // sitemap: { // for generating sitemap copy from .output\public\sitemap.xml and past into public/sitemap.xml
-            //     enabled: true,
-            //     host: "https://harshgaur.in",
-            // },
-        }),
-        viteReact({
-            babel: {
-                plugins: ["babel-plugin-react-compiler"],
-            },
-        }),
+        tanstackStart(),
+        viteReact(),
+        babel({ presets: [reactCompilerPreset()] }),
     ],
 })
 
