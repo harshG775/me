@@ -25,6 +25,7 @@ export const Route = createRootRoute({
             },
         ],
     }),
+    notFoundComponent: () => <div>404 — page not found</div>,
     shellComponent: RootDocument,
 })
 

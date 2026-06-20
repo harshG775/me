@@ -13,9 +13,13 @@
         "test": "vitest run",
         "lint": "eslint",
         "format": "prettier --write . && eslint --fix",
-        "check": "prettier --check ."
+        "check": "prettier --check .",
+        "postinstall": "node scripts/copy-typst-wasm.mjs"
     },
     "dependencies": {
+        "@myriaddreamin/typst-ts-renderer": "^0.7.0",
+        "@myriaddreamin/typst-ts-web-compiler": "^0.7.0",
+        "@myriaddreamin/typst.ts": "^0.7.0",
         "@tailwindcss/vite": "^4.1.18",
         "@tanstack/react-devtools": "latest",
         "@tanstack/react-router": "latest",
@@ -26,7 +30,7 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.577.0",
-        "nitro": "npm:nitro-nightly@latest",
+        "nitro": "latest",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "tailwind-merge": "^3.0.2",

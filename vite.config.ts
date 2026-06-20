@@ -8,6 +8,11 @@ import babel from "@rolldown/plugin-babel"
 import tailwindcss from "@tailwindcss/vite"
 import { nitro } from "nitro/vite"
 
+const TYPST_PACKAGES = [
+    "@myriaddreamin/typst.ts",
+    "@myriaddreamin/typst-ts-web-compiler",
+    "@myriaddreamin/typst-ts-renderer",
+]
 const config = defineConfig({
     resolve: { tsconfigPaths: true },
     plugins: [
@@ -18,6 +23,12 @@ const config = defineConfig({
         viteReact(),
         babel({ presets: [reactCompilerPreset()] }),
     ],
+    optimizeDeps: {
+        exclude: TYPST_PACKAGES,
+    },
+    ssr: {
+        noExternal: TYPST_PACKAGES,
+    },
 })
 
 export default config

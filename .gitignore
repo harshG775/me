@@ -11,3 +11,6 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
+
+public/typst/typst_ts_renderer_bg.wasm
+public/typst/typst_ts_web_compiler_bg.wasm
