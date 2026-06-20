@@ -27,7 +27,7 @@ export function getTypst(): Promise<TypstInstance> {
     }
 
     if (!typstPromise) {
-        typstPromise = import("@myriaddreamin/typst.ts").then(async ({ $typst }) => {
+        typstPromise = import("@myriaddreamin/typst.ts").then(async ({ $typst, /* loadFonts */ }) => {
             // const fontBeforeBuild = activeConfig.fontUrls?.length ? [loadFonts(activeConfig.fontUrls)] : []
 
             $typst.setCompilerInitOptions({
