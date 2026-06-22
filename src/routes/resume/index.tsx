@@ -11,7 +11,7 @@ function RouteComponent() {
 #let resume-data = (
     profile: (
         name: "Harsh Gaur",
-        role: "Frontend Developer Engineer | React, Next.js, TanStack, TypeScript | SaaS Platforms",
+        role: "Frontend Engineer | React, Next.js, TanStack, TypeScript | SaaS Platforms",
         location: "Delhi, India",
         email: (label: "hgaur491@gmail.com", link: "mailto:hgaur491@gmail.com"),
         phone: (label: "(+91) 9310745921", link: "tel:+919310745921"),
@@ -21,15 +21,22 @@ function RouteComponent() {
             (label: "linkedin.com/in/harshg775", link: "https://linkedin.com/in/harshg775"),
         ),
     ),
-    summary: "Frontend Engineer specializing in multi-tenant SaaS architectures and real-time AI integrations. I help growing businesses accelerate product delivery by building scalable, high-performance web applications that reduce development overhead and streamline user experiences.",
+    summary: "Frontend Engineer specializing in multi-tenant SaaS architecture and real-time AI integrations - building scalable, high-performance web applications that reduce development overhead and streamline user experience for growing businesses.",
     skills: (
         (label: "Languages", item: ("TypeScript", "JavaScript (ES2022+)", "Python")),
         (
             label: "Frontend",
-            item: ("React.js", "Next.js", "TanStack (Query, Router, Start)", "Zustand", "Tailwind CSS", "ShadCN UI"),
+            item: (
+                "React.js",
+                "Next.js",
+                "TanStack (Query, Router, Start, Form)",
+                "Zustand",
+                "Tailwind CSS",
+                "ShadCN UI",
+            ),
         ),
         (label: "Backend & AI", item: ("Node.js", "Express.js", "Flask", "OpenAI API", "REST/WebSockets")),
-        (label: "Data & Tools", item: ("PostgreSQL", "MongoDB", "Prisma", "Docker", "Git", "Postman")),
+        (label: "Data & Tools", item: ("PostgreSQL", "MongoDB", "Drizzle ORM", "Better Auth", "Docker", "Git")),
     ),
     experience: (
         (
@@ -39,8 +46,8 @@ function RouteComponent() {
             start: "Jun 2025",
             end: "Present",
             bullets: (
-                "Architected three multi-tenant SaaS platforms (Astrologer, Temple Management, Ebook) with domain/subdomain-based tenant isolation, per-tenant Ul theming, and Next.js middleware routing.",
-                "Built reusable React/TypeScript components for booking and payment flows with unified payment gateway (prabhubhakti.io) integrated via Razorpay-deployed across all tenant platforms, reducing per-tenant integration time by ~70%.",
+                "Architected three multi-tenant SaaS platforms (Astrologer, Temple Management, Ebook) with domain/subdomain-based tenant isolation, per-tenant UI theming, and Next.js middleware routing.",
+                "Built reusable React/TypeScript components for booking and payment flows, integrating a unified payment gateway (prabhubhakti.io) via Phonepe across all tenant platforms - reducing per-tenant integration time by ~70%.",
                 "Standardized tenant onboarding templates in Next.js with TanStack Router, enabling rapid feature rollout across tenants.",
             ),
         ),
@@ -51,7 +58,7 @@ function RouteComponent() {
             start: "Aug 2024",
             end: "Feb 2025",
             bullets: (
-                "Built SupportDesk, an Al customer support platform with real-time agent-to-human handover using WebSockets and OpenAI API integration, eliminating third-party tooling and saving ~2L/year.",
+                "Built SupportDesk, an AI customer support platform with real-time agent-to-human handover using WebSockets and OpenAI API integration, eliminating third-party tooling and saving ~2L/year.",
                 "Developed AIDoubtSolver, an academic AI chatbot with voice-to-voice chat using Whisper API, browser Camera API, and real-time streaming responses via SSE, supporting 150+ concurrent users with optimized state management and minimal re-renders.",
                 "Improved application performance by ~25% through bundle analysis, route-based code splitting, and memoization strategies.",
             ),
@@ -71,7 +78,7 @@ function RouteComponent() {
     projects: (
         (
             name: "Resume Builder Platform",
-            tech: "React, TanStack-start, TanStack Form, Zod, Tiptap, Typst, dnd-kit",
+            tech: "TanStack Start, Typst (WASM), TanStack Form, Zod, dnd-kit, Tiptap",
             bullets: (
                 "Designed a resume system with React, TanStack Form, and Zod schema validation, supporting dynamic section reordering via drag-and-drop (@dnd-kit/react).",
                 "Integrated Tiptap rich text editor with CSS-scoped styling for WYSIWYG content editing across templates.",
@@ -117,18 +124,18 @@ function RouteComponent() {
 #let font-sans = "Arial"
 
 #set text(font: font-sans, size: 9.8pt, fill: color-text)
-#set par(leading: 0.5em)
+#set par(leading: 0.6em)
 
 // ── heading rules ────────────────────────────────────────────────────────────
 // h1 → Main Name
 #show heading.where(level: 1): it => block(below: 6pt)[
-    #set text(font: font-serif, size: 26pt, weight: 700, fill: color-heading)
+    #set text(font: font-serif, size: 26pt, weight: 800, fill: color-heading)
     #it.body
 ]
 
 // h2 → Core Sections (Summary, Experience, etc.)
 #show heading.where(level: 2): it => block(above: 8pt)[
-    #pad(top: 0.6em, bottom: -8pt)[ #text(font: font-serif, weight: 700, fill: color-heading)[#upper(it.body)] ]
+    #pad(top: 0.6em, bottom: -8pt)[ #text(font: font-serif, weight: 800, fill: color-heading)[#upper(it.body)] ]
     #line(length: 100%, stroke: 0.5pt)
     #v(-2pt)
 ]
@@ -140,32 +147,22 @@ function RouteComponent() {
 ]
 
 // ── helpers ───────────────────────────────────────────────────────────────────
-#let date-range(s, e) = text(fill: color-muted, weight: 400)[#s #sym.dash.em #e]
+#let date-range(s, e) = text(fill: color-muted, weight: 400)[#s - #e]
 
 // ── HEADER ────────────────────────────────────────────────────────────────────
-#grid(
-    columns: (1fr, auto),
-    gutter: 20pt,
-    [
-        = #resume-data.profile.name
-        #text(size: 11pt, weight: 600)[#resume-data.profile.role] \
-        #v(-2pt)
-        #text(fill: color-text)[
-            #link(resume-data.profile.email.link)[#resume-data.profile.email.label] #text(fill: color-muted)[ | ]
-            #link(resume-data.profile.phone.link)[#resume-data.profile.phone.label] #text(fill: color-muted)[ | ]
-            #resume-data.profile.location
-        ]
-    ],
-    [
-        #set text(fill: color-muted)
-        #set align(right + bottom)
-        #block(spacing: 4pt)[
-            #for item in resume-data.profile.links [
-                #link(item.link)[#underline(stroke: 0.5pt + color-muted, evade: true)[#item.label]] \
-            ]
-        ]
-    ],
-)
+= #resume-data.profile.name
+#text(size: 11pt, weight: 600)[#resume-data.profile.role] \
+#v(-2pt)
+#text(fill: color-text)[
+    #link(resume-data.profile.email.link)[#resume-data.profile.email.label] #text(fill: color-muted)[ | ]
+    #link(resume-data.profile.phone.link)[#resume-data.profile.phone.label] #text(fill: color-muted)[ | ]
+    #resume-data.profile.location
+    #for (i, item) in resume-data.profile.links.enumerate() [
+        #text(fill: color-muted)[ | ]
+        #link(item.link)[#underline(stroke: 0.5pt + color-muted, evade: true)[#text(fill: color-muted)[#item.label]]]
+    ]
+]
+
 
 // ── SUMMARY ───────────────────────────────────────────────────────────────────
 == Summary
@@ -195,7 +192,7 @@ function RouteComponent() {
 #for job in resume-data.experience [
     #block(breakable: false, width: 100%)[
         === #job.role #h(1fr) #date-range(job.start, job.end)
-        #text(fill: color-muted)[#job.company | #text(style: "italic")[#job.location]]
+        #text(fill: color-text)[#job.company] #text(fill: color-muted)[| #text(style: "italic")[#job.location]]
         #list(..job.bullets)
     ]
     #v(0.4em)
@@ -225,6 +222,7 @@ function RouteComponent() {
     ]
     #v(0.4em)
 ]
+
 
     
 `
