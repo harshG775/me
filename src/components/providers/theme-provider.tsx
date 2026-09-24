@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export type ThemeMode = "light" | "dark" | "auto";
+export type AppTheme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
 
@@ -9,12 +10,15 @@ function isThemeMode(value: string | null): value is ThemeMode {
     return value === "light" || value === "dark" || value === "auto";
 }
 
-// --- Core theme logic --------------------------------------------------
-// Also duplicated, standalone, inside getThemeInitScript below.
+export function resolveAppTheme(mode: ThemeMode): AppTheme {
+    if (mode !== "auto") {
+        return mode;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
 
-export function applyThemeMode(mode: ThemeMode) {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const resolved = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
+export function applyThemeMode(mode: ThemeMode): AppTheme {
+    const resolved = resolveAppTheme(mode);
 
     const root = document.documentElement;
     root.classList.remove("light", "dark");
@@ -27,6 +31,8 @@ export function applyThemeMode(mode: ThemeMode) {
     }
 
     root.style.colorScheme = resolved;
+
+    return resolved;
 }
 
 export function initTheme(fallback: ThemeMode): ThemeMode {
@@ -36,9 +42,6 @@ export function initTheme(fallback: ThemeMode): ThemeMode {
     return mode;
 }
 
-// Hand-written and self-contained on purpose: this runs as a raw inline
-// <script> before any app JS loads, so it can't call isThemeMode/applyThemeMode
-// above. Keep it in sync with them if that logic changes.
 export function getThemeInitScript(fallback: ThemeMode): string {
     return `(function () {
     try {
@@ -63,6 +66,7 @@ export function getThemeInitScript(fallback: ThemeMode): string {
 
 type ThemeContextValue = {
     mode: ThemeMode;
+    appTheme: AppTheme;
     setMode: (mode: ThemeMode) => void;
 };
 
@@ -72,6 +76,9 @@ export function ThemeProvider({ children, defaultMode = "auto" }: { children: Re
     const [mode, setModeState] = useState<ThemeMode>(() =>
         typeof window === "undefined" ? defaultMode : initTheme(defaultMode),
     );
+    const [appTheme, setAppTheme] = useState<AppTheme>(() =>
+        typeof window === "undefined" ? (defaultMode === "auto" ? "light" : defaultMode) : resolveAppTheme(mode),
+    );
 
     // Re-resolve when the OS theme changes while mode === "auto".
     useEffect(() => {
@@ -80,7 +87,7 @@ export function ThemeProvider({ children, defaultMode = "auto" }: { children: Re
         }
 
         const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const onChange = () => applyThemeMode("auto");
+        const onChange = () => setAppTheme(applyThemeMode("auto"));
 
         media.addEventListener("change", onChange);
         return () => media.removeEventListener("change", onChange);
@@ -93,7 +100,7 @@ export function ThemeProvider({ children, defaultMode = "auto" }: { children: Re
                 return;
             }
             setModeState(e.newValue);
-            applyThemeMode(e.newValue);
+            setAppTheme(applyThemeMode(e.newValue));
         }
 
         window.addEventListener("storage", onStorage);
@@ -102,11 +109,11 @@ export function ThemeProvider({ children, defaultMode = "auto" }: { children: Re
 
     function setMode(nextMode: ThemeMode) {
         setModeState(nextMode);
-        applyThemeMode(nextMode);
+        setAppTheme(applyThemeMode(nextMode));
         window.localStorage.setItem(STORAGE_KEY, nextMode);
     }
 
-    return <ThemeContext.Provider value={{ mode, setMode }}>{children}</ThemeContext.Provider>;
+    return <ThemeContext.Provider value={{ mode, appTheme, setMode }}>{children}</ThemeContext.Provider>;
 }
 
 export function useThemeMode() {
