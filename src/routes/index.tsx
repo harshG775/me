@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 function HomePage() {
     return (
         <>
-            <main id="top">
+            <main id="top" className="pt-12">
                 <section
                     aria-labelledby="hero-heading"
                     className="flex flex-col items-center px-4 py-20 lg:py-28 text-center"
