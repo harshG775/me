@@ -3,9 +3,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 export type ThemeMode = "light" | "dark" | "auto";
 
-function getInitialMode(): ThemeMode {
+function getInitialMode(fallback: ThemeMode): ThemeMode {
     if (typeof window === "undefined") {
-        return "auto";
+        return fallback;
     }
 
     const stored = window.localStorage.getItem("theme");
@@ -13,7 +13,7 @@ function getInitialMode(): ThemeMode {
         return stored;
     }
 
-    return "auto";
+    return fallback;
 }
 
 function applyThemeMode(mode: ThemeMode) {
@@ -39,11 +39,12 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [mode, setModeState] = useState<ThemeMode>("auto");
+export function ThemeProvider({ children, defaultMode = "auto" }: { children: ReactNode; defaultMode?: ThemeMode }) {
+    const [mode, setModeState] = useState<ThemeMode>(defaultMode);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: only the mount-time defaultMode should seed this
     useEffect(() => {
-        const initialMode = getInitialMode();
+        const initialMode = getInitialMode(defaultMode);
         setModeState(initialMode);
         applyThemeMode(initialMode);
     }, []);

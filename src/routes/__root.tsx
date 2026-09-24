@@ -8,11 +8,7 @@ import appCss from "../styles.css?url";
 import { Footer } from "./-components/footer";
 import { Header } from "./-components/header";
 
-function getThemeInitScript(defaultMode: "light" | "dark" | "auto") {
-    return `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'${defaultMode}';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
-}
-
-const THEME_INIT_SCRIPT = getThemeInitScript("light");
+const defaultMode = "light";
 
 interface MyRouterContext {
     queryClient: QueryClient;
@@ -40,7 +36,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         ],
         scripts: [
             {
-                children: THEME_INIT_SCRIPT,
+                children: `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'${defaultMode}';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`,
             },
         ],
     }),
@@ -54,7 +50,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <HeadContent />
             </head>
             <body>
-                <ThemeProvider>
+                <ThemeProvider defaultMode={defaultMode}>
                     <Header />
                     {children}
                     <Footer />
