@@ -4,6 +4,46 @@ import { GithubIcon } from "#/components/icons/github-icon";
 import { LinkedinIcon } from "#/components/icons/linkedin-icon";
 import { MailIcon } from "#/components/icons/mail-icon";
 import { ResumeIcon } from "#/components/icons/resume-icon";
+import { Timeline } from "#/components/ui/timeline";
+
+const experience = [
+    {
+        index: "01",
+        title: "Front-end Engineer",
+        subtitle: "Prabhubhakti Pvt. Ltd.",
+        meta: "Current role · Gurugram",
+        date: "Jun 2025 - Present",
+        defaultExpanded: true,
+        bullets: [
+            "Architected three multi-tenant SaaS platforms (Astrologer, Temple Management, and Ebook) using Next.js and TanStack Start, supporting 30+ live tenant clients and 2,000+ end users.",
+            "Built reusable React/TypeScript booking and payment components on a centralized PhonePe integration, reducing new tenant onboarding time by 70%.",
+            "Standardized onboarding templates and routing across tenant applications, reducing duplicate implementation and speeding up new tenant features.",
+        ],
+    },
+    {
+        index: "02",
+        title: "Front-end Engineer (SDE Trainee)",
+        subtitle: "Metis Eduventures Pvt. Ltd. (Adda247)",
+        meta: "Trainee · Gurugram",
+        date: "Aug 2024 - Feb 2025",
+        bullets: [
+            "Built SupportDesk, an AI-powered customer support platform with real-time agent handover using WebSockets and the OpenAI API, replacing a third-party vendor and saving ₹2L per year.",
+            "Developed a voice-enabled AI academic assistant using the Whisper API and SSE streaming, supporting 150+ concurrent users.",
+            "Improved React application performance by 25% using bundle analysis, code splitting, React.memo, and lazy loading.",
+        ],
+    },
+    {
+        index: "03",
+        title: "Front-end Developer Intern",
+        subtitle: "ItaxEasy",
+        meta: "Internship · Remote",
+        date: "Nov 2023 - May 2024",
+        bullets: [
+            "Migrated a legacy React.js tax platform to the Next.js App Router with SSR, improving SEO indexing and reducing initial page load time.",
+            "Implemented route-based code splitting and lazy loading to reduce JavaScript payload and improve navigation performance.",
+        ],
+    },
+];
 
 export const Route = createFileRoute("/")({
     head: () => ({
@@ -25,12 +65,12 @@ function HomePage() {
             <main id="top" className="pt-12">
                 <section
                     aria-labelledby="hero-heading"
-                    className="flex flex-col items-center px-4 py-20 lg:py-28 text-center"
+                    className="max-w-5xl mx-auto flex flex-col items-center px-4 py-20 lg:py-28 text-center"
                 >
                     <img
                         src="/profile.png"
                         alt="Harsh Gaur"
-                        className="mt-5 h-24 w-24 rounded-full bg-neutral-100 object-cover"
+                        className="mt-5 h-24 w-24 rounded-full bg-mist-100 object-cover"
                     />
                     <h1 id="hero-heading" className="mt-5 font-normal text-2xl lg:text-4xl">
                         Hi, I'm <span className="font-medium text-primary">Harsh</span>
@@ -41,40 +81,40 @@ function HomePage() {
                         </span>
                         <span className="flex gap-1">
                             <span className="text-primary">{"✦"}</span>
-                            <span className="rounded-full border border-neutral-300 px-5 py-1 text-primary bg-primary/10 font-medium text-2xl">
+                            <span className="rounded-full border border-mist-300 px-5 py-1 text-primary bg-primary/10 font-medium text-2xl">
                                 {"React.js"}
                             </span>
                         </span>
                     </div>
-                    <p className="mt-3 text-xs font-normal tracking-widest text-neutral-400 uppercase">
+                    <p className="mt-3 text-xs font-normal tracking-widest text-mist-400 uppercase">
                         Front-end Engineer · Delhi · Open to roles
                     </p>
 
                     <div className="mt-8 flex items-center justify-center gap-3">
                         <ExternalLink href="https://github.com/harshG775">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-100 text-neutral-700 hover:bg-primary/10 hover:text-neutral-900 text-lg">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
                                 <GithubIcon />
                             </span>
                         </ExternalLink>
                         <ExternalLink href="https://www.linkedin.com/in/harshg775">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-100 text-neutral-700 hover:bg-primary/10 hover:text-neutral-900 text-lg">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
                                 <LinkedinIcon />
                             </span>
                         </ExternalLink>
                         <a href="mailto:hgaur491@gmail.com">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-100 text-neutral-700 hover:bg-primary/10 hover:text-neutral-900 text-lg">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
                                 <MailIcon />
                             </span>
                         </a>
                         <a href="/harsh-gaur-frontend-engineer.pdf" download title="Download resume">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-100 text-neutral-700 hover:bg-primary/10 hover:text-neutral-900 text-lg">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
                                 <ResumeIcon />
                             </span>
                         </a>
                     </div>
                 </section>
 
-                <section id="work" aria-labelledby="work-heading">
+                <section id="work" aria-labelledby="work-heading" className="max-w-4xl mx-auto">
                     <h2 id="work-heading">Featured work</h2>
 
                     <article>
@@ -206,68 +246,12 @@ function HomePage() {
                     </article>
                 </section>
 
-                <section id="experience" aria-labelledby="experience-heading">
+                <section id="experience" aria-labelledby="experience-heading" className="max-w-4xl mx-auto">
                     <h2 id="experience-heading">Experience</h2>
-                    <ol>
-                        <li>
-                            <p>Jun 2025 – Present · Gurugram</p>
-                            <h3>Front-end Engineer</h3>
-                            <p>Prabhubhakti Pvt. Ltd.</p>
-                            <ul>
-                                <li>
-                                    Architected three multi-tenant SaaS platforms (Astrologer, Temple Management, and
-                                    Ebook) using Next.js and TanStack Start, supporting 30+ live tenant clients and
-                                    2,000+ end users.
-                                </li>
-                                <li>
-                                    Built reusable React/TypeScript booking and payment components on a centralized
-                                    PhonePe integration, reducing new tenant onboarding time by 70%.
-                                </li>
-                                <li>
-                                    Standardized onboarding templates and routing across tenant applications, reducing
-                                    duplicate implementation and speeding up new tenant features.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p>Aug 2024 – Feb 2025 · Gurugram</p>
-                            <h3>Front-end Engineer (SDE Trainee)</h3>
-                            <p>Metis Eduventures Pvt. Ltd. (Adda247)</p>
-                            <ul>
-                                <li>
-                                    Built SupportDesk, an AI-powered customer support platform with real-time agent
-                                    handover using WebSockets and the OpenAI API, replacing a third-party vendor and
-                                    saving ₹2L per year.
-                                </li>
-                                <li>
-                                    Developed a voice-enabled AI academic assistant using the Whisper API and SSE
-                                    streaming, supporting 150+ concurrent users.
-                                </li>
-                                <li>
-                                    Improved React application performance by 25% using bundle analysis, code splitting,
-                                    React.memo, and lazy loading.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <p>Nov 2023 – May 2024 · Remote</p>
-                            <h3>Front-end Developer Intern</h3>
-                            <p>ItaxEasy</p>
-                            <ul>
-                                <li>
-                                    Migrated a legacy React.js tax platform to the Next.js App Router with SSR,
-                                    improving SEO indexing and reducing initial page load time.
-                                </li>
-                                <li>
-                                    Implemented route-based code splitting and lazy loading to reduce JavaScript payload
-                                    and improve navigation performance.
-                                </li>
-                            </ul>
-                        </li>
-                    </ol>
+                    <Timeline items={experience} />
                 </section>
 
-                <section id="about" aria-labelledby="about-heading">
+                <section id="about" aria-labelledby="about-heading" className="max-w-4xl mx-auto">
                     <h2 id="about-heading">About</h2>
                     <p>
                         I'm a front-end engineer who likes the architecture side of the front end: how a codebase is
@@ -283,13 +267,13 @@ function HomePage() {
                     <ul>
                         <li>
                             Master of Computer Applications (MCA), Indira Gandhi National Open University (IGNOU) (2026
-                            – Expected 2028)
+                            - Expected 2028)
                         </li>
-                        <li>Bachelor of Arts, Prof. Rajendra Singh University (2020 – 2023)</li>
+                        <li>Bachelor of Arts, Prof. Rajendra Singh University (2020 - 2023)</li>
                     </ul>
                 </section>
 
-                <section id="skills" aria-labelledby="skills-heading">
+                <section id="skills" aria-labelledby="skills-heading" className="max-w-4xl mx-auto">
                     <h2 id="skills-heading">Skills</h2>
                     <dl>
                         <div>
@@ -315,7 +299,7 @@ function HomePage() {
                     </dl>
                 </section>
 
-                <section id="contact" aria-labelledby="contact-heading">
+                <section id="contact" aria-labelledby="contact-heading" className="max-w-4xl mx-auto">
                     <h2 id="contact-heading">Let's talk.</h2>
                     <p>
                         I'm open to front-end engineer roles, especially on product teams working with React and
@@ -335,7 +319,7 @@ function HomePage() {
                 </section>
             </main>
 
-            <footer>
+            <footer className="max-w-5xl mx-auto">
                 <p>© {new Date().getFullYear()} Harsh Gaur</p>
                 <a href="#top">Back to top</a>
             </footer>
