@@ -2,10 +2,17 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { ThemeProvider } from "#/components/providers/theme-provider";
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import appCss from "../styles.css?url";
+import { Footer } from "./-components/footer";
+import { Header } from "./-components/header";
 
-const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
+function getThemeInitScript(defaultMode: "light" | "dark" | "auto") {
+    return `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'${defaultMode}';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
+}
+
+const THEME_INIT_SCRIPT = getThemeInitScript("light");
 
 interface MyRouterContext {
     queryClient: QueryClient;
@@ -47,35 +54,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <HeadContent />
             </head>
             <body>
-                <div className="fixed top-0 left-0 right-0 p-2">
-                    <header className="mx-auto w-full max-w-5xl h-10 flex items-center justify-between gap-2">
-                        <a href="#top">
-                            <img src="/logo.svg" alt="portfolio logo" className="size-10" />
-                        </a>
-                        <nav aria-label="Primary" className="h-full flex justify-center">
-                            <a
-                                href="#work"
-                                className="bg-mist-50 h-full content-center px-2.5 font-medium text-mist-700"
-                            >
-                                <span>Work</span>
-                            </a>
-                            <a href="#experience" className="h-full content-center px-2.5 font-medium text-mist-700">
-                                <span>Experience</span>
-                            </a>
-                            <a href="#about" className="h-full content-center px-2.5 font-medium text-mist-700">
-                                <span>About</span>
-                            </a>
-                            <a href="#skills" className="h-full content-center px-2.5 font-medium text-mist-700">
-                                <span>Skills</span>
-                            </a>
-                            <a href="#contact" className="h-full content-center px-2.5 font-medium text-mist-700">
-                                <span>Contact</span>
-                            </a>
-                        </nav>
-                        <div>---</div>
-                    </header>
-                </div>
-                {children}
+                <ThemeProvider>
+                    <Header />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
                 <TanStackDevtools
                     config={{
                         position: "bottom-right",

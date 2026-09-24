@@ -1,8 +1,8 @@
-import type { ReactNode } from "react";
+import type { ComponentProps } from "react";
 
-export function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+export function ExternalLink({ href, children, ...props }: ComponentProps<"a">) {
     return (
-        <a href={href} target="_blank" rel="noreferrer">
+        <a href={href} target="_blank" rel="noreferrer" {...props}>
             {children}
         </a>
     );
