@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://harshgaur.in/sitemap.xml
-
-# Block internal / non-SEO routes if any
-Disallow: /api/
