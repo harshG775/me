@@ -1,16 +1,37 @@
+import { startTransition, useState, ViewTransition } from "react";
 import { ExternalLink } from "#/components/external-link";
 import { GithubIcon } from "#/components/icons/github-icon";
 import { LinkedinIcon } from "#/components/icons/linkedin-icon";
 import { MailIcon } from "#/components/icons/mail-icon";
 import { ResumeIcon } from "#/components/icons/resume-icon";
+import { ImagePopup } from "#/components/ui/image-popup";
+
+const PROFILE_PHOTO_NAME = "hero-profile-photo";
 
 export function Hero() {
+    const [isPhotoOpen, setIsPhotoOpen] = useState(false);
+
     return (
         <section
             aria-labelledby="hero-heading"
             className="max-w-5xl mx-auto flex flex-col items-center px-4 py-20 lg:py-28 text-center"
         >
-            <img src="/profile.png" alt="Harsh Gaur" className="mt-5 h-24 w-24 rounded-full bg-mist-100 object-cover" />
+            {!isPhotoOpen && (
+                <ViewTransition name={PROFILE_PHOTO_NAME}>
+                    <button
+                        type="button"
+                        onClick={() => startTransition(() => setIsPhotoOpen(true))}
+                        aria-label="Open profile photo"
+                        className="mt-5 rounded-full"
+                    >
+                        <img
+                            src="/profile.png"
+                            alt="Harsh Gaur"
+                            className="h-24 w-24 rounded-full bg-mist-100 object-cover"
+                        />
+                    </button>
+                </ViewTransition>
+            )}
             <h1 id="hero-heading" className="mt-5 font-normal text-2xl lg:text-4xl">
                 Hi, I'm <span className="font-medium text-primary">Harsh</span>
             </h1>
@@ -51,6 +72,15 @@ export function Hero() {
                     </span>
                 </a>
             </div>
+
+            {isPhotoOpen && (
+                <ImagePopup
+                    src="/profile.png"
+                    alt="Harsh Gaur"
+                    name={PROFILE_PHOTO_NAME}
+                    onClose={() => startTransition(() => setIsPhotoOpen(false))}
+                />
+            )}
         </section>
     );
 }
