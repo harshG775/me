@@ -1,43 +1,5 @@
 import { ExternalLink } from "#/components/external-link";
-
-type WorkRow = {
-    index: string;
-    category: string;
-    title: string;
-    description: string;
-    result?: string;
-    detail?: string;
-    stack?: string;
-    href?: string;
-};
-
-const moreWork: WorkRow[] = [
-    {
-        index: "02",
-        category: "Professional",
-        title: "SupportDesk",
-        description: "AI-powered customer support platform with live handover to human agents.",
-        result: "Replaced the vendor, saving ₹2L per year.",
-        stack: "React · WebSockets · OpenAI API · Zustand",
-    },
-    {
-        index: "03",
-        category: "Personal",
-        title: "Anchor resume builder",
-        description: "A browser-based resume builder with live PDF preview, no server rendering.",
-        result: "Instant PDF generation entirely in the browser.",
-        stack: "TanStack Start · Typst WASM · Zod · Tiptap · dnd-kit",
-        href: "https://anchor.harshgaur.in",
-    },
-    {
-        index: "04",
-        category: "Open source",
-        title: "Multi-tenant SaaS starter",
-        description: "A public proof of concept for domain-based tenancy in TanStack Start.",
-        detail: "Tenant resolution, isolated routing, per-tenant themes.",
-        href: "https://github.com/harshG775/multi-tenant-saas",
-    },
-];
+import { featuredWork, moreWork, type WorkRow } from "#/data/portfolio/work";
 
 export function Work() {
     return (
@@ -48,27 +10,20 @@ export function Work() {
             </h2>
 
             <article className="mt-12 lg:mt-16">
-                <p className="text-xs font-medium tracking-widest text-mist-400 uppercase">Professional</p>
-                <h3 className="mt-3 text-2xl font-bold lg:text-3xl">Prabhubhakti multi-tenant platforms</h3>
-                <p className="mt-3 text-base text-mist-700 lg:text-lg">
-                    Three SaaS products (astrologer, temple management, ebook) on a shared multi-tenant architecture.
-                </p>
+                <p className="text-xs font-medium tracking-widest text-mist-400 uppercase">{featuredWork.category}</p>
+                <h3 className="mt-3 text-2xl font-bold lg:text-3xl">{featuredWork.title}</h3>
+                <p className="mt-3 text-base text-mist-700 lg:text-lg">{featuredWork.description}</p>
                 <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="border-t border-mist-200 pt-3">
                         <p className="text-xs text-mist-500">Problem</p>
-                        <p className="mt-1.5 text-sm text-mist-800">
-                            Each new client needed their own branded site, domain, and payment flow, and building each
-                            from scratch was slow.
-                        </p>
+                        <p className="mt-1.5 text-sm text-mist-800">{featuredWork.detail}</p>
                     </div>
                     <div className="border-t border-foreground pt-3">
                         <p className="text-xs text-mist-500">Result</p>
-                        <p className="mt-1.5 text-base font-semibold">
-                            30+ live tenants, 2,000+ end users, tenant onboarding time down 70%.
-                        </p>
+                        <p className="mt-1.5 text-base font-semibold">{featuredWork.result}</p>
                     </div>
                 </div>
-                <p className="mt-6 text-sm text-mist-500">Next.js · TanStack Start · TypeScript · Tailwind · PhonePe</p>
+                <p className="mt-6 text-sm text-mist-500">{featuredWork.stack}</p>
             </article>
 
             <div className="mt-16 lg:mt-20">
