@@ -7,6 +7,7 @@ import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import appCss from "../styles/global.css?url";
 import { Footer } from "./-components/footer";
 import { Header } from "./-components/header";
+import { TooltipProvider } from "#/components/ui/tooltip";
 
 const defaultMode = "light";
 
@@ -52,7 +53,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <body>
                 <ThemeProvider defaultMode={defaultMode}>
                     <Header />
-                    {children}
+                    <TooltipProvider>{children}</TooltipProvider>
                     <Footer />
                 </ThemeProvider>
                 <TanStackDevtools

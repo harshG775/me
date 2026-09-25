@@ -3,6 +3,7 @@ import { GithubIcon } from "#/components/icons/github-icon";
 import { LinkedinIcon } from "#/components/icons/linkedin-icon";
 import { MailIcon } from "#/components/icons/mail-icon";
 import { ResumeIcon } from "#/components/icons/resume-icon";
+import { Tooltip, TooltipContent, TooltipTrigger } from "#/components/ui/tooltip";
 import { hero } from "#/data/portfolio/hero";
 
 export function Hero() {
@@ -15,7 +16,7 @@ export function Hero() {
                 <img
                     src={hero.profileImage.src}
                     alt={hero.profileImage.alt}
-                    className="h-24 w-24 rounded-full bg-mist-100 object-cover"
+                    className="h-24 w-24 rounded-full bg-muted object-cover"
                 />
             </div>
             <h1 id="hero-heading" className="mt-5 font-normal text-2xl lg:text-4xl">
@@ -27,35 +28,63 @@ export function Hero() {
                     {hero.tagline.suffix}
                 </span>
                 <span className="flex gap-1">
-                    <span className="text-primary">{"✦"}</span>
-                    <span className="rounded-full border border-mist-300 px-5 py-1 text-primary bg-primary/10 font-medium text-2xl">
+                    <span className="text-primary text-xl content-center">{"✦"}</span>
+                    <span className="rounded-full border border-border px-5 py-1 text-primary bg-primary/10 font-medium text-2xl">
                         {hero.tagline.badge}
                     </span>
                 </span>
             </div>
-            <p className="mt-3 text-xs font-normal tracking-widest text-mist-400 uppercase">{hero.subtext}</p>
+            <p className="mt-3 text-xs font-normal tracking-widest text-muted-foreground uppercase">{hero.subtext}</p>
 
             <div className="mt-8 flex items-center justify-center gap-3">
-                <ExternalLink href={hero.links.github}>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
-                        <GithubIcon />
-                    </span>
-                </ExternalLink>
-                <ExternalLink href={hero.links.linkedin}>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
-                        <LinkedinIcon />
-                    </span>
-                </ExternalLink>
-                <a href={`mailto:${hero.links.email}`}>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
-                        <MailIcon />
-                    </span>
-                </a>
-                <a href={hero.links.resume} download title="Download resume">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-mist-100 text-mist-700 hover:bg-primary/10 hover:text-mist-900 text-lg">
-                        <ResumeIcon />
-                    </span>
-                </a>
+                <Tooltip>
+                    <TooltipTrigger
+                        render={
+                            <ExternalLink href={hero.links.github}>
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-primary/10 hover:text-foreground text-lg">
+                                    <GithubIcon />
+                                </span>
+                            </ExternalLink>
+                        }
+                    />
+                    <TooltipContent>GitHub</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger
+                        render={
+                            <ExternalLink href={hero.links.linkedin}>
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-primary/10 hover:text-foreground text-lg">
+                                    <LinkedinIcon />
+                                </span>
+                            </ExternalLink>
+                        }
+                    />
+                    <TooltipContent>LinkedIn</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger
+                        render={
+                            <a href={`mailto:${hero.links.email}`}>
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-primary/10 hover:text-foreground text-lg">
+                                    <MailIcon />
+                                </span>
+                            </a>
+                        }
+                    />
+                    <TooltipContent>Email</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger
+                        render={
+                            <a href={hero.links.resume} download>
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground hover:bg-primary/10 hover:text-foreground text-lg">
+                                    <ResumeIcon />
+                                </span>
+                            </a>
+                        }
+                    />
+                    <TooltipContent>Download resume</TooltipContent>
+                </Tooltip>
             </div>
         </section>
     );
